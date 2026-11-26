@@ -1,0 +1,15 @@
+**
+!Docker/
+!Docker/Dockerfile
+!Airflow/
+!Airflow/requirements.txt
+!Airflow/dags/
+!Airflow/dags/**
+!Airflow/plugins/
+!Airflow/plugins/**
+!Dbt/
+!Dbt/Dbt-Postgres/
+!Dbt/Dbt-Postgres/**
+**/__pycache__
+**/target
+**/logs

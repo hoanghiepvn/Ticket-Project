@@ -1,0 +1,4 @@
+__pycache__
+__init__\.py$
+airbyte_sync\.py$
+config\.py$

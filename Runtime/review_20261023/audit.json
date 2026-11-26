@@ -1,0 +1,90 @@
+{
+  "sha256": "c67eddb929b5935fa9c3285c7f174d2850af983dae8993fa1c4ea1d335865bd5",
+  "images": [
+    {
+      "p": 3,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\P003_image1.png",
+      "caption": "LUẬN VĂN TỐT NGHIỆP"
+    },
+    {
+      "p": 145,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\P145_image2.png",
+      "caption": "Hình 1: Kiến trúc Medallion"
+    },
+    {
+      "p": 270,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\P270_image3.png",
+      "caption": "Hình 2: Sơ đồ quan hệ cơ sở dữ liệu nguồn"
+    },
+    {
+      "p": 291,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\P291_image4.png",
+      "caption": "Hình 3: Kiến trúc tổng thể hệ thống xử lý dữ liệu bán vé"
+    },
+    {
+      "p": 337,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\P337_image5.png",
+      "caption": "Hình 4: Lưu đồ xử lý cập nhật tăng dần"
+    },
+    {
+      "p": 365,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\P365_image6.png",
+      "caption": "Hình 5: Mô hình dữ liệu tại tầng Gold"
+    },
+    {
+      "p": 391,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\P391_image7.png",
+      "caption": "Hình 6: Quan hệ điều phối giữa các tầng dữ liệu"
+    },
+    {
+      "p": 423,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\P423_image8.png",
+      "caption": "Hình 7: Các dịch vụ triển khai trong môi trường Docker"
+    },
+    {
+      "p": 450,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\P450_image9.png",
+      "caption": "Hình 8: Cấu hình đồng bộ dữ liệu từ SQL Server vào Bronze"
+    },
+    {
+      "p": 454,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\P454_image10.png",
+      "caption": "Hình 9: Cấu hình thời gian chạy job đồng bộ dữ liệu vào Bronze"
+    },
+    {
+      "p": 457,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\P457_image11.png",
+      "caption": "Hình 10: Kết quả đồng bộ dữ liệu bằng Airbyte"
+    },
+    {
+      "p": 462,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\P462_image12.png",
+      "caption": "Hình 11: Thực thi DAG điều phối đồng bộ tầng Bronze"
+    },
+    {
+      "p": 468,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\P468_image13.png",
+      "caption": "Hình 12: Thông tin cấu hình dbt tầng Silver"
+    },
+    {
+      "p": 483,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\P483_image14.png",
+      "caption": "Hình 13: Thông tin cấu hình index trong dbt"
+    },
+    {
+      "p": 508,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\P508_image15.png",
+      "caption": "Hình 14: Quan hệ Dataset giữa các DAG xử lý dữ liệu"
+    },
+    {
+      "p": 524,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\P524_image16.png",
+      "caption": "Hình 15: Báo cáo tổng quan hoạt động bán vé"
+    },
+    {
+      "p": 527,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\P527_image17.png",
+      "caption": "Hình 16: Báo cáo chi tiết sự kiện"
+    }
+  ]
+}

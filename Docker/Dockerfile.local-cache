@@ -1,0 +1,11 @@
+FROM ticketing-elt:3.0-postgres AS installed
+FROM apache/airflow:2.10.5-python3.11
+USER root
+COPY --from=installed --chown=airflow:root /opt/dbt /opt/dbt
+COPY --from=installed --chown=airflow:root /home/airflow/.local /home/airflow/.local
+USER airflow
+WORKDIR /opt/project
+COPY --chown=airflow:root Airflow/plugins /opt/airflow/plugins
+COPY --chown=airflow:root Airflow/dags /opt/project/ticketing_workflows
+COPY --chown=airflow:root Dbt/Dbt-Postgres /opt/project/dbt
+ENV PYTHONPATH=/opt/project:/opt/airflow/plugins PYTHONUNBUFFERED=1 DBT_BIN=/opt/dbt/bin/dbt DBT_SEND_ANONYMOUS_USAGE_STATS=false

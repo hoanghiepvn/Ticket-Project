@@ -1,0 +1,40 @@
+{
+  "generator": "history-1.0",
+  "synthetic": true,
+  "year": 2021,
+  "seed": 20220108,
+  "orders_requested": 10000,
+  "timezone": "Asia/Ho_Chi_Minh",
+  "rows": {
+    "events": 36,
+    "ticket_types": 108,
+    "orders": 10000,
+    "order_items": 11196,
+    "payments": 11611
+  },
+  "order_status": {
+    "PAID": 7760,
+    "EXPIRED": 1740,
+    "CANCELLED": 500
+  },
+  "orders_by_month": {
+    "2021-01": 1124,
+    "2021-02": 1057,
+    "2021-03": 361,
+    "2021-04": 310,
+    "2021-05": 329,
+    "2021-06": 574,
+    "2021-07": 1093,
+    "2021-08": 622,
+    "2021-09": 1520,
+    "2021-10": 1830,
+    "2021-11": 1143,
+    "2021-12": 37
+  },
+  "paid_value_vnd": 4190238000,
+  "load": {
+    "status": "already_loaded",
+    "year": 2021,
+    "orders": 10000
+  }
+}

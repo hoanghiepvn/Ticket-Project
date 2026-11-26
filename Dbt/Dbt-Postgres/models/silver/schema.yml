@@ -1,0 +1,330 @@
+version: 2
+models:
+  - name: silver_events
+    data_tests:
+      - expression_is_true:
+          expression: "capacity >= 0"
+          config:
+            where: "not _is_deleted"
+      - expression_is_true:
+          expression: "ends_at >= starts_at"
+          config:
+            where: "not _is_deleted"
+    description: "Event catalogue; one row per event. Deduplicated by business key, incremental merge with logical deletes."
+    columns:
+      - name: event_id
+        description: "event id"
+        data_type: "bigint"
+        data_tests: [not_null, unique]
+      - name: event_code
+        description: "event code"
+        data_type: "text"
+      - name: event_name
+        description: "event name"
+        data_type: "text"
+      - name: category
+        description: "category"
+        data_type: "text"
+      - name: organizer_name
+        description: "organizer name"
+        data_type: "text"
+      - name: venue_name
+        description: "venue name"
+        data_type: "text"
+      - name: province
+        description: "province"
+        data_type: "text"
+      - name: capacity
+        description: "capacity"
+        data_type: "bigint"
+      - name: starts_at
+        description: "starts at"
+        data_type: "timestamp without time zone"
+      - name: ends_at
+        description: "ends at"
+        data_type: "timestamp without time zone"
+      - name: sales_start_at
+        description: "sales start at"
+        data_type: "timestamp without time zone"
+      - name: sales_end_at
+        description: "sales end at"
+        data_type: "timestamp without time zone"
+      - name: event_status
+        description: "event status"
+        data_type: "text"
+      - name: created_at
+        description: "created at"
+        data_type: "timestamp without time zone"
+      - name: updated_at
+        description: "updated at"
+        data_type: "timestamp without time zone"
+      - name: _record_hash
+        description: "Hash of business fields used to detect changes."
+        data_type: "text"
+        data_tests: [not_null]
+      - name: _is_deleted
+        description: "Logical deletion flag; excluded from published Gold."
+        data_type: "boolean"
+        data_tests: [not_null]
+      - name: _loaded_at
+        description: "Warehouse processing timestamp."
+        data_type: "timestamp with time zone"
+        data_tests: [not_null]
+  - name: silver_ticket_types
+    data_tests:
+      - expression_is_true:
+          expression: "list_price >= 0 and sale_quota >= 0"
+          config:
+            where: "not _is_deleted"
+    description: "Ticket categories and sale quotas. Deduplicated by business key, incremental merge with logical deletes."
+    columns:
+      - name: ticket_type_id
+        description: "ticket type id"
+        data_type: "bigint"
+        data_tests: [not_null, unique]
+      - name: event_id
+        description: "event id"
+        data_type: "bigint"
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('silver_events')
+              field: event_id
+      - name: ticket_type_code
+        description: "ticket type code"
+        data_type: "text"
+      - name: ticket_type_name
+        description: "ticket type name"
+        data_type: "text"
+      - name: list_price
+        description: "list price"
+        data_type: "numeric(18,0)"
+      - name: sale_quota
+        description: "sale quota"
+        data_type: "bigint"
+      - name: created_at
+        description: "created at"
+        data_type: "timestamp without time zone"
+      - name: updated_at
+        description: "updated at"
+        data_type: "timestamp without time zone"
+      - name: _record_hash
+        description: "Hash of business fields used to detect changes."
+        data_type: "text"
+        data_tests: [not_null]
+      - name: _is_deleted
+        description: "Logical deletion flag; excluded from published Gold."
+        data_type: "boolean"
+        data_tests: [not_null]
+      - name: _loaded_at
+        description: "Warehouse processing timestamp."
+        data_type: "timestamp with time zone"
+        data_tests: [not_null]
+  - name: silver_orders
+    data_tests:
+      - expression_is_true:
+          expression: "total_amount = subtotal_amount - discount_amount"
+          config:
+            where: "not _is_deleted"
+      - expression_is_true:
+          expression: "discount_amount >= 0 and total_amount >= 0"
+          config:
+            where: "not _is_deleted"
+    description: "Order header and current lifecycle status. Deduplicated by business key, incremental merge with logical deletes."
+    columns:
+      - name: order_id
+        description: "order id"
+        data_type: "bigint"
+        data_tests: [not_null, unique]
+      - name: event_id
+        description: "event id"
+        data_type: "bigint"
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('silver_events')
+              field: event_id
+      - name: order_code
+        description: "order code"
+        data_type: "text"
+      - name: ordered_at
+        description: "ordered at"
+        data_type: "timestamp without time zone"
+      - name: expires_at
+        description: "expires at"
+        data_type: "timestamp without time zone"
+      - name: sales_channel
+        description: "sales channel"
+        data_type: "text"
+        data_tests:
+          - accepted_values:
+              values: [WEB, APP]
+      - name: order_status
+        description: "order status"
+        data_type: "text"
+        data_tests:
+          - accepted_values:
+              values: [PAID, PENDING, EXPIRED, CANCELLED]
+      - name: subtotal_amount
+        description: "subtotal amount"
+        data_type: "numeric(18,0)"
+      - name: discount_amount
+        description: "discount amount"
+        data_type: "numeric(18,0)"
+      - name: total_amount
+        description: "total amount"
+        data_type: "numeric(18,0)"
+      - name: currency
+        description: "currency"
+        data_type: "text"
+      - name: created_at
+        description: "created at"
+        data_type: "timestamp without time zone"
+      - name: updated_at
+        description: "updated at"
+        data_type: "timestamp without time zone"
+      - name: _record_hash
+        description: "Hash of business fields used to detect changes."
+        data_type: "text"
+        data_tests: [not_null]
+      - name: _is_deleted
+        description: "Logical deletion flag; excluded from published Gold."
+        data_type: "boolean"
+        data_tests: [not_null]
+      - name: _loaded_at
+        description: "Warehouse processing timestamp."
+        data_type: "timestamp with time zone"
+        data_tests: [not_null]
+  - name: silver_order_items
+    data_tests:
+      - expression_is_true:
+          expression: "quantity > 0"
+          config:
+            where: "not _is_deleted"
+      - expression_is_true:
+          expression: "line_amount = quantity * unit_price - discount_amount"
+          config:
+            where: "not _is_deleted"
+    description: "Order lines; one row per purchased ticket category. Deduplicated by business key, incremental merge with logical deletes."
+    columns:
+      - name: order_item_id
+        description: "order item id"
+        data_type: "bigint"
+        data_tests: [not_null, unique]
+      - name: order_id
+        description: "order id"
+        data_type: "bigint"
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('silver_orders')
+              field: order_id
+      - name: event_id
+        description: "event id"
+        data_type: "bigint"
+        data_tests: [not_null]
+      - name: ticket_type_id
+        description: "ticket type id"
+        data_type: "bigint"
+        data_tests: [not_null]
+      - name: quantity
+        description: "quantity"
+        data_type: "bigint"
+      - name: unit_price
+        description: "unit price"
+        data_type: "numeric(18,0)"
+      - name: discount_amount
+        description: "discount amount"
+        data_type: "numeric(18,0)"
+      - name: line_amount
+        description: "line amount"
+        data_type: "numeric(18,0)"
+      - name: created_at
+        description: "created at"
+        data_type: "timestamp without time zone"
+      - name: updated_at
+        description: "updated at"
+        data_type: "timestamp without time zone"
+      - name: _record_hash
+        description: "Hash of business fields used to detect changes."
+        data_type: "text"
+        data_tests: [not_null]
+      - name: _is_deleted
+        description: "Logical deletion flag; excluded from published Gold."
+        data_type: "boolean"
+        data_tests: [not_null]
+      - name: _loaded_at
+        description: "Warehouse processing timestamp."
+        data_type: "timestamp with time zone"
+        data_tests: [not_null]
+  - name: silver_payments
+    data_tests:
+      - expression_is_true:
+          expression: "payment_amount >= 0"
+          config:
+            where: "not _is_deleted"
+    description: "Payment attempts; multiple attempts may belong to one order. Deduplicated by business key, incremental merge with logical deletes."
+    columns:
+      - name: payment_id
+        description: "payment id"
+        data_type: "bigint"
+        data_tests: [not_null, unique]
+      - name: order_id
+        description: "order id"
+        data_type: "bigint"
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('silver_orders')
+              field: order_id
+      - name: merchant_transaction_id
+        description: "merchant transaction id"
+        data_type: "text"
+      - name: partner_transaction_id
+        description: "partner transaction id"
+        data_type: "text"
+      - name: payment_partner
+        description: "payment partner"
+        data_type: "text"
+      - name: payment_method
+        description: "payment method"
+        data_type: "text"
+      - name: payment_amount
+        description: "payment amount"
+        data_type: "numeric(18,0)"
+      - name: currency
+        description: "currency"
+        data_type: "text"
+      - name: payment_status
+        description: "payment status"
+        data_type: "text"
+      - name: failure_reason
+        description: "failure reason"
+        data_type: "text"
+      - name: initiated_at
+        description: "initiated at"
+        data_type: "timestamp without time zone"
+      - name: completed_at
+        description: "completed at"
+        data_type: "timestamp without time zone"
+      - name: paid_at
+        description: "paid at"
+        data_type: "timestamp without time zone"
+      - name: created_at
+        description: "created at"
+        data_type: "timestamp without time zone"
+      - name: updated_at
+        description: "updated at"
+        data_type: "timestamp without time zone"
+      - name: _record_hash
+        description: "Hash of business fields used to detect changes."
+        data_type: "text"
+        data_tests: [not_null]
+      - name: _is_deleted
+        description: "Logical deletion flag; excluded from published Gold."
+        data_type: "boolean"
+        data_tests: [not_null]
+      - name: _loaded_at
+        description: "Warehouse processing timestamp."
+        data_type: "timestamp with time zone"
+        data_tests: [not_null]

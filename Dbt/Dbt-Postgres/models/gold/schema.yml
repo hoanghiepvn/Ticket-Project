@@ -1,0 +1,227 @@
+version: 2
+models:
+  - name: dim_event
+    description: "Reporting dimension dim_event"
+    columns:
+      - name: event_id
+        description: "event id"
+        data_type: "bigint"
+        data_tests: [not_null, unique]
+      - name: event_code
+        description: "event code"
+        data_type: "text"
+      - name: event_name
+        description: "event name"
+        data_type: "text"
+      - name: category
+        description: "category"
+        data_type: "text"
+      - name: organizer_name
+        description: "organizer name"
+        data_type: "text"
+      - name: venue_name
+        description: "venue name"
+        data_type: "text"
+      - name: province
+        description: "province"
+        data_type: "text"
+      - name: capacity
+        description: "capacity"
+        data_type: "bigint"
+      - name: starts_at
+        description: "starts at"
+        data_type: "timestamp without time zone"
+  - name: dim_ticket_type
+    description: "Reporting dimension dim_ticket_type"
+    columns:
+      - name: ticket_type_id
+        description: "ticket type id"
+        data_type: "bigint"
+        data_tests: [not_null, unique]
+      - name: event_id
+        description: "event id"
+        data_type: "bigint"
+        data_tests: [not_null]
+      - name: ticket_type_code
+        description: "ticket type code"
+        data_type: "text"
+      - name: ticket_type_name
+        description: "ticket type name"
+        data_type: "text"
+      - name: list_price
+        description: "list price"
+        data_type: "numeric(18,0)"
+      - name: sale_quota
+        description: "sale quota"
+        data_type: "bigint"
+  - name: dim_channel
+    description: "Reporting dimension dim_channel"
+    columns:
+      - name: channel_key
+        description: "channel key"
+        data_type: "bigint"
+        data_tests: [not_null, unique]
+      - name: sales_channel
+        description: "sales channel"
+        data_type: "text"
+  - name: dim_status
+    description: "Reporting dimension dim_status"
+    columns:
+      - name: status_key
+        description: "status key"
+        data_type: "bigint"
+        data_tests: [not_null, unique]
+      - name: order_status
+        description: "order status"
+        data_type: "text"
+  - name: dim_date
+    description: "Reporting dimension dim_date"
+    columns:
+      - name: date_key
+        description: "date key"
+        data_type: "bigint"
+        data_tests: [not_null, unique]
+      - name: full_date
+        description: "full date"
+        data_type: "date"
+      - name: year
+        description: "year"
+        data_type: "bigint"
+      - name: month
+        description: "month"
+        data_type: "bigint"
+      - name: day
+        description: "day"
+        data_type: "bigint"
+      - name: weekday
+        description: "weekday"
+        data_type: "bigint"
+      - name: is_weekend
+        description: "is weekend"
+        data_type: "bigint"
+  - name: fact_ticket_sales
+    data_tests:
+      - expression_is_true:
+          expression: "net_amount = gross_amount - discount_amount"
+          config:
+            where: "not _is_deleted"
+    description: "One row per order item; recognized sales only for PAID orders."
+    columns:
+      - name: order_item_id
+        description: "order item id"
+        data_type: "bigint"
+        data_tests: [not_null, unique]
+      - name: order_id
+        description: "order id"
+        data_type: "bigint"
+        data_tests: [not_null]
+      - name: event_id
+        description: "event id"
+        data_type: "bigint"
+        data_tests:
+          - not_null:
+              config: {where: "not _is_deleted"}
+          - relationships:
+              to: ref('dim_event')
+              field: event_id
+              config: {where: "not _is_deleted"}
+      - name: ticket_type_id
+        description: "ticket type id"
+        data_type: "bigint"
+        data_tests:
+          - not_null:
+              config: {where: "not _is_deleted"}
+          - relationships:
+              to: ref('dim_ticket_type')
+              field: ticket_type_id
+              config: {where: "not _is_deleted"}
+      - name: date_key
+        description: "date key"
+        data_type: "bigint"
+        data_tests:
+          - not_null:
+              config: {where: "not _is_deleted"}
+          - relationships:
+              to: ref('dim_date')
+              field: date_key
+              config: {where: "not _is_deleted"}
+      - name: channel_key
+        description: "channel key"
+        data_type: "bigint"
+        data_tests:
+          - not_null:
+              config: {where: "not _is_deleted"}
+          - relationships:
+              to: ref('dim_channel')
+              field: channel_key
+              config: {where: "not _is_deleted"}
+      - name: status_key
+        description: "status key"
+        data_type: "bigint"
+        data_tests:
+          - not_null:
+              config: {where: "not _is_deleted"}
+          - relationships:
+              to: ref('dim_status')
+              field: status_key
+              config: {where: "not _is_deleted"}
+      - name: quantity
+        description: "quantity"
+        data_type: "bigint"
+      - name: gross_amount
+        description: "gross amount"
+        data_type: "numeric(18,0)"
+      - name: discount_amount
+        description: "discount amount"
+        data_type: "numeric(18,0)"
+      - name: net_amount
+        description: "net amount"
+        data_type: "numeric(18,0)"
+      - name: sold_quantity
+        description: "sold quantity"
+        data_type: "bigint"
+      - name: sales_amount
+        description: "sales amount"
+        data_type: "numeric(18,0)"
+      - name: _record_hash
+        description: "Hash of business fields used to detect changes."
+        data_type: "text"
+        data_tests: [not_null]
+      - name: _is_deleted
+        description: "Logical deletion flag; excluded from published Gold."
+        data_type: "boolean"
+        data_tests: [not_null]
+      - name: _loaded_at
+        description: "Warehouse processing timestamp."
+        data_type: "timestamp with time zone"
+        data_tests: [not_null]
+  - name: agg_daily_sales
+    data_tests:
+      - unique_combination:
+          combination_of_columns: [date_key, event_id, channel_key]
+    description: "Daily event-channel sales; paid_orders must not be summed across channels or events without respecting order grain."
+    columns:
+      - name: date_key
+        description: "date key"
+        data_type: "bigint"
+        data_tests: [not_null]
+      - name: event_id
+        description: "event id"
+        data_type: "bigint"
+        data_tests: [not_null]
+      - name: channel_key
+        description: "channel key"
+        data_type: "bigint"
+        data_tests: [not_null]
+      - name: sales_amount
+        description: "sales amount"
+        data_type: "numeric(18,0)"
+      - name: sold_quantity
+        description: "sold quantity"
+        data_type: "bigint"
+      - name: paid_orders
+        description: "paid orders"
+        data_type: "bigint"
+      - name: total_orders
+        description: "total orders"
+        data_type: "bigint"

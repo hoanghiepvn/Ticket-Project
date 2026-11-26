@@ -1,0 +1,11 @@
+.env
+Airbyte/tools/
+Runtime/data/
+Source/SqlServer/generated/
+.venv/
+**/target/
+**/logs/
+**/.user.yml
+**/__pycache__/
+*.pyc
+*.log

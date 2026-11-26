@@ -1,0 +1,53 @@
+{
+  "generator": "history-1.0",
+  "synthetic": true,
+  "year": 2024,
+  "seed": 20221004,
+  "orders_requested": 55000,
+  "timezone": "Asia/Ho_Chi_Minh",
+  "rows": {
+    "events": 36,
+    "ticket_types": 108,
+    "orders": 55000,
+    "order_items": 61584,
+    "payments": 65112
+  },
+  "order_status": {
+    "PAID": 45590,
+    "EXPIRED": 6646,
+    "CANCELLED": 2764
+  },
+  "orders_by_month": {
+    "2024-01": 3397,
+    "2024-02": 5452,
+    "2024-03": 4635,
+    "2024-04": 2982,
+    "2024-05": 3262,
+    "2024-06": 4316,
+    "2024-07": 3746,
+    "2024-08": 3695,
+    "2024-09": 6845,
+    "2024-10": 8071,
+    "2024-11": 7328,
+    "2024-12": 1271
+  },
+  "paid_value_vnd": 26823571500,
+  "load": {
+    "status": "loaded",
+    "year": 2024,
+    "offsets": {
+      "events": 108,
+      "ticket_types": 324,
+      "orders": 170000,
+      "order_items": 190348,
+      "payments": 200383
+    },
+    "rows": {
+      "events": 36,
+      "ticket_types": 108,
+      "orders": 55000,
+      "order_items": 61584,
+      "payments": 65112
+    }
+  }
+}

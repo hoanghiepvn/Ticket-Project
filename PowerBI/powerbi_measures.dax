@@ -1,0 +1,6 @@
+Gia tri ve da thanh toan = SUM(fact_ticket_sales[sales_amount])
+So ve da ban = SUM(fact_ticket_sales[sold_quantity])
+So don da thanh toan = CALCULATE(DISTINCTCOUNT(fact_ticket_sales[order_id]), dim_status[order_status] = "PAID")
+Tong so don = DISTINCTCOUNT(fact_ticket_sales[order_id])
+Gia tri trung binh don = DIVIDE([Gia tri ve da thanh toan], [So don da thanh toan])
+Ty le don thanh toan = DIVIDE([So don da thanh toan], [Tong so don])

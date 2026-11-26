@@ -1,0 +1,204 @@
+version: 2
+sources:
+  - name: bronze
+    description: Airbyte destination tables; Airflow waits for successful sync before running dbt.
+    schema: bronze
+    tables:
+      - name: events
+        description: "Event catalogue; one row per event."
+        columns:
+          - name: event_id
+            description: "event id"
+            data_type: "bigint"
+          - name: event_code
+            description: "event code"
+            data_type: "text"
+          - name: event_name
+            description: "event name"
+            data_type: "text"
+          - name: category
+            description: "category"
+            data_type: "text"
+          - name: organizer_name
+            description: "organizer name"
+            data_type: "text"
+          - name: venue_name
+            description: "venue name"
+            data_type: "text"
+          - name: province
+            description: "province"
+            data_type: "text"
+          - name: capacity
+            description: "capacity"
+            data_type: "bigint"
+          - name: starts_at
+            description: "starts at"
+            data_type: "timestamp without time zone"
+          - name: ends_at
+            description: "ends at"
+            data_type: "timestamp without time zone"
+          - name: sales_start_at
+            description: "sales start at"
+            data_type: "timestamp without time zone"
+          - name: sales_end_at
+            description: "sales end at"
+            data_type: "timestamp without time zone"
+          - name: event_status
+            description: "event status"
+            data_type: "text"
+          - name: created_at
+            description: "created at"
+            data_type: "timestamp without time zone"
+          - name: updated_at
+            description: "updated at"
+            data_type: "timestamp without time zone"
+      - name: ticket_types
+        description: "Ticket categories and sale quotas."
+        columns:
+          - name: ticket_type_id
+            description: "ticket type id"
+            data_type: "bigint"
+          - name: event_id
+            description: "event id"
+            data_type: "bigint"
+          - name: ticket_type_code
+            description: "ticket type code"
+            data_type: "text"
+          - name: ticket_type_name
+            description: "ticket type name"
+            data_type: "text"
+          - name: list_price
+            description: "list price"
+            data_type: "numeric(18,0)"
+          - name: sale_quota
+            description: "sale quota"
+            data_type: "bigint"
+          - name: created_at
+            description: "created at"
+            data_type: "timestamp without time zone"
+          - name: updated_at
+            description: "updated at"
+            data_type: "timestamp without time zone"
+      - name: orders
+        description: "Order header and current lifecycle status."
+        columns:
+          - name: order_id
+            description: "order id"
+            data_type: "bigint"
+          - name: event_id
+            description: "event id"
+            data_type: "bigint"
+          - name: order_code
+            description: "order code"
+            data_type: "text"
+          - name: ordered_at
+            description: "ordered at"
+            data_type: "timestamp without time zone"
+          - name: expires_at
+            description: "expires at"
+            data_type: "timestamp without time zone"
+          - name: sales_channel
+            description: "sales channel"
+            data_type: "text"
+          - name: order_status
+            description: "order status"
+            data_type: "text"
+          - name: subtotal_amount
+            description: "subtotal amount"
+            data_type: "numeric(18,0)"
+          - name: discount_amount
+            description: "discount amount"
+            data_type: "numeric(18,0)"
+          - name: total_amount
+            description: "total amount"
+            data_type: "numeric(18,0)"
+          - name: currency
+            description: "currency"
+            data_type: "text"
+          - name: created_at
+            description: "created at"
+            data_type: "timestamp without time zone"
+          - name: updated_at
+            description: "updated at"
+            data_type: "timestamp without time zone"
+      - name: order_items
+        description: "Order lines; one row per purchased ticket category."
+        columns:
+          - name: order_item_id
+            description: "order item id"
+            data_type: "bigint"
+          - name: order_id
+            description: "order id"
+            data_type: "bigint"
+          - name: event_id
+            description: "event id"
+            data_type: "bigint"
+          - name: ticket_type_id
+            description: "ticket type id"
+            data_type: "bigint"
+          - name: quantity
+            description: "quantity"
+            data_type: "bigint"
+          - name: unit_price
+            description: "unit price"
+            data_type: "numeric(18,0)"
+          - name: discount_amount
+            description: "discount amount"
+            data_type: "numeric(18,0)"
+          - name: line_amount
+            description: "line amount"
+            data_type: "numeric(18,0)"
+          - name: created_at
+            description: "created at"
+            data_type: "timestamp without time zone"
+          - name: updated_at
+            description: "updated at"
+            data_type: "timestamp without time zone"
+      - name: payments
+        description: "Payment attempts; multiple attempts may belong to one order."
+        columns:
+          - name: payment_id
+            description: "payment id"
+            data_type: "bigint"
+          - name: order_id
+            description: "order id"
+            data_type: "bigint"
+          - name: merchant_transaction_id
+            description: "merchant transaction id"
+            data_type: "text"
+          - name: partner_transaction_id
+            description: "partner transaction id"
+            data_type: "text"
+          - name: payment_partner
+            description: "payment partner"
+            data_type: "text"
+          - name: payment_method
+            description: "payment method"
+            data_type: "text"
+          - name: payment_amount
+            description: "payment amount"
+            data_type: "numeric(18,0)"
+          - name: currency
+            description: "currency"
+            data_type: "text"
+          - name: payment_status
+            description: "payment status"
+            data_type: "text"
+          - name: failure_reason
+            description: "failure reason"
+            data_type: "text"
+          - name: initiated_at
+            description: "initiated at"
+            data_type: "timestamp without time zone"
+          - name: completed_at
+            description: "completed at"
+            data_type: "timestamp without time zone"
+          - name: paid_at
+            description: "paid at"
+            data_type: "timestamp without time zone"
+          - name: created_at
+            description: "created at"
+            data_type: "timestamp without time zone"
+          - name: updated_at
+            description: "updated at"
+            data_type: "timestamp without time zone"

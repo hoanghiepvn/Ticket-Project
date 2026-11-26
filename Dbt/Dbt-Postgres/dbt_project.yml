@@ -1,0 +1,30 @@
+name: ticketing
+version: '4.0.0'
+config-version: 2
+require-dbt-version: [">=1.9.8", "<1.10.0"]
+profile: ticketing
+model-paths: [models]
+macro-paths: [macros]
+target-path: target
+clean-targets: [target, dbt_packages]
+vars:
+  # Airbyte Full Refresh Overwrite: complete current snapshot, not an incremental batch.
+  bronze_mode: full_snapshot
+models:
+  ticketing:
+    +persist_docs: {relation: true, columns: true}
+    +on_schema_change: fail
+    +meta:
+      owner: ticketing_analytics
+      business_timezone: Asia/Ho_Chi_Minh
+    silver:
+      +schema: silver
+      +tags: [silver]
+      +contract: {enforced: true}
+    gold:
+      +schema: gold
+      +tags: [gold]
+      +contract: {enforced: true}
+data_tests:
+  +severity: error
+  +store_failures: false

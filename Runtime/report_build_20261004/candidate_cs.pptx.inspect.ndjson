@@ -1,0 +1,124 @@
+{"kind":"deck","id":"pr/5x3we9","name":"Deck"}
+{"kind":"layout","layoutId":"9c45b90a-ad44-4b58-89ab-c97cc4110a2e","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"67216f03-48d8-4908-9e03-42412e153ca5","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/74kjgu","slide":1,"title":"KHÓA LUẬN TỐT NGHIỆP","textShapes":4}
+{"kind":"textbox","id":"sh/gnitcbmx","slide":1,"text":"KHÓA LUẬN TỐT NGHIỆP","textPreview":"KHÓA LUẬN TỐT NGHIỆP","textChars":20,"textLines":1,"bbox":[70,65,1120,45]}
+{"kind":"textbox","id":"sh/f29s36lc","slide":1,"text":"Hệ thống tích hợp và xử lý\ndữ liệu bán vé sự kiện","textPreview":"Hệ thống tích hợp và xử lý | dữ liệu bán vé sự kiện","textChars":49,"textLines":2,"bbox":[70,178,1140,185]}
+{"kind":"textbox","id":"sh/u10ba14r","slide":1,"text":"Thiết kế theo kiến trúc Medallion","textPreview":"Thiết kế theo kiến trúc Medallion","textChars":33,"textLines":1,"bbox":[74,390,1110,65]}
+{"kind":"textbox","id":"sh/t0ra1g36","slide":1,"text":"Nguyễn Hoàng Hiệp\nChuyên ngành Khoa học máy tính","textPreview":"Nguyễn Hoàng Hiệp | Chuyên ngành Khoa học máy tính","textChars":48,"textLines":2,"bbox":[74,548,1080,88]}
+{"kind":"notes","id":"nt/74kjgu","slide":1,"text":"Trọng tâm bảo vệ: kiến trúc hệ thống, xử lý dữ liệu và điều phối. Thời lượng gợi ý 15–20 phút. Dữ liệu tổng hợp bằng Python, không phải giao dịch thật của Ticketbox."}
+{"kind":"slide","id":"sl/vkl5cf","slide":2,"title":"Bài toán kỹ thuật","textShapes":8}
+{"kind":"textbox","id":"sh/x4nu9gnu","slide":2,"text":"Bài toán kỹ thuật","textPreview":"Bài toán kỹ thuật","textChars":17,"textLines":1,"bbox":[64,46,1152,110]}
+{"kind":"textbox","id":"sh/a1wvy1oj","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1160,665,50,28]}
+{"kind":"textbox","id":"sh/b25c7654","slide":2,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[65,190,70,45]}
+{"kind":"textbox","id":"sh/k7yd4vml","slide":2,"text":"Một đơn có nhiều dòng vé và nhiều lần thử thanh toán.","textPreview":"Một đơn có nhiều dòng vé và nhiều lần thử thanh toán.","textChars":53,"textLines":1,"bbox":[153,185,1020,105]}
+{"kind":"textbox","id":"sh/l87ud0n6","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[65,310,70,45]}
+{"kind":"textbox","id":"sh/y5wv2l4f","slide":2,"text":"Dữ liệu cũ có thể đổi trạng thái sau lần đồng bộ trước.","textPreview":"Dữ liệu cũ có thể đổi trạng thái sau lần đồng bộ trước.","textChars":55,"textLines":1,"bbox":[153,305,1020,105]}
+{"kind":"textbox","id":"sh/j6pcbq50","slide":2,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[65,430,70,45]}
+{"kind":"textbox","id":"sh/0budsr6h","slide":2,"text":"Các bước xử lý cần phụ thuộc đúng kết quả thực thi.","textPreview":"Các bước xử lý cần phụ thuộc đúng kết quả thực thi.","textChars":51,"textLines":1,"bbox":[153,425,1020,105]}
+{"kind":"notes","id":"nt/vkl5cf","slide":2,"text":"Ví dụ: một đơn có hai dòng vé và ba lần thử thanh toán. Nối trực tiếp cả hai tập có thể sinh sáu dòng, làm sai số lượng và doanh số. Cần xác định grain trước khi thiết kế fact."}
+{"kind":"slide","id":"sl/7mgdll","slide":3,"title":"Mục tiêu và đóng góp của đồ án","textShapes":2}
+{"kind":"textbox","id":"sh/vylkb2x8","slide":3,"text":"Mục tiêu và đóng góp của đồ án","textPreview":"Mục tiêu và đóng góp của đồ án","textChars":30,"textLines":1,"bbox":[64,46,1152,110]}
+{"kind":"textbox","id":"sh/gze147et","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1160,665,50,28]}
+{"kind":"table","id":"tb/47q5o769","slide":3,"name":"","rows":5,"cols":2,"preview":"Mục tiêu | Sản phẩm kỹ thuật","bbox":[64,175,1152,360]}
+{"kind":"notes","id":"nt/7mgdll","slide":3,"text":"Đóng góp ở mức thiết kế và triển khai hệ thống ứng dụng. Không tuyên bố thuật toán mới. Không triển khai Kafka, Spark, Lakehouse hoặc nghiệp vụ đối soát."}
+{"kind":"slide","id":"sl/qxxi9a","slide":4,"title":"Yêu cầu và tiêu chí kiểm chứng","textShapes":2}
+{"kind":"textbox","id":"sh/atc3y10j","slide":4,"text":"Yêu cầu và tiêu chí kiểm chứng","textPreview":"Yêu cầu và tiêu chí kiểm chứng","textChars":30,"textLines":1,"bbox":[64,46,1152,110]}
+{"kind":"textbox","id":"sh/xw3mtwza","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1160,665,50,28]}
+{"kind":"table","id":"tb/xkvalsna","slide":4,"name":"","rows":6,"cols":2,"preview":"Yêu cầu | Tiêu chí","bbox":[64,175,1152,425]}
+{"kind":"notes","id":"nt/qxxi9a","slide":4,"text":"Các tiêu chí là yêu cầu cần kiểm chứng, không phải kết quả test đã đạt. Snapshot đầy đủ là giả thiết quan trọng khi phát hiện xóa."}
+{"kind":"slide","id":"sl/z8h49a","slide":5,"title":"Kiến trúc dữ liệu và điều phối","textShapes":2}
+{"kind":"textbox","id":"sh/elwze90v","slide":5,"text":"Kiến trúc dữ liệu và điều phối","textPreview":"Kiến trúc dữ liệu và điều phối","textChars":30,"textLines":1,"bbox":[64,46,1152,110]}
+{"kind":"textbox","id":"sh/1oni94j6","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1160,665,50,28]}
+{"kind":"table","id":"tb/58zitgji","slide":5,"name":"","rows":6,"cols":3,"preview":"Thành phần | Đọc từ | Ghi hoặc phát đến","bbox":[64,175,1152,425]}
+{"kind":"notes","id":"nt/z8h49a","slide":5,"text":"Nguồn: cấu hình project và DAG. Dữ liệu lưu trong PostgreSQL. Airflow gọi API và dbt, không chuyển từng bản ghi qua Dataset. Power BI chỉ đọc Gold."}
+{"kind":"slide","id":"sl/lpjiel","slide":6,"title":"Lựa chọn công nghệ","textShapes":3}
+{"kind":"textbox","id":"sh/u9wnu907","slide":6,"text":"Lựa chọn công nghệ","textPreview":"Lựa chọn công nghệ","textChars":18,"textLines":1,"bbox":[64,46,1152,110]}
+{"kind":"textbox","id":"sh/hcn65ozy","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1160,665,50,28]}
+{"kind":"textbox","id":"sh/3y5o7eh4","slide":6,"text":"Phạm vi hiện tại: xử lý theo lô trên một máy local.","textPreview":"Phạm vi hiện tại: xử lý theo lô trên một máy local.","textChars":51,"textLines":1,"bbox":[68,613,1130,46]}
+{"kind":"table","id":"tb/dwrqlw7q","slide":6,"name":"","rows":5,"cols":2,"preview":"Lựa chọn | Lý do và đánh đổi","bbox":[64,175,1152,360]}
+{"kind":"notes","id":"nt/lpjiel","slide":6,"text":"Lý do lựa chọn theo phạm vi local và quy mô dữ liệu đang khảo sát. Không suy luận rằng lựa chọn này tốt hơn mọi kiến trúc khác. dbt không tự lấy dữ liệu từ SQL Server trong thiết kế này."}
+{"kind":"slide","id":"sl/5tftvf","slide":7,"title":"Nguồn dữ liệu và bộ sinh Python","textShapes":3}
+{"kind":"textbox","id":"sh/ny5g7yps","slide":7,"text":"Nguồn dữ liệu và bộ sinh Python","textPreview":"Nguồn dữ liệu và bộ sinh Python","textChars":31,"textLines":1,"bbox":[64,46,1152,110]}
+{"kind":"textbox","id":"sh/8jyh0jqd","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1160,665,50,28]}
+{"kind":"textbox","id":"sh/ytwzu98b","slide":7,"text":"Khóa ngoại liên bảng, seed và transaction kiểm soát lô nạp.","textPreview":"Khóa ngoại liên bảng, seed và transaction kiểm soát lô nạp.","textChars":59,"textLines":1,"bbox":[68,613,1130,46]}
+{"kind":"table","id":"tb/8rqp0f6p","slide":7,"name":"","rows":6,"cols":3,"preview":"Bảng | Mức chi tiết | Số dòng khảo sát","bbox":[64,175,1152,425]}
+{"kind":"notes","id":"nt/5tftvf","slide":7,"text":"Số liệu khảo sát ngày 04/10/2026, có thể khác sau khi nạp thêm. schema.sql và append_history.py là nguồn tham chiếu. Seed tái lập dữ liệu, mỗi lô nạp có manifest. Mọi dữ liệu nghiệp vụ là mô phỏng."}
+{"kind":"slide","id":"sl/0t7t1f","slide":8,"title":"Thiết kế Bronze, Silver và Gold","textShapes":3}
+{"kind":"textbox","id":"sh/ypkzq5ov","slide":8,"text":"Thiết kế Bronze, Silver và Gold","textPreview":"Thiết kế Bronze, Silver và Gold","textChars":31,"textLines":1,"bbox":[64,46,1152,110]}
+{"kind":"textbox","id":"sh/lsvi10n6","slide":8,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1160,665,50,28]}
+{"kind":"textbox","id":"sh/bmtgvq54","slide":8,"text":"source() chỉ Bronze, ref() biểu diễn phụ thuộc giữa model dbt.","textPreview":"source() chỉ Bronze, ref() biểu diễn phụ thuộc giữa model dbt.","textChars":62,"textLines":1,"bbox":[68,613,1130,46]}
+{"kind":"table","id":"tb/dkzixsju","slide":8,"name":"","rows":5,"cols":3,"preview":"Tầng | Trách nhiệm | Materialization","bbox":[64,175,1152,360]}
+{"kind":"notes","id":"nt/0t7t1f","slide":8,"text":"Nguồn dbt_project.yml và các model. Bronze không lưu lịch sử bất biến. Gold dimensions và mart hiện tạo lại bảng, chỉ fact incremental."}
+{"kind":"slide","id":"sl/kx79c2","slide":9,"title":"Đồng bộ Bronze và xác nhận hoàn thành","textShapes":4}
+{"kind":"textbox","id":"sh/snuh0r6t","slide":9,"text":"Đồng bộ Bronze và xác nhận hoàn thành","textPreview":"Đồng bộ Bronze và xác nhận hoàn thành","textChars":37,"textLines":1,"bbox":[64,46,1152,110]}
+{"kind":"textbox","id":"sh/rm107mp8","slide":9,"text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[1160,665,50,28]}
+{"kind":"textbox","id":"sh/6lszyhon","slide":9,"text":"run_airbyte = PythonOperator(\n    task_id=\"trigger_airbyte\", ...\n)\nwait_airbyte = AirbyteJobSensor(\n    job_id=run_airbyte.output,\n    outlets=OUTPUT_DATASETS,\n    mode=\"reschedule\", ...\n)\nrun_airbyte >> wait_airbyte","textPreview":"run_airbyte = PythonOperator( |     task_id=\"trigger_airbyte\", ... | ) | wait_airbyte = AirbyteJobSensor( |     job_id=run_airbyte.output...","textChars":216,"textLines":9,"bbox":[68,177,1138,355]}
+{"kind":"textbox","id":"sh/5kji5c72","slide":9,"text":"Cron khởi động job. Sensor thành công mới phát Dataset Bronze.","textPreview":"Cron khởi động job. Sensor thành công mới phát Dataset Bronze.","textChars":62,"textLines":1,"bbox":[68,555,1120,91]}
+{"kind":"notes","id":"nt/kx79c2","slide":9,"text":"Nguồn Airflow/dags/bronze/bronze_ticket_events.py. Đoạn mã rút gọn giữ đúng cơ chế. Airbyte trả Job ID sau yêu cầu sync, chưa có nghĩa đồng bộ hoàn tất. Sensor chạy reschedule để nhường worker khi chờ."}
+{"kind":"slide","id":"sl/qpgr3l","slide":10,"title":"Thuật toán dedup tại Silver","textShapes":4}
+{"kind":"textbox","id":"sh/7idwv29o","slide":10,"text":"Thuật toán dedup tại Silver","textPreview":"Thuật toán dedup tại Silver","textChars":27,"textLines":1,"bbox":[64,46,1152,110]}
+{"kind":"textbox","id":"sh/8jmd47a9","slide":10,"text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1160,665,50,28]}
+{"kind":"textbox","id":"sh/tkfexcru","slide":10,"text":"row_number() over (\n    partition by event_id\n    order by updated_at desc nulls last,\n             _source_extracted_at desc nulls last,\n             _source_raw_id desc nulls last,\n             _record_hash desc\n) as version_rank\n\n-- Chọn version_rank = 1","textPreview":"row_number() over ( |     partition by event_id |     order by updated_at desc nulls last, |              _source_extracted_at desc nulls...","textChars":257,"textLines":9,"bbox":[68,177,1138,355]}
+{"kind":"textbox","id":"sh/ulov6hsf","slide":10,"text":"Mỗi khóa chỉ giữ một bản ghi ứng viên trước khi MERGE.","textPreview":"Mỗi khóa chỉ giữ một bản ghi ứng viên trước khi MERGE.","textChars":54,"textLines":1,"bbox":[68,555,1120,91]}
+{"kind":"notes","id":"nt/qpgr3l","slide":10,"text":"Trích rút gọn từ models/silver/silver_events.sql. source_data ép kiểu và chuẩn hóa trước khi xếp hạng. Hash là tie-break cuối. Quy tắc tie-break chọn xác định, không khôi phục thứ tự nghiệp vụ nếu nguồn không cung cấp."}
+{"kind":"slide","id":"sl/fc8suh","slide":11,"title":"Phát hiện thay đổi bằng khóa và hash","textShapes":4}
+{"kind":"textbox","id":"sh/zulgz6ds","slide":11,"text":"Phát hiện thay đổi bằng khóa và hash","textPreview":"Phát hiện thay đổi bằng khóa và hash","textChars":36,"textLines":1,"bbox":[64,46,1152,110]}
+{"kind":"textbox","id":"sh/0vux8bed","slide":11,"text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1160,665,50,28]}
+{"kind":"textbox","id":"sh/lw3y1gvy","slide":11,"text":"select c.*\nfrom candidate c\nleft join target t\n  on c.event_id = t.event_id\nwhere t.event_id is null\n   or c._record_hash is distinct from t._record_hash\n   or t._is_deleted","textPreview":"select c.* | from candidate c | left join target t |   on c.event_id = t.event_id | where t.event_id is null |    or c._record_hash is di...","textChars":173,"textLines":7,"bbox":[68,177,1138,355]}
+{"kind":"textbox","id":"sh/qpsf21wb","slide":11,"text":"So sánh toàn snapshot giúp nhận cả thay đổi ở đơn cũ.\nGiảm dòng ghi, nhưng vẫn cần đọc và so sánh dữ liệu nguồn.","textPreview":"So sánh toàn snapshot giúp nhận cả thay đổi ở đơn cũ. | Giảm dòng ghi, nhưng vẫn cần đọc và so sánh dữ liệu nguồn.","textChars":112,"textLines":2,"bbox":[68,555,1120,91]}
+{"kind":"notes","id":"nt/fc8suh","slide":11,"text":"Nguồn macros/incremental_changes.sql và business_hash.sql. SQL minh họa đã thay tham số macro bằng tên event_id. Hash MD5 là dấu vân tay so sánh, không dùng bảo mật. https://docs.getdbt.com/docs/build/incremental-models"}
+{"kind":"slide","id":"sl/dsn3wf","slide":12,"title":"Xóa, khôi phục và chạy lại","textShapes":3}
+{"kind":"textbox","id":"sh/z6lszq14","slide":12,"text":"Xóa, khôi phục và chạy lại","textPreview":"Xóa, khôi phục và chạy lại","textChars":26,"textLines":1,"bbox":[64,46,1152,110]}
+{"kind":"textbox","id":"sh/k7ut8v29","slide":12,"text":"12","textPreview":"12","textChars":2,"textLines":1,"bbox":[1160,665,50,28]}
+{"kind":"textbox","id":"sh/m9cba5kf","slide":12,"text":"Điều kiện bắt buộc: snapshot Bronze đầy đủ và đồng bộ thành công.","textPreview":"Điều kiện bắt buộc: snapshot Bronze đầy đủ và đồng bộ thành công.","textChars":65,"textLines":1,"bbox":[68,613,1130,46]}
+{"kind":"table","id":"tb/4bups7yl","slide":12,"name":"","rows":6,"cols":2,"preview":"Trạng thái khóa | Hành vi theo mã hiện tại","bbox":[64,175,1152,425]}
+{"kind":"notes","id":"nt/dsn3wf","slide":12,"text":"Nguồn incremental_changes.sql, fact_ticket_sales.sql. Gold fact có post-hook xóa các dòng _is_deleted. Không đưa claims kiểm thử khi chưa chạy ca có kiểm soát. Snapshot thiếu có thể bị hiểu nhầm thành xóa."}
+{"kind":"slide","id":"sl/6vlya1","slide":13,"title":"Thiết kế Gold và kiểm soát grain","textShapes":2}
+{"kind":"textbox","id":"sh/p8rmloj6","slide":13,"text":"Thiết kế Gold và kiểm soát grain","textPreview":"Thiết kế Gold và kiểm soát grain","textChars":32,"textLines":1,"bbox":[64,46,1152,110]}
+{"kind":"textbox","id":"sh/2503q90f","slide":13,"text":"13","textPreview":"13","textChars":2,"textLines":1,"bbox":[1160,665,50,28]}
+{"kind":"table","id":"tb/i5wrytc3","slide":13,"name":"","rows":6,"cols":2,"preview":"Quyết định | Lý do","bbox":[64,175,1152,425]}
+{"kind":"notes","id":"nt/6vlya1","slide":13,"text":"Nguồn models/gold/facts/fact_ticket_sales.sql. Fact join đơn và chi tiết, không join payments để tránh nhân bản. Ngày phân tích là ngày đặt đơn. Dùng DISTINCTCOUNT(order_id) cho số đơn. https://learn.microsoft.com/en-us/power-bi/guidance/star-schema"}
+{"kind":"slide","id":"sl/ue30bf","slide":14,"title":"Điều phối bằng Dataset","textShapes":4}
+{"kind":"textbox","id":"sh/lojydgjm","slide":14,"text":"Điều phối bằng Dataset","textPreview":"Điều phối bằng Dataset","textChars":22,"textLines":1,"bbox":[64,46,1152,110]}
+{"kind":"textbox","id":"sh/yl8f21kv","slide":14,"text":"14","textPreview":"14","textChars":2,"textLines":1,"bbox":[1160,665,50,28]}
+{"kind":"textbox","id":"sh/zmhgb61g","slide":14,"text":"with DAG(\n    dag_id=\"silver_ticket_events\",\n    schedule=INPUTS,\n    **dag_options(),\n) as dag:\n    run_model = DbtBashOperator(\n        bash_command=\"dbt run --select \"\n          \"path:models/silver/silver_events.sql\",\n        outlets=OUTPUTS, ...\n    )","textPreview":"with DAG( |     dag_id=\"silver_ticket_events\", |     schedule=INPUTS, |     **dag_options(), | ) as dag: |     run_model = DbtBashOperato...","textChars":255,"textLines":10,"bbox":[68,177,1138,355]}
+{"kind":"textbox","id":"sh/cjqx0r2p","slide":14,"text":"Dataset truyền tín hiệu hoàn thành. ref() quản lý phụ thuộc SQL.","textPreview":"Dataset truyền tín hiệu hoàn thành. ref() quản lý phụ thuộc SQL.","textChars":64,"textLines":1,"bbox":[68,555,1120,91]}
+{"kind":"notes","id":"nt/ue30bf","slide":14,"text":"Nguồn Airflow/dags/silver/silver_ticket_events.py. Đoạn mã rút gọn, INPUTS và OUTPUTS là danh sách Dataset khai báo trong cùng file. Gold dimensions chờ đủ 5 Silver, fact chờ 5 dimension, mart chờ fact. https://airflow.apache.org/docs/apache-airflow/2.10.5/authoring-and-scheduling/datasets.html"}
+{"kind":"slide","id":"sl/hv9wxw","slide":15,"title":"Xử lý lỗi và giới hạn nhất quán","textShapes":2}
+{"kind":"textbox","id":"sh/3u94j25c","slide":15,"text":"Xử lý lỗi và giới hạn nhất quán","textPreview":"Xử lý lỗi và giới hạn nhất quán","textChars":31,"textLines":1,"bbox":[64,46,1152,110]}
+{"kind":"textbox","id":"sh/4vi5s7mx","slide":15,"text":"15","textPreview":"15","textChars":2,"textLines":1,"bbox":[1160,665,50,28]}
+{"kind":"table","id":"tb/wfe9kf6h","slide":15,"name":"","rows":6,"cols":2,"preview":"Tình huống | Cách xử lý hoặc giới hạn","bbox":[64,175,1152,425]}
+{"kind":"notes","id":"nt/hv9wxw","slide":15,"text":"Nguồn DAG và macro hiện tại. Retry POST sync có nguy cơ tạo job trùng khi server nhận request nhưng client mất phản hồi, nên trigger hiện retries=0. Dataset list không bảo đảm snapshot cùng batch giữa mọi bảng."}
+{"kind":"slide","id":"sl/o6kker","slide":16,"title":"Triển khai và tổ chức mã nguồn","textShapes":2}
+{"kind":"textbox","id":"sh/uhgv2hoj","slide":16,"text":"Triển khai và tổ chức mã nguồn","textPreview":"Triển khai và tổ chức mã nguồn","textChars":30,"textLines":1,"bbox":[64,46,1152,110]}
+{"kind":"textbox","id":"sh/hk7edc7a","slide":16,"text":"16","textPreview":"16","textChars":2,"textLines":1,"bbox":[1160,665,50,28]}
+{"kind":"table","id":"tb/9ozudojm","slide":16,"name":"","rows":6,"cols":2,"preview":"Thư mục / thành phần | Trách nhiệm","bbox":[64,175,1152,425]}
+{"kind":"notes","id":"nt/o6kker","slide":16,"text":"Nguồn cấu trúc Ticket_Project. Airbyte local có vòng đời abctl riêng, không ngụ ý tất cả nằm trong một compose. Secret lấy từ cấu hình môi trường, không đưa lên slide."}
+{"kind":"slide","id":"sl/h404ag","slide":17,"title":"Kiểm chứng tính đúng đắn","textShapes":2}
+{"kind":"textbox","id":"sh/29wnidgn","slide":17,"text":"Kiểm chứng tính đúng đắn","textPreview":"Kiểm chứng tính đúng đắn","textChars":24,"textLines":1,"bbox":[64,46,1152,110]}
+{"kind":"textbox","id":"sh/pc76dszy","slide":17,"text":"17","textPreview":"17","textChars":2,"textLines":1,"bbox":[1160,665,50,28]}
+{"kind":"table","id":"tb/psfit4j6","slide":17,"name":"","rows":6,"cols":2,"preview":"Bằng chứng / phép thử | Trạng thái","bbox":[64,175,1152,425]}
+{"kind":"notes","id":"nt/h404ag","slide":17,"text":"Đếm tại thời điểm 04/10/2026: orders nguồn và Silver 357000, order_items nguồn và Gold fact 399696. Đếm bằng nhau không chứng minh mọi khóa và giá trị đều đúng. Các thử nghiệm thay đổi có kiểm soát dưới đây chưa có kết quả nghiệm thu trong tài liệu."}
+{"kind":"slide","id":"sl/454k2q","slide":18,"title":"Đánh giá hiệu năng","textShapes":3}
+{"kind":"textbox","id":"sh/byt8bix4","slide":18,"text":"Đánh giá hiệu năng","textPreview":"Đánh giá hiệu năng","textChars":18,"textLines":1,"bbox":[64,46,1152,110]}
+{"kind":"textbox","id":"sh/wz2p4nep","slide":18,"text":"18","textPreview":"18","textChars":2,"textLines":1,"bbox":[1160,665,50,28]}
+{"kind":"textbox","id":"sh/2t07ydgn","slide":18,"text":"Chưa có benchmark để kết luận mức cải thiện tốc độ.","textPreview":"Chưa có benchmark để kết luận mức cải thiện tốc độ.","textChars":51,"textLines":1,"bbox":[68,613,1130,46]}
+{"kind":"table","id":"tb/wfy5g36t","slide":18,"name":"","rows":5,"cols":2,"preview":"Thực nghiệm đề xuất | Chỉ tiêu đo","bbox":[64,175,1152,360]}
+{"kind":"notes","id":"nt/454k2q","slide":18,"text":"Chưa có benchmark đo kiểm, nên không đưa thời gian hay phần trăm cải thiện giả định. So sánh trên cùng phần cứng, snapshot và cấu hình, ít nhất ba lượt. Ghi thêm cache/cold warm và số dòng thay đổi."}
+{"kind":"slide","id":"sl/tbo4hr","slide":19,"title":"Power BI: minh họa đầu ra","textShapes":3}
+{"kind":"textbox","id":"sh/zal8jyp8","slide":19,"text":"Power BI: minh họa đầu ra","textPreview":"Power BI: minh họa đầu ra","textChars":25,"textLines":1,"bbox":[64,46,1152,110]}
+{"kind":"textbox","id":"sh/0bu9s3qt","slide":19,"text":"19","textPreview":"19","textChars":2,"textLines":1,"bbox":[1160,665,50,28]}
+{"kind":"textbox","id":"sh/qls7mt8b","slide":19,"text":"Demo ngắn: lọc một sự kiện và đối chiếu kết quả với SQL Gold.","textPreview":"Demo ngắn: lọc một sự kiện và đối chiếu kết quả với SQL Gold.","textChars":61,"textLines":1,"bbox":[68,613,1130,46]}
+{"kind":"table","id":"tb/snat4vep","slide":19,"name":"","rows":5,"cols":2,"preview":"Trang đã có | Mục đích minh họa","bbox":[64,175,1152,360]}
+{"kind":"notes","id":"nt/tbo4hr","slide":19,"text":"Tên trang đọc từ PowerBI/Dashboards.pbix trong lần khảo sát 04/10/2026. Power BI chỉ minh họa khả năng sử dụng Gold, không phải đóng góp chính. Demo chọn một sự kiện, đối chiếu số đơn và giá trị với truy vấn SQL Gold."}
+{"kind":"slide","id":"sl/63lt30","slide":20,"title":"Kết luận và hướng phát triển","textShapes":8}
+{"kind":"textbox","id":"sh/q5obu54v","slide":20,"text":"Kết luận và hướng phát triển","textPreview":"Kết luận và hướng phát triển","textChars":28,"textLines":1,"bbox":[64,46,1152,110]}
+{"kind":"textbox","id":"sh/d8fap036","slide":20,"text":"20","textPreview":"20","textChars":2,"textLines":1,"bbox":[1160,665,50,28]}
+{"kind":"textbox","id":"sh/s76twv21","slide":20,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[65,190,70,45]}
+{"kind":"textbox","id":"sh/fahsralc","slide":20,"text":"Xây dựng tuyến ELT với ranh giới rõ giữa nạp, biến đổi và điều phối.","textPreview":"Xây dựng tuyến ELT với ranh giới rõ giữa nạp, biến đổi và điều phối.","textChars":68,"textLines":1,"bbox":[153,185,1020,105]}
+{"kind":"textbox","id":"sh/e9oby5kr","slide":20,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[65,310,70,45]}
+{"kind":"textbox","id":"sh/1czutk3i","slide":20,"text":"Cài đặt dedup, phát hiện thay đổi và mô hình fact đúng mức chi tiết.","textPreview":"Cài đặt dedup, phát hiện thay đổi và mô hình fact đúng mức chi tiết.","textChars":68,"textLines":1,"bbox":[153,305,1020,105]}
+{"kind":"textbox","id":"sh/0bqt0f2x","slide":20,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[65,430,70,45]}
+{"kind":"textbox","id":"sh/vedsf6l8","slide":20,"text":"Bước tiếp theo: mã batch, kiểm thử phục hồi và benchmark có kiểm soát.","textPreview":"Bước tiếp theo: mã batch, kiểm thử phục hồi và benchmark có kiểm soát.","textChars":70,"textLines":1,"bbox":[153,425,1020,105]}
+{"kind":"notes","id":"nt/63lt30","slide":20,"text":"Kết thúc nhấn mạnh phần kỹ thuật tự triển khai: bộ sinh, model, macro, DAG và cấu hình. Hướng tiếp theo bám rủi ro thực tế: batch consistency, kiểm thử và đo hiệu năng. Chưa khẳng định production readiness. Chuẩn bị phản biện: vì sao không CDC, vì sao vẫn full scan, vì sao không join payments và Dataset có bảo đảm cùng batch không."}

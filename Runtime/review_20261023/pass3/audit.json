@@ -1,0 +1,1329 @@
+{
+  "sha256": "c7b2dbaebd20b229e96cea41ea1ba747c7986ed9f568a3873c342872581a44fe",
+  "paragraphs": [
+    "ĐẠI HỌC KINH TẾ QUỐC DÂN",
+    "TRƯỜNG CÔNG NGHỆ",
+    "---♦♦♦---",
+    "",
+    "LUẬN VĂN TỐT NGHIỆP",
+    "NGÀNH: KHOA HỌC MÁY TÍNH",
+    "",
+    "ĐỀ TÀI: THIẾT KẾ VÀ XÂY DỰNG",
+    "HỆ THỐNG XỬ LÝ DỮ LIỆU BÁN VÉ SỰ KIỆN",
+    "THEO QUY TRÌNH ELT VÀ KIẾN TRÚC MEDALLION",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "Hà Nội, 2026",
+    "LỜI CẢM ƠN",
+    "Trước hết, em xin bày tỏ lòng kính trọng và biết ơn sâu sắc đến các thầy cô Đại học Công nghệ - trường Kinh tế Quốc dân, đã không ngừng truyền đạt kiến thức, tận tình hướng dẫn và tạo mọi điều kiện thuận lợi để chúng em có cơ hội học hỏi, phát triển bản thân trong suốt quá trình học tập. Chính nhờ sự tâm huyết và nhiệt tình của các thầy cô mà em cùng các bạn sinh viên trong ngành Khoa học Máy tính đã không chỉ tiếp thu được những kiến thức lý thuyết nền tảng mà còn có cơ hội tiếp cận thực tế, rèn luyện tư duy logic và kỹ năng cần thiết để đáp ứng cho công việc và cuộc sống.",
+    "Em xin gửi lời cảm ơn đặc biệt đến TS. Trần Hùng, người đã hỗ trợ, hướng dẫn và giúp đỡ em trong suốt quá trình thực hiện đề tài khóa luận này. Thầy không chỉ giúp em có cái nhìn sâu sắc hơn về lĩnh vực mình đang theo đuổi mà còn truyền tải nhiều kinh nghiệm quý báu, định hướng và khuyến khích em tìm tòi, khám phá những khía cạnh mới của Khoa học Máy tính. Nhờ sự tận tình và sự hướng dẫn chi tiết của thầy, em đã vượt qua nhiều khó khăn trong quá trình nghiên cứu, đồng thời có thêm nhiều kiến thức thực tiễn để hoàn thiện đề án.",
+    "Em xin chân thành cảm ơn!",
+    "Sinh viên thực hiện",
+    "Nguyễn Hoàng Hiệp",
+    "",
+    "THÔNG TIN VỀ DỮ LIỆU VÀ PHẠM VI KẾT QUẢ",
+    "Dữ liệu sử dụng trong đề tài là dữ liệu tổng hợp, được tạo bằng chương trình Python nhằm mô phỏng nghiệp vụ của hệ thống bán vé sự kiện. Bộ dữ liệu bao gồm thông tin sự kiện, hạng vé, đơn hàng, chi tiết đơn hàng và giao dịch thanh toán. Dữ liệu phục vụ việc xây dựng và đánh giá quy trình tích hợp, chuẩn hóa và mô hình hóa theo kiến trúc Medallion, đồng thời cung cấp đầu vào cho các báo cáo phân tích.",
+    "Đề tài không sử dụng giao dịch nội bộ của doanh nghiệp hoặc thông tin cá nhân của khách hàng. Các tên gọi, mức giá, thời điểm và trạng thái được thiết lập nhằm tạo ngữ cảnh minh họa gần với thực tế, không xác nhận giao dịch tương ứng đã phát sinh. Do được hình thành từ các quy tắc sinh dữ liệu, bộ dữ liệu không được xem là đại diện thống kê cho thị trường bán vé. Các chỉ tiêu kinh doanh trong báo cáo vì vậy chỉ minh họa khả năng khai thác dữ liệu của hệ thống, không dùng để suy rộng về hoạt động của doanh nghiệp.",
+    "Các số liệu được trình bày gắn với thời điểm khảo sát, trạng thái dữ liệu và điều kiện truy vấn tương ứng. Kết quả có thể thay đổi khi bổ sung hoặc cập nhật dữ liệu nguồn. Việc đối chiếu giữa các tầng xử lý và báo cáo trực quan cần thống nhất phạm vi thời gian, bộ lọc và quy tắc tính toán. Báo cáo phân biệt kết quả đã ghi nhận với các nội dung đánh giá dự kiến; những ca kiểm thử và phép đo hiệu năng chưa có bằng chứng hoàn tất không được trình bày như kết quả thực nghiệm.",
+    "Để bảo đảm tính minh bạch, mã nguồn, cấu hình và tài liệu kỹ thuật được chỉ dẫn làm căn cứ kiểm tra các nhận định. Kết luận của đề tài được giới hạn trong phạm vi triển khai và bằng chứng hiện có, khả năng áp dụng vào môi trường thực tế cần được kiểm chứng thêm trên dữ liệu và điều kiện vận hành phù hợp.",
+    "",
+    "TÓM TẮT",
+    "Bài luận tập trung thiết kế và xây dựng hệ thống tích hợp, xử lý dữ liệu bán vé sự kiện nhằm chuyển đổi dữ liệu giao dịch thành dữ liệu có cấu trúc phục vụ phân tích. Hệ thống được tổ chức theo kiến trúc Medallion gồm ba tầng Bronze, Silver và Gold, phân định trách nhiệm tiếp nhận, chuẩn hóa và mô hình hóa dữ liệu. Trọng tâm của đề tài là xây dựng quy trình xử lý có khả năng điều phối tự động, theo dõi trạng thái và cập nhật khi dữ liệu nguồn thay đổi.",
+    "Dữ liệu đầu vào được sinh tổng hợp bằng Python và lưu trữ trong SQL Server, gồm năm bảng: sự kiện, hạng vé, đơn hàng, chi tiết đơn hàng và thanh toán. Airbyte đồng bộ dữ liệu theo chế độ làm mới toàn bộ và ghi đè vào tầng Bronze trên PostgreSQL. Tiếp theo, dbt-postgres thực hiện các phép biến đổi tại Silver và xây dựng mô hình phân tích tại Gold. Airflow điều phối theo lịch và tín hiệu hoàn thành để quản lý quan hệ phụ thuộc giữa các bước. Power BI được sử dụng để minh họa khả năng khai thác dữ liệu đầu ra.",
+    "Nội dung kỹ thuật tập trung vào xác định mức chi tiết của bảng đo lường bán vé, khử trùng theo khóa, phát hiện thay đổi nội dung và xử lý bản ghi biến mất hoặc xuất hiện trở lại. Các mô hình Silver và bảng đo lường áp dụng cập nhật tăng dần; các bảng chiều và bảng tổng hợp được tạo lại theo cấu hình hiện tại. Phương án này hạn chế ghi lại bản ghi không đổi, nhưng vẫn cần đọc bản chụp nguồn để đối chiếu.",
+    "Kết quả khảo sát ghi nhận sự phù hợp về số lượng giữa các bảng nguồn và các bảng đích tương ứng trong phạm vi đối chiếu. Tuy nhiên, kết quả này chưa thay thế kiểm thử toàn bộ nội dung hoặc đánh giá hiệu năng. Các giới hạn chính gồm sự phụ thuộc vào độ đầy đủ của bản chụp, tính nhất quán giữa các lô và việc công bố Gold theo từng mô hình. Bài luận qua đó làm rõ cách triển khai quy trình xử lý dữ liệu phân tầng cùng những điều kiện cần kiểm chứng khi vận hành thực tế.",
+    "",
+    "DANH SÁCH BẢNG",
+    "Bảng 1: So sánh ETL và ELT\t16",
+    "Bảng 2: Phân loại các tầng trong kiến trúc Medallion\t19",
+    "Bảng 3: Yêu cầu về chất lượng dữ liệu\t21",
+    "Bảng 4: Các mod materialization cho dbt\t23",
+    "Bảng 5: Yêu cầu chức năng\t27",
+    "Bảng 6: Cấu trúc của bảng nguồn\t29",
+    "Bảng 7: Trách nhiệm của các thành phần\t31",
+    "Bảng 8: Tổ chức dữ liệu tại đích\t32",
+    "Bảng 9: Cấu trúc và phương thức lưu trữ\t34",
+    "Bảng 10: Thông tin các cột kỹ thuật\t34",
+    "Bảng 11: Thiết kế quy tắc cập nhật tăng dần\t36",
+    "Bảng 12: Các bảng theo chiều\t38",
+    "Bảng 13: Thông tin bảng đo lường bán vé\t39",
+    "Bảng 14: Bảng tín hiệu dữ liệu\t41",
+    "Bảng 15: Các tình huống thay đổi dữ liệu\t44",
+    "Bảng 16: Bảng thống kê các trang báo cáo PBI\t57",
+    "Bảng 17: Bảng kết quả thực thi mô hình dbt\t59",
+    "Bảng 18: Bảng thống kê quy mô dữ liệu tại nguồn\t60",
+    "Bảng 19: Bảng kết quả tổng hợp tại Gold\t61",
+    "",
+    "DANH SÁCH HÌNH ẢNH",
+    "Hình 1: Kiến trúc Medallion\t18",
+    "Hình 2: Sơ đồ quan hệ cơ sở dữ liệu nguồn\t32",
+    "Hình 3: Kiến trúc tổng thể hệ thống xử lý dữ liệu bán vé\t35",
+    "Hình 4: Lưu đồ xử lý cập nhật tăng dần\t40",
+    "Hình 5: Mô hình dữ liệu tại tầng Gold\t43",
+    "Hình 6: Quan hệ điều phối giữa các tầng dữ liệu\t46",
+    "Hình 7: Các dịch vụ triển khai trong môi trường Docker\t51",
+    "Hình 8: Cấu hình đồng bộ dữ liệu từ SQL Server vào Bronze\t53",
+    "Hình 9: Cấu hình thời gian chạy job đồng bộ dữ liệu vào Bronze\t54",
+    "Hình 10: Kết quả đồng bộ dữ liệu bằng Airbyte\t54",
+    "Hình 11: Thực thi DAG điều phối đồng bộ tầng Bronze\t55",
+    "Hình 12: Thông tin cấu hình dbt tầng Silver\t56",
+    "Hình 13: Thông tin cấu hình index trong dbt\t57",
+    "Hình 14: Quan hệ Dataset giữa các DAG xử lý dữ liệu\t60",
+    "Hình 15: Báo cáo tổng quan hoạt động bán vé\t62",
+    "Hình 16: Báo cáo chi tiết sự kiện\t63",
+    "",
+    "",
+    "CHƯƠNG 1 – TỔNG QUAN ĐỀ TÀI",
+    "Bối cảnh và lý do lựa chọn đề tài",
+    "Hoạt động bán vé sự kiện phát sinh nhiều nhóm dữ liệu liên quan đến sự kiện, hạng vé, đơn hàng, chi tiết đơn hàng và thanh toán. Những dữ liệu này được hình thành trong các giai đoạn khác nhau của quá trình giao dịch, từ thiết lập thông tin mở bán đến tiếp nhận đơn và cập nhật kết quả thanh toán. Khi được tổ chức và xử lý phù hợp, chúng cung cấp cơ sở để theo dõi tình hình bán vé, tổng hợp kết quả theo thời gian và phân tích sự khác biệt giữa các sự kiện hoặc kênh bán.",
+    "Trong cơ sở dữ liệu giao dịch, các bảng được thiết kế để đáp ứng những thao tác nghiệp vụ như tạo đơn hàng, ghi nhận dòng vé và cập nhật trạng thái thanh toán. Tuy nhiên, việc sử dụng dữ liệu này cho phân tích đặt ra những yêu cầu khác. Các chỉ tiêu cần được tổng hợp trên nhiều bảng, áp dụng thống nhất quy tắc nghiệp vụ và phản ánh những thay đổi phát sinh sau thời điểm tạo giao dịch. Vì vậy, dữ liệu nguồn cần trải qua quá trình kiểm tra, chuẩn hóa và mô hình hóa trước khi được sử dụng trong báo cáo.",
+    "Đối với nghiệp vụ bán vé, tính chính xác của kết quả phụ thuộc đáng kể vào cách xác định mối quan hệ giữa các đối tượng. Một đơn hàng có thể chứa nhiều dòng vé và phát sinh nhiều lần thử thanh toán. Nếu kết hợp dữ liệu không phù hợp, số lượng vé hoặc giá trị giao dịch có thể bị tính lặp. Bên cạnh đó, trạng thái đơn hàng có thể thay đổi qua các lần đồng bộ, dẫn đến yêu cầu cập nhật những chỉ tiêu liên quan. Những đặc điểm này cho thấy việc xây dựng báo cáo cần dựa trên một quy trình xử lý dữ liệu có quy tắc rõ ràng.",
+    "Một quy trình như vậy phải giải quyết đồng thời việc tiếp nhận dữ liệu, tổ chức lưu trữ, thực hiện biến đổi và quản lý thứ tự xử lý. Khi các bước được thực hiện thủ công hoặc xây dựng riêng lẻ, việc theo dõi lỗi, chạy lại và xác định nguồn gốc của kết quả sẽ gặp khó khăn. Do đó, cần có một hệ thống trong đó trách nhiệm của từng thành phần được phân định và các bước xử lý được liên kết theo quan hệ phụ thuộc dữ liệu.",
+    "Từ yêu cầu trên, đề tài lựa chọn kiến trúc Medallion để tổ chức dữ liệu thành ba tầng Bronze, Silver và Gold. Việc phân tầng tạo cơ sở quản lý quá trình chuyển đổi từ dữ liệu tiếp nhận đến dữ liệu chuẩn hóa và dữ liệu phục vụ phân tích. Quy trình ELT được sử dụng để đưa dữ liệu vào môi trường lưu trữ đích trước khi thực hiện các phép biến đổi, qua đó tập trung quy tắc xử lý tại một nơi có thể quản lý bằng mã nguồn.",
+    "Đề tài được lựa chọn theo định hướng Kỹ thuật dữ liệu trong chuyên ngành Khoa học máy tính. Nội dung thực hiện kết hợp kiến thức về cơ sở dữ liệu, lập trình, mô hình hóa dữ liệu và điều phối tác vụ để xây dựng một hệ thống xử lý hoàn chỉnh trong phạm vi xác định. Báo cáo trực quan đóng vai trò khai thác đầu ra, còn trọng tâm của khóa luận là thiết kế kiến trúc, xây dựng quy trình ELT và kiểm chứng kết quả xử lý.",
+    "Mục tiêu của đề tài",
+    "Thiết kế và xây dựng hệ thống xử lý dữ liệu bán vé sự kiện theo quy trình ELT và kiến trúc Medallion, nhằm chuyển đổi dữ liệu giao dịch thành dữ liệu có cấu trúc, có quy tắc tính toán thống nhất và có thể sử dụng cho phân tích. Hệ thống hướng đến tự động hóa quá trình xử lý, quản lý quan hệ phụ thuộc giữa các bước và hỗ trợ theo dõi kết quả thực thi.",
+    "Để đạt được mục tiêu trên, đề tài xác định các mục tiêu cụ thể sau:",
+    "Xây dựng dữ liệu đầu vào phục vụ triển khai. Thiết lập cơ sở dữ liệu nguồn gồm các bảng nghiệp vụ bán vé và chương trình sinh dữ liệu tổng hợp có tham số, hỗ trợ tạo và bổ sung dữ liệu trong phạm vi nghiên cứu.",
+    "Thiết kế cấu trúc dữ liệu theo ba tầng. Xác định vai trò, đầu vào và đầu ra của Bronze, Silver và Gold; xây dựng cấu trúc lưu trữ phù hợp với quá trình tiếp nhận, chuẩn hóa và khai thác dữ liệu.",
+    "Xây dựng các mô hình biến đổi. Thực hiện chuẩn hóa dữ liệu, khử trùng, xử lý thay đổi và cập nhật các bảng đích; đồng thời thiết kế mô hình phân tích có mức chi tiết phù hợp với nghiệp vụ bán vé.",
+    "Tự động hóa và quản lý quá trình thực thi. Xây dựng các luồng điều phối để đồng bộ dữ liệu, thực hiện biến đổi theo thứ tự phụ thuộc và cung cấp thông tin phục vụ theo dõi trạng thái, xác định lỗi và chạy lại.",
+    "Đánh giá và minh họa kết quả. Đối chiếu dữ liệu giữa các tầng, kiểm tra các quy tắc tính toán và xây dựng báo cáo trực quan để minh họa khả năng khai thác dữ liệu đầu ra.",
+    "Đối tượng và phạm vi thực hiện",
+    "Đối tượng nghiên cứu",
+    "Đối tượng nghiên cứu của đề tài là quá trình tích hợp và biến đổi dữ liệu từ cơ sở dữ liệu giao dịch sang mô hình phục vụ phân tích. Các nội dung được xem xét gồm cấu trúc dữ liệu nguồn, phương án tổ chức dữ liệu theo tầng, quy tắc biến đổi và cơ chế điều phối quá trình xử lý.",
+    "Trong bối cảnh bán vé sự kiện, đề tài tập trung vào năm nhóm dữ liệu: sự kiện, hạng vé, đơn hàng, chi tiết đơn hàng và thanh toán. Quan hệ giữa các nhóm dữ liệu này là cơ sở để xác định mức chi tiết của mô hình phân tích và xây dựng các chỉ tiêu bán vé.",
+    "Phạm vi thực hiện",
+    "Về dữ liệu và nghiệp vụ, đề tài sử dụng dữ liệu tổng hợp được tạo bằng Python và lưu trữ trong SQL Server. Bộ dữ liệu mô phỏng các đối tượng và trạng thái giao dịch cần thiết cho việc triển khai hệ thống, không sử dụng thông tin cá nhân của khách hàng hoặc giao dịch nội bộ của doanh nghiệp. Phạm vi xử lý tập trung vào hoạt động bán vé; chức năng quản lý khách hàng và đối soát với đối tác thanh toán không được triển khai.",
+    "Đầu ra phân tích chủ yếu phục vụ theo dõi số đơn hàng, số đơn đã thanh toán, số vé đã bán và giá trị bán vé theo các chiều thời gian, sự kiện, hạng vé và kênh bán. Các quy tắc tính toán được xác định trong phạm vi đề tài và cần được áp dụng thống nhất giữa mô hình dữ liệu và báo cáo.",
+    "Về công nghệ, hệ thống sử dụng SQL Server làm cơ sở dữ liệu nguồn; Airbyte thực hiện đồng bộ; PostgreSQL lưu trữ dữ liệu đích; dbt-postgres xây dựng các mô hình biến đổi; Apache Airflow điều phối tác vụ; Power BI Desktop khai thác dữ liệu phân tích. Ba tầng Bronze, Silver và Gold được tổ chức dưới dạng các lược đồ trong PostgreSQL.",
+    "Về triển khai, hệ thống vận hành trong môi trường cục bộ có sử dụng Docker và xử lý dữ liệu theo lô. Airbyte được cấu hình đồng bộ toàn bộ và ghi đè dữ liệu đầu vào. Các mô hình Silver và bảng đo lường bán vé áp dụng cập nhật tăng dần, trong khi các bảng chiều và bảng tổng hợp được tạo lại theo cấu hình triển khai.",
+    "Về đánh giá, bài luận tập trung vào tính đúng đắn của dữ liệu đầu ra, sự phù hợp của mô hình và khả năng thực thi quy trình trong môi trường đã xây dựng. Những yêu cầu về xử lý thời gian thực, triển khai phân tán và tính sẵn sàng cao được xem là hướng phát triển tiếp theo.",
+    "Phương pháp thực hiện đề tài",
+    "Đề tài được thực hiện theo hướng phân tích yêu cầu, thiết kế giải pháp, triển khai và đánh giá trên một hệ thống cụ thể. Các bước được tổ chức liên tiếp, trong đó kết quả của bước trước cung cấp cơ sở cho những quyết định ở bước sau.",
+    "Trước hết, đề tài phân tích nghiệp vụ bán vé và cấu trúc các bảng nguồn. Quá trình này xác định ý nghĩa của từng đối tượng, khóa liên kết, quan hệ giữa các bảng và những trạng thái ảnh hưởng đến chỉ tiêu phân tích. Trên cơ sở đó, các yêu cầu đầu ra được đặc tả, bao gồm mức chi tiết của bảng đo lường và quy tắc xác định số vé, số đơn và giá trị bán vé.",
+    "Tiếp theo, đề tài khảo cứu tài liệu kỹ thuật liên quan đến quy trình ELT, kiến trúc Medallion, mô hình dữ liệu chiều và các công cụ được lựa chọn. Nội dung khảo cứu được sử dụng để giải thích các quyết định thiết kế và xác định điều kiện áp dụng của từng cơ chế xử lý. Các khái niệm và hướng dẫn kỹ thuật được dẫn nguồn trong những phần tương ứng của báo cáo.",
+    "Trên cơ sở yêu cầu và tài liệu tham khảo, hệ thống được thiết kế theo từng thành phần và từng tầng dữ liệu. Thiết kế xác định cách đồng bộ dữ liệu nguồn, cấu trúc lưu trữ tại đích, quan hệ giữa các mô hình biến đổi và thứ tự thực thi. Các quy tắc xử lý được chuyển thành mã nguồn và cấu hình, giúp liên hệ giữa đặc tả nghiệp vụ với cách triển khai.",
+    "Quá trình triển khai sử dụng dữ liệu tổng hợp để chủ động tạo các tình huống cần xem xét. Mã nguồn được tổ chức theo tầng và nghiệp vụ, đồng thời các tác vụ điều phối được liên kết với mô hình biến đổi tương ứng. Cách tổ chức này hỗ trợ theo dõi phạm vi xử lý và xác định thành phần cần kiểm tra khi kết quả không phù hợp.",
+    "Cuối cùng, hệ thống được đánh giá thông qua đối chiếu dữ liệu và quan sát quá trình thực thi. Việc đối chiếu xem xét số lượng bản ghi, tính duy nhất của khóa, quan hệ giữa các bảng và kết quả tính toán chỉ tiêu. Các tình huống thay đổi dữ liệu được sử dụng để xác định hành vi mong đợi khi thêm, cập nhật hoặc loại bỏ bản ghi. Đánh giá vận hành xem xét trạng thái tác vụ, thứ tự xử lý và thông tin nhật ký.",
+    "Kết quả đánh giá cần gắn với thời điểm, dữ liệu và điều kiện thực hiện. Báo cáo phân biệt các quan sát đã ghi nhận với những kịch bản hoặc phép đo được đề xuất nhưng chưa hoàn tất, nhằm bảo đảm các kết luận có căn cứ phù hợp.",
+    "Ý nghĩa của đề tài",
+    "Về mặt chuyên môn, đề tài tạo điều kiện vận dụng kiến thức Khoa học máy tính vào một bài toán xử lý dữ liệu có nhiều thành phần liên kết. Quá trình thực hiện giúp làm rõ mối quan hệ giữa thiết kế cơ sở dữ liệu, quy tắc nghiệp vụ, mô hình phân tích và điều phối tác vụ. Qua đó, tính đúng đắn của hệ thống được xem xét từ cấu trúc và quá trình hình thành dữ liệu, bên cạnh kết quả hiển thị trên báo cáo.",
+    "Về mặt ứng dụng, hệ thống cung cấp một phương án tổ chức dữ liệu bán vé theo các tầng xử lý có trách nhiệm rõ ràng. Việc tập trung quy tắc biến đổi và tính toán chỉ tiêu giúp thuận lợi hơn trong đối chiếu kết quả, xác định nguyên nhân sai lệch và quản lý thay đổi. Cấu trúc mã nguồn cùng môi trường triển khai cũng tạo cơ sở để tiếp tục bổ sung nghiệp vụ hoặc hoàn thiện khả năng vận hành.",
+    "Giá trị của bài luận nằm ở việc thiết kế, hiện thực hóa và đánh giá một giải pháp phù hợp với phạm vi bài toán. Bộ dữ liệu tổng hợp và hệ thống triển khai là cơ sở thực hành, kiểm chứng các lựa chọn kỹ thuật; việc áp dụng trong môi trường doanh nghiệp cần tiếp tục được đánh giá trên dữ liệu và điều kiện vận hành tương ứng.",
+    "",
+    "CHƯƠNG 2 – CƠ SỞ LÝ THUYẾT",
+    "",
+    "",
+    "Dữ liệu giao dịch và dữ liệu phục vụ phân tích",
+    "Hệ thống xử lý giao dịch",
+    "Hệ thống xử lý giao dịch trực tuyến, thường được gọi là OLTP, phục vụ việc ghi nhận và cập nhật các hoạt động nghiệp vụ. Những thao tác như tạo đơn hàng, bổ sung chi tiết đơn và ghi nhận thanh toán cần được thực hiện với các điều kiện bảo đảm tính toàn vẹn dữ liệu. Cấu trúc lưu trữ thường được tổ chức thành các bảng có khóa và quan hệ, giúp quản lý từng đối tượng nghiệp vụ và hạn chế sự không nhất quán khi cập nhật.",
+    "Đối với hệ thống bán vé, cơ sở dữ liệu giao dịch cần xác định\t vé thuộc đơn hàng nào, đơn hàng liên quan đến sự kiện nào và các lần thanh toán được ghi nhận ra sao. Mỗi bảng có mục đích và mức chi tiết riêng. Vì vậy, ý nghĩa của dữ liệu không chỉ nằm ở giá trị từng cột mà còn ở quan hệ giữa các bảng và những ràng buộc nghiệp vụ đi kèm.",
+    "",
+    "",
+    "Hệ thống dữ liệu phục vụ phân tích",
+    "Hệ thống phục vụ phân tích hướng đến việc tổng hợp và xem xét dữ liệu theo nhiều chiều. Các truy vấn thường đọc nhiều bản ghi để tính toán chỉ tiêu, so sánh các giai đoạn hoặc phân nhóm theo đối tượng. Trong lĩnh vực này, OLAP là khái niệm chỉ phương pháp tổ chức và xử lý dữ liệu cho các yêu cầu phân tích phức tạp.",
+    "Chẳng hạn, phân tích bán vé có thể yêu cầu tổng hợp số vé đã bán theo tháng, so sánh giá trị bán vé giữa các sự kiện hoặc xem tỷ trọng của từng kênh bán. Những yêu cầu này cần một cấu trúc dữ liệu trong đó quan hệ kết nối và quy tắc tính toán đã được xác định.",
+    "Việc tách môi trường giao dịch và môi trường phân tích cho phép xây dựng mô hình đầu ra theo mục đích sử dụng. Trong đề tài, sự tách biệt này được thực hiện thông qua cơ sở dữ liệu nguồn và các tầng dữ liệu đích, không đòi hỏi triển khai một hệ thống khối dữ liệu đa chiều chuyên biệt.",
+    "",
+    "Tích hợp dữ liệu theo quy trình ELT",
+    "",
+    "",
+    "",
+    "Khái niệm và sự khác biệt giữa ETL và ELT",
+    "Tích hợp dữ liệu là quá trình đưa dữ liệu từ nguồn vào một môi trường sử dụng chung, kết hợp với các phép xử lý cần thiết. Hai cách tổ chức phổ biến là ETL và ELT.",
+    "ETL gồm trích xuất, biến đổi rồi nạp dữ liệu vào đích. ELT thực hiện trích xuất và nạp trước, sau đó biến đổi bằng khả năng xử lý của hệ thống lưu trữ đích. Sự khác biệt chính nằm ở vị trí và thứ tự thực hiện bước biến đổi.",
+    "Bảng 1: So sánh ETL và ELT",
+    "Trong đề tài, ELT là cơ sở để tách nhiệm vụ đồng bộ khỏi nhiệm vụ chuẩn hóa và mô hình hóa. Dữ liệu được đưa vào PostgreSQL trước khi các mô hình SQL thực hiện những quy tắc xử lý phía sau.",
+    "Đồng bộ toàn bộ và đồng bộ tăng dần",
+    "Đồng bộ toàn bộ đọc lại tập dữ liệu trong phạm vi cấu hình ở mỗi lần thực hiện. Với chế độ Full Refresh Overwrite của Airbyte, dữ liệu đích được thay thế bằng dữ liệu của lần đồng bộ mới. Cách thay thế cụ thể phụ thuộc vào bộ kết nối đích. ",
+    "Đồng bộ tăng dần hướng đến tiếp nhận phần dữ liệu mới hoặc thay đổi theo cơ chế nhận diện được lựa chọn. Tuy nhiên, khả năng nhận diện phụ thuộc vào thông tin mà nguồn và bộ kết nối cung cấp.",
+    "Cần phân biệt đồng bộ tăng dần với biến đổi tăng dần. Một hệ thống có thể đồng bộ toàn bộ vào tầng tiếp nhận nhưng chỉ cập nhật phần thay đổi ở các tầng sau. Trong trường hợp này, dữ liệu đầu vào vẫn được đọc để đối chiếu, còn lượng dữ liệu ghi vào bảng đích có thể được hạn chế theo kết quả so sánh.",
+    "Bản chụp dữ liệu và phạm vi quan sát",
+    "Trong báo cáo này, bản chụp được hiểu là tập dữ liệu có sẵn để xử lý sau một lần đồng bộ. Khái niệm đó cần gắn với phạm vi bảng, điều kiện lọc và trạng thái hoàn thành của công việc.",
+    "Ví dụ, việc một khóa không xuất hiện trong bản chụp mới có thể là căn cứ xem xét bản ghi đã bị loại bỏ khỏi nguồn. Tuy nhiên, nếu lần đồng bộ chưa hoàn tất hoặc chỉ lấy một phần dữ liệu, sự vắng mặt này chưa đủ để kết luận bản ghi đã bị xóa.",
+    "Ngoài độ đầy đủ, cần xem xét tính nhất quán giữa các bảng. Nếu đơn hàng và chi tiết đơn hàng được đọc ở những thời điểm khác nhau khi nguồn đang thay đổi, các bảng có thể không phản ánh cùng một trạng thái nghiệp vụ. Đây là điều kiện cần xét khi thiết kế và đánh giá quy trình theo lô.",
+    "Kiến trúc Medallion",
+    "",
+    "Hình 1: Kiến trúc Medallion",
+    "Nguyên tắc tổ chức dữ liệu theo tầng",
+    "Medallion là một mẫu thiết kế tổ chức dữ liệu theo các tầng Bronze, Silver và Gold, thể hiện quá trình cải thiện cấu trúc và chất lượng dữ liệu. Việc phân tầng tạo ra các điểm xử lý có trách nhiệm khác nhau, từ tiếp nhận đến chuẩn hóa và phục vụ phân tích.",
+    "Trong đề tài, nguyên tắc này được vận dụng trên PostgreSQL bằng các lược đồ riêng. Đây là lựa chọn tổ chức dữ liệu của hệ thống; những khả năng như lưu lịch sử phiên bản hoặc truy vấn trạng thái quá khứ cần cơ chế bổ sung, không hình thành chỉ từ tên các tầng.",
+    "Tầng Bronze",
+    "Bronze tiếp nhận dữ liệu từ nguồn với mức biến đổi nghiệp vụ hạn chế. Dữ liệu có thể đi kèm thông tin kỹ thuật về nguồn và thời điểm nạp, giúp xác định quá trình hình thành đầu vào cho các bước tiếp theo.",
+    "Trong cấu hình của đề tài, Bronze chứa dữ liệu do Airbyte đồng bộ theo chế độ ghi đè. Vì vậy, tầng này phục vụ đối chiếu với dữ liệu của lần đồng bộ hiện tại. Khả năng tái xử lý một bản chụp cũ chỉ tồn tại khi bản chụp đó được lưu giữ bằng cơ chế riêng.",
+    "Tầng Silver",
+    "Silver thực hiện làm sạch, chuẩn hóa và tổ chức dữ liệu để các thành phần phía sau có thể sử dụng thống nhất. Những thao tác thường gặp gồm chuyển đổi kiểu, xử lý giá trị thiếu, khử trùng và kiểm tra các điều kiện dữ liệu.",
+    "Silver cần giữ mức chi tiết phù hợp để truy vết và xây dựng nhiều đầu ra. Chẳng hạn, dữ liệu chi tiết đơn hàng sau chuẩn hóa vẫn cần nhận diện từng dòng và quan hệ với đơn hàng, thay vì chỉ giữ tổng số vé theo ngày.",
+    "Tầng Gold",
+    "Gold tổ chức dữ liệu theo nhu cầu khai thác, áp dụng các quy tắc nghiệp vụ và có thể sử dụng mô hình chiều hoặc các bảng tổng hợp.",
+    "Gold không chỉ gồm dữ liệu đã tổng hợp. Bảng đo lường ở mức chi tiết vẫn có thể thuộc Gold nếu đã đáp ứng mục đích phân tích. Trong đề tài, bảng chi tiết bán vé hỗ trợ phân tích theo nhiều chiều, còn bảng tổng hợp hỗ trợ các yêu cầu báo cáo ở mức ngày.",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "Bảng 2: Phân loại các tầng trong kiến trúc Medallion",
+    "Mô hình dữ liệu phục vụ phân tích",
+    "Mô hình dữ liệu chiều",
+    "Mô hình dữ liệu chiều tổ chức dữ liệu thành các đại lượng đo lường và ngữ cảnh mô tả. Bảng đo lường, thường gọi là bảng fact, lưu các giá trị cần phân tích cùng khóa liên kết. Bảng chiều, hay dimension, cung cấp thuộc tính để lọc và phân nhóm.",
+    "Trong bài toán bán vé, các đại lượng có thể gồm số lượng vé và giá trị của dòng bán. Ngữ cảnh gồm thời gian, sự kiện, hạng vé, kênh bán và trạng thái đơn hàng. Cách phân chia này giúp mỗi chỉ tiêu được xem xét trong những điều kiện cụ thể.",
+    "Khóa chiều cần nhận diện được một đối tượng ở phía bảng chiều. Nếu một khóa tương ứng với nhiều dòng mà không có quy tắc phân biệt, việc kết nối có thể làm tăng số dòng và ảnh hưởng kết quả tính toán.",
+    "Mức chi tiết của bảng đo lường",
+    "Mức chi tiết, hay grain, xác định ý nghĩa nghiệp vụ của một dòng trong bảng đo lường. Việc xác định mức chi tiết cần được thực hiện trước khi lựa chọn các đại lượng và khóa chiều. Các giá trị lưu trong cùng bảng phải phù hợp với mức chi tiết đã xác định.",
+    "Ví dụ, khi một dòng đại diện cho chi tiết đơn hàng, số lượng và giá trị cần tương ứng với dòng đó. Nếu đưa tổng tiền của cả đơn vào mọi dòng chi tiết, phép cộng có thể tính lặp giá trị đơn hàng.",
+    "Mức chi tiết cũng ảnh hưởng đến cách đếm. Một đơn có ba dòng vé tạo ba bản ghi chi tiết nhưng chỉ là một đơn hàng. Do đó, đếm số dòng không thể thay thế trực tiếp cho đếm số đơn phân biệt.",
+    "Mô hình hình sao và quan hệ kết nối",
+    "Mô hình hình sao tổ chức bảng đo lường ở trung tâm, liên kết với các bảng chiều. Trong mô hình Power BI, quan hệ một–nhiều thường được sử dụng giữa phía chiều và phía đo lường, qua đó tạo đường truyền bộ lọc phục vụ phân tích.",
+    "Một mô hình có thể gồm nhiều bảng đo lường sử dụng chung các chiều. Trong đề tài, bảng chi tiết bán vé và bảng tổng hợp theo ngày có mức chi tiết khác nhau, dù cùng sử dụng một số chiều.",
+    "Việc chọn bảng cho báo cáo phải phù hợp với câu hỏi phân tích. Bảng tổng hợp theo ngày và sự kiện không thể cung cấp phân tích theo hạng vé nếu hạng vé không nằm trong cấu trúc nhóm. Khi đó, cần sử dụng bảng chi tiết hoặc một đầu ra khác có chiều tương ứng.",
+    "Khả năng tổng hợp của chỉ tiêu",
+    "Các đại lượng không có cùng khả năng cộng gộp. Một số có thể cộng theo các chiều; một số chỉ cộng được theo những chiều nhất định; các tỷ lệ và giá trị trung bình thường cần được tính lại từ thành phần cấu thành.",
+    "Đối với đề tài, số vé và giá trị bán vé có thể cộng khi các nhóm gồm những dòng không trùng nhau và sử dụng cùng quy tắc trạng thái. Số đơn phân biệt cần thận trọng hơn: một đơn xuất hiện ở nhiều nhóm thì tổng số đơn của các nhóm có thể lớn hơn số đơn của toàn bộ tập.",
+    "Tỷ lệ thanh toán cần được tính từ số đơn đã thanh toán và tổng số đơn trong cùng phạm vi lọc. Việc lấy trung bình các tỷ lệ theo ngày có thể tạo kết quả khác với tỷ lệ của toàn bộ giai đoạn.",
+    "Chuẩn hóa và cập nhật dữ liệu",
+    "Các yêu cầu về chất lượng dữ liệu",
+    "Chất lượng dữ liệu cần được đánh giá theo mục đích sử dụng. Những khía cạnh thường được xem xét gồm độ đầy đủ, tính duy nhất, tính hợp lệ, tính nhất quán, tính kịp thời và độ chính xác. Một tập dữ liệu đầy đủ vẫn có thể chứa giá trị sai, nên các tiêu chí này không thay thế cho nhau.",
+    "Trong bài toán bán vé, các yêu cầu có thể được cụ thể hóa như sau:",
+    "Bảng 3: Yêu cầu về chất lượng dữ liệu",
+    "Chuẩn hóa cần dựa trên quy tắc xác định. Việc tự động thay mọi giá trị thiếu bằng số không có thể làm mất sự khác biệt giữa “không có thông tin” và “giá trị bằng không”.",
+    "Khử trùng theo khóa",
+    "Khử trùng theo khóa nhằm lựa chọn bản ghi đại diện khi có nhiều bản ghi cho cùng một đối tượng. Phương pháp này khác với loại bỏ các dòng giống hệt nhau, vì các bản ghi cùng khóa có thể chứa nội dung khác nhau.",
+    "Một cách thực hiện là nhóm theo khóa và xếp hạng theo thứ tự ưu tiên. Hàm cửa sổ cho phép tính toán trong từng nhóm mà vẫn giữ các dòng chi tiết, phù hợp với bước xây dựng thứ tự lựa chọn.",
+    "Thứ tự ưu tiên cần gắn với ý nghĩa của dữ liệu, chẳng hạn thời gian cập nhật nghiệp vụ và thông tin tiếp nhận. Nếu nhiều bản ghi có cùng giá trị ưu tiên, cần thêm tiêu chí để kết quả có thể tái lập.",
+    "Tuy nhiên, một quy tắc lựa chọn ổn định chưa chứng minh bản ghi được chọn phản ánh đúng thực tế. Khi nguồn thiếu thông tin phiên bản hoặc thời gian đáng tin cậy, hệ thống chỉ có thể lựa chọn theo quy tắc đã định và ghi nhận giới hạn đó.",
+    "Phát hiện thay đổi nội dung",
+    "Ngoài thời gian cập nhật, hệ thống có thể so sánh nội dung bản ghi bằng dấu định danh được tạo từ các thuộc tính lựa chọn. Trong PostgreSQL, hàm md5 tính giá trị băm từ dữ liệu văn bản và trả về biểu diễn hệ thập lục phân.",
+    "Để sử dụng dấu định danh, các thuộc tính cần được biểu diễn theo một quy tắc thống nhất, bao gồm thứ tự trường, định dạng và cách xử lý giá trị rỗng. Các thông tin kỹ thuật thay đổi sau mỗi lần nạp cần được xem xét riêng với thuộc tính nghiệp vụ, tránh nhận diện mọi lần đồng bộ là một thay đổi nội dung.",
+    "Dấu định danh giúp tổ chức phép so sánh, nhưng không thay thế toàn bộ việc kiểm tra dữ liệu. Những trường hợp cần đối chiếu chính xác có thể yêu cầu so sánh thêm các giá trị gốc.",
+    "Cập nhật tăng dần và phép hợp nhất",
+    "Cập nhật tăng dần duy trì bảng đích qua nhiều lần xử lý. Lần đầu tạo dữ liệu ban đầu; những lần sau xử lý phần được lựa chọn theo điều kiện của mô hình. Trong dbt, điều kiện lọc và khóa nhận diện phải được người xây dựng mô hình xác định.",
+    "Chiến lược merge dùng khóa để phân biệt bản ghi cần thêm với bản ghi cần cập nhật. Khả năng sử dụng và hành vi cụ thể phụ thuộc vào hệ quản trị dữ liệu và bộ kết nối dbt.",
+    "PostgreSQL cung cấp lệnh MERGE để thực hiện các hành động theo quan hệ giữa nguồn và đích. Đầu vào cần được kiểm soát để tránh nhiều dòng nguồn cùng tác động đến một dòng đích, gây lỗi hoặc vi phạm ràng buộc.",
+    "Trong đề tài, cập nhật tăng dần cần xét đến cả thay đổi ở các bảng liên quan. Khi trạng thái đơn hàng thay đổi, các đại lượng của những dòng vé thuộc đơn đó có thể phải được tính lại dù nội dung dòng vé giữ nguyên.",
+    "Hiệu quả của phương pháp còn phụ thuộc vào chi phí đọc, đối chiếu và ghi. Với đầu vào là bản chụp, hạn chế ghi lại các dòng không đổi không đồng nghĩa với loại bỏ việc đọc toàn bộ dữ liệu.",
+    "Xóa mềm, xuất hiện trở lại và lịch sử dữ liệu",
+    "Khi có bản chụp đầy đủ, tập khóa nguồn có thể được đối chiếu với tập khóa đích để xác định các bản ghi không còn xuất hiện. Hệ thống có thể loại bỏ bản ghi hoặc giữ lại với trạng thái xóa mềm, tùy yêu cầu sử dụng.",
+    "Nếu bản ghi xuất hiện trở lại, cần xem xét cả trạng thái xóa bên cạnh nội dung. Một bản ghi có nội dung không đổi nhưng đang bị đánh dấu xóa vẫn cần được khôi phục về trạng thái có hiệu lực.",
+    "Xóa mềm cũng khác với lưu lịch sử phiên bản. Việc giữ một bản ghi cùng cờ trạng thái không ghi lại đầy đủ các giá trị trước đây của nó. Nếu cần xác định nội dung tại một thời điểm trong quá khứ, hệ thống phải có thiết kế lưu phiên bản hoặc lưu bản chụp tương ứng",
+    "Quản lý biến đổi dữ liệu bằng Dbt",
+    "Mô hình SQL và quan hệ phụ thuộc",
+    "Trong dbt, mô hình SQL biểu diễn phép biến đổi bằng câu truy vấn. dbt biên dịch và thực thi SQL trên hệ thống dữ liệu đích; vì vậy, ngôn ngữ SQL của mô hình phải phù hợp với nền tảng sử dụng.",
+    "Nguồn được khai báo để mô tả các bảng do thành phần bên ngoài nạp vào. Hàm source() giúp tham chiếu nguồn và thể hiện quan hệ giữa nguồn với mô hình.",
+    "Hàm ref() tham chiếu một mô hình khác, đồng thời tạo quan hệ phụ thuộc để dbt xác định đồ thị biến đổi.",
+    "Cần phân biệt đồ thị phụ thuộc với phạm vi được chạy. Khi chỉ chọn một mô hình riêng lẻ, không nên mặc nhiên cho rằng tất cả mô hình đầu vào đã được thực thi trong cùng lượt. Phạm vi chạy và thứ tự điều phối phải phù hợp với dữ liệu mà mô hình cần.",
+    "Phương thức tạo dữ liệu đầu ra",
+    "Phương thức tạo đầu ra, thường gọi là materialization, xác định cách dbt hiện thực hóa kết quả mô hình. Ba phương thức liên quan trực tiếp đến đề tài gồm:",
+    "Bảng 4: Các mod materialization cho dbt",
+    "Việc lựa chọn cần xét đến chi phí xây dựng, tần suất cập nhật và nhu cầu truy vấn. Phương thức tăng dần yêu cầu thêm quy tắc nhận diện thay đổi; phương thức tạo bảng đơn giản hơn trong quản lý kết quả nhưng có thể phải tính lại dữ liệu.",
+    "Một bảng được cấu hình tạo lại cũng chỉ cập nhật khi mô hình chạy. Sự thay đổi ở nguồn không tự động làm nội dung bảng đó thay đổi.",
+    "Khai báo và kiểm tra dữ liệu",
+    "Dbt hỗ trợ mô tả mô hình, cột và các điều kiện kiểm tra. Những kiểm tra phổ biến gồm not_null, unique, accepted_values và relationships. Các kiểm tra dữ liệu tìm những dòng vi phạm điều kiện đã khai báo; kết quả không có dòng vi phạm xác nhận điều kiện tương ứng trong phạm vi kiểm tra.",
+    "Khai báo kiểm tra giúp quy tắc được thể hiện trong mã nguồn, nhưng cần được thực thi để tạo bằng chứng đánh giá. Việc chạy mô hình thành công không đồng nghĩa các kiểm tra dữ liệu đã được chạy hoặc toàn bộ nội dung đã chính xác.",
+    "Các quy tắc nghiệp vụ như quan hệ giữa giá trị bán vé và trạng thái đơn hàng cần những phép đối chiếu phù hợp ngoài kiểm tra cấu trúc cơ bản.",
+    "Điều phối quy trình bằng Apache Airflow",
+    "Đồ thị tác vụ và quan hệ phụ thuộc",
+    "Airflow tổ chức quy trình bằng DAG, tức đồ thị có hướng không có chu trình. Các tác vụ và quan hệ phụ thuộc xác định thứ tự cùng điều kiện thực thi. Mỗi lần chạy tạo một DAG Run, trong đó các tác vụ có những lần thực thi tương ứng.",
+    "Trong một hệ thống ELT, điều phối cần quản lý các bước đồng bộ, chuẩn hóa và xây dựng đầu ra. Các bước độc lập có thể được tổ chức song song; các bước dùng kết quả của nhau cần quan hệ phụ thuộc phù hợp.",
+    "Thành công của tác vụ phải phản ánh đúng phạm vi công việc mà nó đại diện. Một tác vụ chỉ gửi yêu cầu tới dịch vụ bên ngoài cần cơ chế xác nhận riêng để biết công việc đó đã hoàn tất.",
+    "Lập lịch theo thời gian và Dataset",
+    "Lập lịch theo thời gian xác định thời điểm dự kiến thực hiện quy trình. Lập lịch theo Dataset dựa trên tín hiệu cập nhật dữ liệu do tác vụ phát ra.",
+    "Trong Airflow, Dataset là đối tượng logic dùng để biểu diễn phụ thuộc dữ liệu. Tác vụ có outlets chỉ phát cập nhật khi hoàn thành thành công. Một DAG sử dụng danh sách Dataset được lập lịch khi các Dataset yêu cầu đều đã có cập nhật kể từ lần chạy trước.",
+    "Dataset không lưu bảng dữ liệu và không tự kiểm tra nội dung bảng. Từ cơ chế này, có thể thấy rằng tín hiệu cập nhật cũng chưa xác nhận các đầu vào thuộc cùng một lô. Nếu nhiều bảng được cập nhật độc lập, yêu cầu nhất quán theo lô cần thông tin và quy tắc kiểm soát bổ sung.",
+    "Khả năng chạy lại và theo dõi thực thi",
+    "Do tác vụ có thể được thực hiện lại sau lỗi, quy trình cần hướng đến kết quả nghiệp vụ ổn định khi xử lý lại cùng đầu vào. Tài liệu Airflow khuyến nghị kiểm soát phần dữ liệu đọc, ghi và tránh cách thêm bản ghi làm phát sinh trùng lặp khi chạy lại.",
+    "Khả năng chạy lại cần được xét ở hai mức. Ở mức biến đổi, kết quả không nên phát sinh thêm bản ghi nghiệp vụ ngoài dự kiến. Ở mức điều phối, việc thử lại không nên vô tình tạo nhiều công việc đồng bộ bên ngoài cho cùng yêu cầu.",
+    "Nhật ký cần giúp liên hệ tác vụ với công việc đã gọi và kết quả xử lý. Khi đánh giá hệ thống, cần xem cả trạng thái thực thi lẫn dữ liệu đầu ra, vì tác vụ hoàn thành và dữ liệu đúng là hai điều kiện cần được kiểm chứng riêng.",
+    "",
+    "CHƯƠNG 3 – PHƯƠNG PHÁP VÀ THIẾT KẾ HỆ THỐNG",
+    "",
+    "",
+    "",
+    "Phân tích yêu cầu hệ thống",
+    "Yêu cầu nghiệp vụ",
+    "Hệ thống cần chuyển đổi dữ liệu giao dịch bán vé thành dữ liệu có thể sử dụng để theo dõi và phân tích hoạt động kinh doanh. Những câu hỏi đầu ra chủ yếu gồm: số lượng đơn hàng được tạo trong từng giai đoạn; số đơn đã thanh toán; số vé đã bán; giá trị bán vé theo sự kiện, hạng vé và kênh bán; tỷ lệ thanh toán trong một phạm vi quan sát.",
+    "Để trả lời các câu hỏi này, thiết kế phải phân biệt ba đối tượng: đơn hàng, dòng chi tiết đơn hàng và lần thử thanh toán. Một đơn hàng có thể chứa nhiều hạng vé, trong khi quá trình thanh toán có thể bao gồm nhiều lần thử trước khi đạt kết quả cuối cùng. Vì vậy, số dòng chi tiết hoặc số bản ghi thanh toán không được sử dụng trực tiếp để thay thế số đơn hàng.",
+    "Trong phạm vi đề tài, trạng thái đơn hàng là căn cứ xác định đóng góp vào chỉ tiêu bán vé. Chỉ những đơn có trạng thái PAID đóng góp vào số vé đã bán và giá trị bán vé. Các đơn PENDING, EXPIRED và CANCELLED vẫn được lưu để phân tích trạng thái, nhưng không đóng góp vào hai chỉ tiêu trên.",
+    "Chiều thời gian của bảng phân tích bán vé được xác định theo ngày tạo đơn hàng. Do đó, một đơn tạo vào ngày trước nhưng chuyển sang PAID ở lần xử lý sau sẽ làm thay đổi chỉ tiêu của ngày tạo đơn. Đây là quy tắc phân tích được lựa chọn trong đề tài; chỉ tiêu theo ngày thanh toán sẽ cần một thiết kế thời gian khác.",
+    "Yêu cầu chức năng",
+    "Các yêu cầu chức năng được xác định theo những bước hình thành dữ liệu đầu ra.",
+    "Bảng 5: Yêu cầu chức năng",
+    "Các yêu cầu này tạo thành một chuỗi xử lý liên kết. Việc hoàn thành bước trước là điều kiện để bước sau sử dụng dữ liệu trong phạm vi đã xác định.",
+    "Yêu cầu phi chức năng",
+    "Tính đúng đắn: Dữ liệu đầu ra cần tuân theo mức chi tiết, quan hệ và quy tắc tính toán đã đặc tả. Các chỉ tiêu không được tăng do kết nối làm nhân bản bản ghi.",
+    "Khả năng truy vết: Cần xác định được nguồn của dữ liệu, mô hình thực hiện biến đổi và tác vụ điều phối tương ứng. Khi phát hiện sai lệch, cấu trúc hệ thống phải hỗ trợ khoanh vùng bước cần kiểm tra.",
+    "Khả năng chạy lại: Xử lý lại cùng đầu vào cần duy trì trạng thái nghiệp vụ phù hợp, tránh thêm trùng hoặc làm tăng chỉ tiêu ngoài dự kiến.",
+    "Khả năng bảo trì: Mã nguồn được phân chia theo tầng và nghiệp vụ. Các quy tắc dùng chung được quản lý tập trung, còn lịch và phạm vi chạy của từng DAG cần dễ nhận diện.",
+    "Khả năng tái lập: Môi trường, phiên bản mã nguồn, tham số sinh dữ liệu và điều kiện thực hiện cần được ghi nhận để hỗ trợ đối chiếu kết quả.",
+    "Các yêu cầu phi chức năng là tiêu chí định hướng thiết kế và đánh giá. Mức độ đáp ứng cần được xác nhận bằng bằng chứng thực nghiệm ở chương triển khai.",
+    "Thiết kế dữ liệu nguồn",
+    "Phương án tạo dữ liệu",
+    "Đề tài sử dụng dữ liệu tổng hợp được tạo bằng Python và lưu trong cơ sở dữ liệu TicketingDB trên SQL Server. Phương án này cho phép chủ động điều chỉnh quy mô, bổ sung dữ liệu theo năm và xây dựng các tình huống xử lý mà không sử dụng dữ liệu giao dịch nội bộ.",
+    "Chương trình sinh dữ liệu sử dụng giá trị khởi tạo để điều khiển quá trình ngẫu nhiên. Khả năng tái lập được xem xét trong điều kiện giữ nguyên phiên bản chương trình, tham số và quy tắc sinh. Việc thay đổi một trong các yếu tố này có thể làm thay đổi bộ dữ liệu tạo ra.",
+    "Các đối tượng được tạo theo quan hệ phụ thuộc. Sự kiện được thiết lập trước; hạng vé được gắn với sự kiện; đơn hàng được tạo trong khoảng mở bán; các dòng vé và lần thử thanh toán được hình thành theo đơn hàng tương ứng. Chương trình còn áp dụng các quy tắc về giá, giảm giá, hạn mức bán và thời gian để tạo một bộ dữ liệu có quan hệ nghiệp vụ nhất quán.",
+    "Dữ liệu không được phân bố đồng đều giữa mọi sự kiện hoặc hạng vé. Các tham số và trọng số tạo sự khác biệt về số lượng đơn, lựa chọn hạng vé và trạng thái giao dịch. Những phân bố này phục vụ việc triển khai và minh họa phân tích, không được xem là kết quả khảo sát thị trường.",
+    "Chương trình bổ sung lịch sử hỗ trợ tạo các lô theo năm. Khi nạp, các khóa được điều chỉnh để tránh trùng với dữ liệu đã có, đồng thời các tham chiếu được cập nhật tương ứng. Một lô của từng năm được nạp trong một giao dịch, nhằm giữ sự liên kết giữa năm bảng khi thực hiện thành công.",
+    "",
+    "Cấu trúc các bảng nguồn",
+    "Cơ sở dữ liệu nguồn gồm năm bảng chính. ",
+    "Bảng 6: Cấu trúc của bảng nguồn",
+    "Các giá trị tiền được biểu diễn theo VND. Các bảng nguồn sử dụng kiểu số có độ chính xác xác định cho giá và số tiền, tránh sử dụng số thực gần đúng trong những phép tính cần đối chiếu.",
+    "Cấu trúc còn lưu các thời điểm tạo và cập nhật. Những trường này hỗ trợ xem xét phiên bản bản ghi và giải thích các thay đổi trong quá trình xử lý.",
+    "",
+    "Hình 2: Sơ đồ quan hệ cơ sở dữ liệu nguồn",
+    "Quan hệ và ràng buộc dữ liệu",
+    "Một sự kiện có nhiều hạng vé và nhiều đơn hàng. Một đơn hàng có thể có nhiều dòng chi tiết và nhiều lần thử thanh toán. Mỗi dòng chi tiết tham chiếu đến một hạng vé thuộc sự kiện của đơn hàng.",
+    "Thiết kế nguồn sử dụng các khóa ngoại kết hợp để ràng buộc sự nhất quán về sự kiện. Dòng chi tiết phải liên kết được với cặp mã đơn–mã sự kiện và cặp mã hạng vé–mã sự kiện tương ứng. Cách tổ chức này hạn chế trường hợp một đơn của sự kiện này chứa hạng vé của sự kiện khác.",
+    "Các ràng buộc giá trị kiểm soát những điều kiện như số lượng dương, giá hợp lệ và quan hệ giữa tổng tiền với giảm giá. Đối với thanh toán, chỉ mục duy nhất có điều kiện giới hạn tối đa một bản ghi SUCCESS cho mỗi đơn hàng trong thiết kế nguồn.",
+    "Tuy nhiên, khóa ngoại không tự bảo đảm mọi đơn đều có ít nhất một dòng chi tiết, và việc giới hạn một thanh toán thành công không tự chứng minh trạng thái đơn luôn khớp với thanh toán. Những quan hệ nghiệp vụ này cần được kiểm tra ở chương trình sinh dữ liệu hoặc qua các phép đối chiếu bổ sung.",
+    "Thiết kế kiến trúc tổng thể",
+    "Luồng dữ liệu",
+    "Hệ thống được tổ chức theo luồng:",
+    "SQL Server → Airbyte → Bronze → dbt-postgres (Silver → Gold) → Power BI",
+    "Airflow điều phối các công việc đồng bộ và biến đổi trong luồng trên. Dữ liệu được lưu trong SQL Server và PostgreSQL; Airflow quản lý quá trình thực thi và trạng thái công việc.",
+    "Luồng xử lý gồm bốn giai đoạn chính. Đầu tiên, Airbyte đọc các bảng nguồn và nạp vào Bronze. Tiếp theo, các mô hình Silver chuẩn hóa, khử trùng và cập nhật trạng thái dữ liệu. Sau đó, các mô hình Gold xây dựng cấu trúc phân tích và chỉ tiêu. Cuối cùng, Power BI đọc dữ liệu Gold để tạo báo cáo.",
+    "Trách nhiệm của các thành phần",
+    "Bảng 7: Trách nhiệm của các thành phần",
+    "SQL Server được giữ làm nguồn theo bộ dữ liệu đầu vào của đề tài. PostgreSQL là đích lưu trữ và xử lý, giúp tập trung các phép biến đổi trong cùng môi trường. dbt-postgres phù hợp với cách triển khai mô hình bằng SQL, còn Airflow quản lý các bước cần phối hợp với dịch vụ bên ngoài.",
+    "Tổ chức dữ liệu tại đích",
+    "Dữ liệu phân tích được tổ chức trong cơ sở dữ liệu ticketing_analytics, gồm ba lược đồ nghiệp vụ:",
+    "Bảng 8: Tổ chức dữ liệu tại đích",
+    "Các lược đồ là những không gian tổ chức bảng trong cùng cơ sở dữ liệu, giúp phân biệt trách nhiệm của từng tầng. Dữ liệu siêu thông tin dùng để vận hành Airflow có mục đích riêng và không thuộc mô hình phân tích bán vé.",
+    "Phạm vi thiết kế sử dụng các bảng hiện tại tại PostgreSQL. Khả năng lưu toàn bộ lịch sử phiên bản hoặc truy vấn lại trạng thái dữ liệu ở một thời điểm bất kỳ chưa được hình thành chỉ từ việc phân chia ba lược đồ.",
+    "",
+    "Hình 3: Kiến trúc tổng thể hệ thống xử lý dữ liệu bán vé",
+    "Thiết kế tầng Bronze",
+    "Phương thức tiếp nhận",
+    "Airbyte được cấu hình đồng bộ toàn bộ và ghi đè. Sau một công việc thành công, các bảng Bronze phản ánh tập dữ liệu được lấy trong phạm vi kết nối đó.",
+    "Năm bảng nghiệp vụ được khai báo là nguồn của dbt. Tầng Bronze giữ các thuộc tính cần cho những bước chuẩn hóa, đồng thời có các thông tin kỹ thuật do Airbyte cung cấp. Những thông tin này được sử dụng để xem xét thứ tự tiếp nhận khi cần khử trùng.",
+    "Thiết kế không tính các chỉ tiêu bán vé tại Bronze. Việc áp dụng quy tắc trạng thái và mô hình hóa được thực hiện ở các tầng sau, giúp phân biệt dữ liệu tiếp nhận với kết quả đã diễn giải theo nghiệp vụ.",
+    "Kích hoạt và xác nhận đồng bộ",
+    "Một công việc Bronze gồm hai bước: gửi yêu cầu đồng bộ và chờ công việc hoàn tất. Khi gửi yêu cầu, Airflow nhận mã công việc Airbyte và sử dụng mã đó để kiểm tra trạng thái.",
+    "Bước chờ chỉ kết thúc thành công khi công việc tương ứng đạt trạng thái thành công. Khi công việc thất bại, bị hủy hoặc không hoàn tất trong thời gian cho phép, luồng cần kết thúc với trạng thái lỗi để ngăn việc phát tín hiệu sẵn sàng cho tầng sau.",
+    "Việc tách hai bước làm rõ phạm vi của từng trạng thái: gửi yêu cầu thành công xác nhận dịch vụ đã tiếp nhận công việc; chờ thành công xác nhận công việc được theo dõi đã hoàn tất.",
+    "Điều kiện sử dụng dữ liệu Bronze",
+    "Silver chỉ nên sử dụng Bronze khi lần đồng bộ cần thiết đã hoàn thành. Đặc biệt, nhận diện bản ghi biến mất phải dựa trên bản chụp đầy đủ trong phạm vi bảng được xử lý.",
+    "Một bảng rỗng có thể là trạng thái hợp lệ của nguồn hoặc kết quả bất thường. Thiết kế đánh giá vì vậy cần phân biệt hai trường hợp trước khi sử dụng dữ liệu rỗng làm căn cứ xóa mềm toàn bộ bảng đích.",
+    "Bronze được ghi đè nên không mặc nhiên lưu các bản chụp trước. Nếu cần tái xử lý chính xác một lần đồng bộ cũ, hệ thống phải lưu đầu vào của lần đó bằng phương án bổ sung.",
+    "Thiết kế tầng Silver",
+    "Cấu trúc và phương thức lưu trữ",
+    "Silver gồm năm bảng tương ứng với năm bảng Bronze. Việc giữ cấu trúc theo đối tượng nghiệp vụ giúp duy trì mức chi tiết và thuận tiện đối chiếu.",
+    "Bảng 9: Cấu trúc và phương thức lưu trữ",
+    "Mỗi bảng lưu một bản ghi hiện tại cho mỗi khóa, cùng trạng thái xóa mềm. Ba trường kỹ thuật được bổ sung gồm:",
+    "Bảng 10: Thông tin các cột kỹ thuật",
+    "Đối với bản ghi không thay đổi, hệ thống không cần ghi lại và _loaded_at có thể giữ nguyên. Vì vậy, trường này không được hiểu là thời điểm đồng bộ gần nhất của toàn bộ bảng.",
+    "Chuẩn hóa dữ liệu",
+    "Các mô hình Silver thực hiện chuyển đổi kiểu trước khi so sánh và cập nhật. Khóa được biểu diễn bằng kiểu số nguyên phù hợp; số tiền dùng kiểu số chính xác; thời gian nghiệp vụ được thống nhất theo cấu trúc khai báo.",
+    "Đối với văn bản, khoảng trắng ở đầu và cuối được loại bỏ; chuỗi rỗng được chuyển thành giá trị rỗng theo quy tắc của mô hình. Các trường có tập giá trị quy ước như trạng thái, kênh bán và tiền tệ được chuẩn hóa chữ hoa.",
+    "Các phép chuyển đổi được áp dụng có chọn lọc. Tên sự kiện, đơn vị tổ chức và địa điểm cần giữ nội dung mô tả, trong khi trạng thái cần biểu diễn nhất quán để sử dụng trong điều kiện xử lý.",
+    "Thời gian nghiệp vụ trong các bảng được quản lý theo quy ước của bộ dữ liệu. Thời gian tiếp nhận và ghi tại kho là thông tin kỹ thuật riêng. Phân biệt hai loại thời gian này giúp tránh dùng thời điểm nạp thay cho thời điểm phát sinh giao dịch.",
+    "Khử trùng theo khóa",
+    "Sau chuẩn hóa, các bản ghi được nhóm theo khóa nhận diện và xếp hạng. Thứ tự ưu tiên hiện tại gồm:",
+    "Thời điểm cập nhật nguồn, giảm dần.",
+    "Thời điểm trích xuất của Airbyte, giảm dần.",
+    "Mã bản ghi tiếp nhận của Airbyte.",
+    "Dấu định danh nội dung.",
+    "Bản ghi đứng đầu mỗi nhóm được lựa chọn làm ứng viên cập nhật. Quy tắc này giúp đầu vào của phép hợp nhất chỉ có một bản ghi đại diện cho mỗi khóa.",
+    "Các tiêu chí phụ hỗ trợ phân xử khi thời điểm cập nhật bằng nhau. Tuy nhiên, nếu nguồn có nhiều phiên bản mâu thuẫn nhưng thiếu thông tin đáng tin cậy, quy tắc xếp hạng chỉ xác định bản ghi được lựa chọn theo thiết kế, chưa đủ để xác nhận đó là phiên bản đúng về nghiệp vụ.",
+    "Xây dựng dấu định danh",
+    "Dấu định danh được tạo từ các thuộc tính nguồn mà mô hình lựa chọn sau chuẩn hóa. Các giá trị được tổ chức thành mảng JSONB theo thứ tự xác định, sau đó tính MD5 trên biểu diễn văn bản của mảng.",
+    "Cách biểu diễn có cấu trúc giúp phân biệt các trường và giữ giá trị rỗng rõ ràng hơn so với nối văn bản không có quy tắc. Các thuộc tính được lựa chọn gồm nội dung nghiệp vụ và những thời điểm nguồn liên quan như thời điểm tạo, cập nhật.",
+    "Thông tin trích xuất của Airbyte và thời điểm ghi tại kho không thuộc dấu định danh. Do đó, việc đồng bộ lại mà không thay đổi tập thuộc tính được so sánh không tự làm bản ghi bị nhận diện là thay đổi.",
+    "Dấu định danh là cơ chế phục vụ lựa chọn bản ghi cần cập nhật. Các phép đối chiếu trực tiếp vẫn cần được sử dụng khi đánh giá nội dung hoặc điều tra một trường hợp sai lệch.",
+    "Quy tắc cập nhật tăng dần",
+    "Trong lần khởi tạo, toàn bộ ứng viên sau khử trùng được đưa vào Silver. Ở các lần tiếp theo, tập ứng viên được so sánh với bảng hiện tại theo khóa.",
+    "Bảng 11: Thiết kế quy tắc cập nhật tăng dần",
+    "Điều kiện khôi phục được xét riêng với so sánh nội dung. Một bản ghi xuất hiện trở lại có thể mang nội dung giống trước đây, nhưng vẫn cần được chuyển từ trạng thái xóa sang trạng thái có hiệu lực.",
+    "Thiết kế đối chiếu toàn bộ tập ứng viên hiện tại thay vì chỉ lọc theo giá trị lớn nhất của thời gian cập nhật. Cách này hỗ trợ phát hiện các thay đổi không nằm sau một mốc thời gian chung, đồng thời nhận diện khóa biến mất. Đổi lại, hệ thống vẫn cần đọc bản chụp để thực hiện so sánh.",
+    "Silver lưu trạng thái hiện tại cùng dấu xóa mềm, không lưu đầy đủ mọi phiên bản nội dung qua các lần xử lý.",
+    "",
+    "Hình 4: Lưu đồ xử lý cập nhật tăng dần tại Silver",
+    "Thiết kế tầng Gold",
+    "Các bảng chiều",
+    "Gold sử dụng năm bảng chiều để cung cấp ngữ cảnh cho dữ liệu bán vé.",
+    "Bảng 12: Các bảng theo chiều",
+    "dim_event và dim_ticket_type lấy các bản ghi chưa bị xóa mềm tại Silver. dim_channel và dim_status dùng các ánh xạ khóa cố định. dim_date tạo dải ngày liên tục từ ngày đặt đơn nhỏ nhất đến lớn nhất của các đơn đang có hiệu lực.",
+    "Các bảng chiều được tạo lại khi mô hình chạy. Thiết kế này giữ cấu trúc xử lý đơn giản trong phạm vi đề tài, nhưng không lưu phiên bản lịch sử của thuộc tính chiều. Chẳng hạn, thay đổi tên sự kiện sẽ được phản ánh bằng tên hiện tại sau lần xây dựng lại.",
+    "Giá niêm yết tại chiều hạng vé có ý nghĩa mô tả. Giá trị bán của một dòng được tính từ đơn giá giao dịch tại chi tiết đơn hàng, tránh sử dụng giá niêm yết hiện tại để thay thế giá đã ghi nhận trong đơn.",
+    "Bảng đo lường bán vé",
+    "Bảng fact_ticket_sales có mức chi tiết là một dòng chi tiết đơn hàng, được nhận diện bởi order_item_id. Bảng giữ order_id để hỗ trợ đếm số đơn phân biệt và liên kết các dòng thuộc cùng đơn.",
+    "Các nhóm trường chính gồm khóa liên kết, đại lượng của dòng bán và thông tin kỹ thuật cập nhật.",
+    "Bảng 13: Thông tin bảng đo lường bán vé",
+    "Các quy tắc tính toán được xác định như sau:",
+    "Giá trị trước giảm giá bằng số lượng nhân đơn giá giao dịch.",
+    "Giá trị sau giảm giá bằng giá trị trước giảm giá trừ giảm giá của dòng.",
+    "Với đơn PAID, số vé đã bán bằng số lượng của dòng và giá trị bán vé bằng giá trị sau giảm giá.",
+    "Với trạng thái khác, số vé đã bán và giá trị bán vé bằng không.",
+    "Thông tin trạng thái được lấy từ đơn hàng. Vì vậy, mô hình đánh giá lại các dòng đang có hiệu lực cùng đơn hàng liên quan ở mỗi lần xử lý. Thay đổi trạng thái của một đơn cũ có thể làm các dòng fact tương ứng thay đổi mà không cần cập nhật nội dung dòng vé tại nguồn.",
+    "Bảng thanh toán không được nối trực tiếp vào bảng đo lường này. Quyết định đó tránh việc nhiều lần thử thanh toán nhân bản dòng vé. Thanh toán vẫn được xử lý tại Silver để giữ thông tin nghiệp vụ và phục vụ đối chiếu, nhưng không tham gia phép tính hiện tại của bảng fact.",
+    "Fact sử dụng cập nhật tăng dần theo khóa dòng đơn. Những dòng không còn trong tập ứng viên được nhận diện và loại khỏi bảng công bố sau bước cập nhật. Đây là điểm khác với Silver, nơi bản ghi bị xóa mềm vẫn được giữ lại.",
+    "Bảng tổng hợp theo ngày",
+    "Bảng agg_daily_sales được nhóm theo tổ hợp:",
+    "Ngày đặt đơn – Sự kiện – Kênh bán",
+    "Mỗi dòng lưu tổng giá trị bán vé, tổng số vé đã bán, số đơn đã thanh toán phân biệt và tổng số đơn phân biệt trong nhóm.",
+    "Các đại lượng tiền và vé được cộng từ bảng fact. Số đơn được tính theo mã đơn phân biệt để tránh đếm một đơn nhiều lần do có nhiều dòng vé.",
+    "Trong cấu trúc nguồn hiện tại, mỗi đơn thuộc một sự kiện, một kênh và một ngày đặt. Do đó, các nhóm của bảng tổng hợp không chia một đơn sang nhiều tổ hợp này. Khi mở rộng cấu trúc, cần xem xét lại khả năng cộng gộp số đơn.",
+    "Bảng tổng hợp không chứa chiều hạng vé. Các phân tích theo hạng vé vì vậy sử dụng bảng fact cùng dim_ticket_type. Bảng tổng hợp được tạo lại sau khi bảng fact hoàn thành, giúp phản ánh trạng thái mới nhất trong phạm vi xử lý.",
+    "",
+    "Hình 5: Mô hình dữ liệu tại tầng Gold",
+    "Thiết kế khai thác trên Power BI",
+    "Power BI đọc các bảng Gold và tổ chức quan hệ từ bảng chiều đến bảng đo lường. Các khóa chiều cần duy nhất để hỗ trợ quan hệ một–nhiều phù hợp.",
+    "Các báo cáo sử dụng cùng quy tắc trạng thái và thời gian đã xác định trong mô hình dữ liệu. Số đơn được đếm phân biệt; số vé đã bán và giá trị bán vé sử dụng các trường đã áp dụng điều kiện PAID.",
+    "Khi đối chiếu Power BI với SQL, cần giữ cùng phạm vi thời gian, sự kiện và kênh bán. Việc làm mới báo cáo cần thực hiện sau khi các mô hình Gold cần thiết hoàn thành, nhằm hạn chế sử dụng dữ liệu ở những thời điểm cập nhật khác nhau.",
+    "Thiết kế điều phối bằng Airflow",
+    "Tổ chức DAG theo tầng và nghiệp vụ",
+    "Các DAG được chia theo Bronze, Silver và Gold. Tên DAG thể hiện tầng dữ liệu, phạm vi nghiệp vụ và đối tượng xử lý, ví dụ bronze_ticket_events, silver_ticket_orders và gold_ticket_fact_ticket_sales.",
+    "DAG Bronze quản lý công việc đồng bộ Airbyte. DAG Silver thực thi một mô hình chuẩn hóa. Các DAG Gold thực thi từng bảng chiều, bảng fact hoặc bảng tổng hợp. Mỗi DAG biến đổi thể hiện phạm vi chọn mô hình để người vận hành liên hệ tác vụ với dữ liệu đầu ra.",
+    "Ngoài các DAG riêng, hệ thống có các DAG chạy toàn bộ tầng. Các DAG Silver và Gold toàn tầng hiện được sử dụng theo chế độ thủ công, hỗ trợ khởi tạo hoặc xử lý có chủ đích.",
+    "Thiết kế tín hiệu dữ liệu",
+    "Tên Dataset mô tả hướng chuyển đổi và đối tượng dữ liệu.",
+    "Bảng 14: Bảng tín hiệu dữ liệu",
+    "Dataset được phát từ tác vụ hoàn thành đầu ra tương ứng. Ở Bronze, tín hiệu được gắn với bước chờ Airbyte thành công. Ở Silver và Gold, tín hiệu được gắn với tác vụ thực thi mô hình dbt.",
+    "Thiết kế hiện tại tổ chức các bảng chiều Gold chờ tín hiệu hoàn thành của năm nhóm Silver. Đây là một ranh giới điều phối chung, rộng hơn quan hệ đọc SQL của từng bảng chiều. Ví dụ, dim_event đọc Silver sự kiện nhưng được điều phối sau nhóm tín hiệu của toàn tầng Silver.",
+    "Bảng fact chờ các tín hiệu của năm bảng chiều. Bảng tổng hợp chờ tín hiệu của fact. Cách tổ chức này tạo thứ tự công bố rõ ràng từ dữ liệu chuẩn hóa đến các thành phần phân tích.",
+    "Lịch chạy và chế độ vận hành",
+    "Các DAG Bronze được lập lịch theo ngày với múi giờ Asia/Ho_Chi_Minh. Các DAG Silver và Gold riêng lẻ sử dụng Dataset làm điều kiện lập lịch, giúp bước sau phụ thuộc vào kết quả thực thi thay vì chỉ dựa vào một khoảng thời gian chờ cố định.",
+    "DAG Bronze toàn bộ phát tín hiệu cho các nhóm dữ liệu được đồng bộ. Do các DAG riêng và DAG toàn bộ có thể cùng phát tín hiệu liên quan, cần quản lý những DAG đang bật theo tuyến vận hành được lựa chọn.",
+    "Đối với xử lý thường xuyên, các mô hình tăng dần sử dụng cấu hình mặc định. Việc tạo lại toàn bộ được dành cho khởi tạo hoặc những thay đổi cần tái tính dữ liệu, chẳng hạn thay đổi cấu trúc hay quy tắc biến đổi. Khi đó, cần kiểm soát phạm vi và các DAG có thể chạy đồng thời.",
+    "Theo dõi, chạy lại và kiểm soát đồng thời",
+    "Hệ thống ghi nhận mã công việc Airbyte, trạng thái chờ, phạm vi mô hình dbt và nhật ký của từng lượt thực thi. Các sản phẩm thực thi dbt được tổ chức riêng để giảm việc ghi đè thông tin giữa những tác vụ.",
+    "Đối với biến đổi, cơ chế khóa theo mô hình hạn chế hai lượt chạy cùng ghi vào một mô hình đích, chẳng hạn khi DAG riêng và DAG toàn tầng được thực hiện đồng thời. Cơ chế này kiểm soát cạnh tranh ghi cùng bảng; nó không tự khóa toàn bộ chuỗi dữ liệu.",
+    "Khả năng chạy lại còn phụ thuộc vào đầu vào. Nếu Bronze đã bị thay thế bằng bản chụp mới, chạy lại mô hình có thể tạo kết quả theo dữ liệu mới, dù tác vụ trước đó sử dụng dữ liệu khác. Vì vậy, việc tái lập chính xác một lượt xử lý cần xác định được đầu vào tương ứng.",
+    "Dataset xác nhận các bước đã có cập nhật, nhưng không tự bảo đảm mọi đầu vào thuộc cùng một lô. Thiết kế hiện tại cũng cập nhật từng mô hình Gold riêng biệt, chưa công bố toàn bộ Gold trong một giao dịch chung. Những giới hạn này cần được xem xét khi đánh giá tính nhất quán và lựa chọn thời điểm khai thác.",
+    "",
+    "Hình 6: Quan hệ điều phối giữa các tầng dữ liệu",
+    "Thiết kế kiểm tra và đánh giá hệ thống",
+    "Các mức kiểm tra",
+    "Phương án đánh giá gồm kiểm tra cấu trúc, đối chiếu dữ liệu và kiểm tra hành vi xử lý.",
+    "Kiểm tra cấu trúc xem xét các cột, kiểu dữ liệu, khóa và tập giá trị. Các mô hình dbt có khai báo cấu trúc và điều kiện dữ liệu để làm cơ sở kiểm tra.",
+    "Đối chiếu dữ liệu xem xét số lượng, tập khóa và nội dung giữa các tầng. Do Silver giữ bản ghi xóa mềm, số dòng vật lý không nhất thiết bằng Bronze. Việc đối chiếu cần tách các bản ghi đang có hiệu lực.",
+    "Đối với fact, tập khóa kỳ vọng được xác định từ những dòng chi tiết có hiệu lực liên kết được với đơn hàng có hiệu lực. Các đại lượng tiền và vé được đối chiếu theo quy tắc trạng thái. Bảng tổng hợp được kiểm tra lại bằng phép nhóm từ fact với cùng tổ hợp khóa.",
+    "Các tình huống thay đổi dữ liệu",
+    "Bảng 15: Các tình huống thay đổi dữ liệu",
+    "Các trường hợp trên là kịch bản đánh giá, không phải kết quả đã xác nhận. Mỗi lần thực hiện cần ghi trạng thái trước, thao tác thay đổi, kết quả kỳ vọng và kết quả quan sát.",
+    "Những thay đổi phục vụ kiểm thử nên được thực hiện trên môi trường hoặc tập dữ liệu có thể khôi phục, để việc đánh giá không làm mất khả năng đối chiếu với trạng thái ban đầu.",
+    "Đối chiếu chỉ tiêu phân tích",
+    "Các chỉ tiêu bán vé được đối chiếu ở cùng phạm vi lọc. Tổng số đơn cần đếm theo mã đơn phân biệt; số đơn thanh toán áp dụng điều kiện PAID; số vé và giá trị bán cộng trên những dòng thuộc đơn đã thanh toán.",
+    "Khi so sánh tổng tiền đơn với tổng giá trị các dòng, cần xác nhận dữ liệu đầy đủ và quy tắc giảm giá tương ứng. Việc chỉ khớp tổng số dòng chưa đủ để kết luận các giá trị đã được biến đổi chính xác.",
+    "Đối chiếu theo ngày phải sử dụng ngày đặt đơn theo thiết kế hiện tại. Nếu một phép truy vấn sử dụng ngày thanh toán, kết quả có thể khác dù cả hai phép tính đều thực hiện đúng phạm vi riêng.",
+    "Đánh giá hiệu năng và khả năng vận hành",
+    "Đánh giá hiệu năng cần ghi nhận quy mô dữ liệu, tỷ lệ thay đổi, cấu hình môi trường và thời gian của từng bước. Thời gian đồng bộ Airbyte, thời gian biến đổi dbt và thời gian toàn tuyến được xem xét riêng để xác định nơi phát sinh chi phí.",
+    "Đối với cập nhật tăng dần, cần đối chiếu lượng dữ liệu thay đổi với lượng dữ liệu đọc và ghi. Thiết kế hiện tại vẫn đọc tập ứng viên để so sánh, nên các kết luận về cải thiện hiệu năng phải dựa trên số đo thay vì chỉ dựa vào cấu hình incremental.",
+    "Khả năng vận hành được đánh giá thông qua thứ tự thực thi, việc xử lý lỗi, thông tin nhật ký và hành vi chạy lại. Bằng chứng cần đủ để liên hệ một kết quả dữ liệu với các công việc đã thực hiện.",
+    "",
+    "CHƯƠNG 4 - TRIỂN KHAI VÀ ĐÁNH GIÁ HỆ THỐNG",
+    "",
+    "",
+    "",
+    "",
+    "Môi trường triển khai và tổ chức mã nguồn",
+    "Các thành phần triển khai",
+    "Hệ thống được triển khai trong môi trường cục bộ trên Windows, kết hợp các dịch vụ chạy bằng Docker với những ứng dụng được cài đặt trên máy. SQL Server lưu cơ sở dữ liệu nguồn; PostgreSQL lưu dữ liệu phân tích và dữ liệu vận hành của Airflow trong các cơ sở dữ liệu riêng. Airbyte được quản lý bằng công cụ abctl, còn Power BI Desktop được sử dụng để kết nối và xây dựng báo cáo.",
+    "Môi trường dbt được đặt trong một môi trường Python riêng bên trong image ứng dụng. Cách tổ chức này tách các thư viện của dbt khỏi môi trường Python chính của Airflow, giúp quản lý phiên bản phụ thuộc theo chức năng. Khi xây dựng image, các thư viện được cài đặt theo phiên bản khai báo và kiểm tra sự tương thích của các gói.",
+    "Docker Compose tổ chức các dịch vụ kho dữ liệu, cơ sở dữ liệu siêu thông tin Airflow, khởi tạo Airflow, webserver và scheduler. Dịch vụ khởi tạo thực hiện nhiệm vụ chuẩn bị cấu trúc và cấu hình vận hành; sau khi hoàn tất, dịch vụ này không cần duy trì trạng thái chạy như webserver hoặc scheduler.",
+    "Từ máy Windows, giao diện Airflow sử dụng cổng 8080, Airbyte sử dụng cổng 8000 và kho PostgreSQL được công bố qua cổng 5433. Trong mạng Docker, PostgreSQL được truy cập bằng tên dịch vụ và cổng nội bộ 5432. Sự phân biệt này được áp dụng trong cấu hình kết nối của các thành phần.",
+    "",
+    "Hình 7: Các dịch vụ triển khai trong môi trường Docker",
+    "Tổ chức mã nguồn và cấu hình",
+    "Mã nguồn được phân chia theo chức năng: tạo dữ liệu nguồn, điều phối, biến đổi, báo cáo và tài liệu. Trong phần điều phối, các DAG được nhóm theo Bronze, Silver và Gold; phần dùng chung quản lý kết nối dịch vụ, chờ công việc và thực thi dbt. Trong phần biến đổi, mô hình SQL được tổ chức theo tầng, còn các macro tập trung những quy tắc có thể tái sử dụng.",
+    "Cách phân chia này cho phép liên hệ một tác vụ với mô hình và bảng đầu ra tương ứng. Khi cần thay đổi nghiệp vụ, người thực hiện chỉnh sửa mô hình gốc và cấu hình liên quan thay vì sửa trực tiếp câu SQL đã biên dịch trong sản phẩm thực thi.",
+    "Các tham số kết nối được cung cấp qua cấu hình môi trường. Trong báo cáo, thông tin kết nối được trình bày theo vai trò và tên tham số; các giá trị xác thực không được đưa vào đoạn mã minh họa. Những cấu hình quan trọng như múi giờ, phạm vi mô hình và giới hạn thời gian thực thi được quản lý thống nhất với môi trường triển khai.",
+    "Triển khai cơ sở dữ liệu nguồn và chương trình sinh dữ liệu",
+    "Tạo cấu trúc dữ liệu nguồn",
+    "Cơ sở dữ liệu TicketingDB gồm năm bảng: events, ticket_types, orders, order_items và payments. Các bảng được xây dựng với khóa chính, khóa ngoại, ràng buộc duy nhất và ràng buộc giá trị theo thiết kế ở Chương 3.",
+    "Các ràng buộc được sử dụng để kiểm soát những điều kiện có thể biểu diễn trực tiếp tại cơ sở dữ liệu. Ví dụ, số lượng vé phải nằm trong phạm vi quy định; giá trị sau giảm giá phải bằng giá trị trước giảm giá trừ khoản giảm giá; hạng vé của dòng đơn phải thuộc cùng sự kiện với đơn hàng.",
+    "Đối với thanh toán, chỉ mục duy nhất có điều kiện được áp dụng trên mã đơn hàng khi trạng thái là SUCCESS. Điều này giới hạn tối đa một lần thanh toán thành công cho mỗi đơn trong cấu trúc nguồn. Những yêu cầu tổng hợp qua nhiều dòng, như tổng giá trị các dòng bằng tổng tiền đơn, được kiểm tra bổ sung trong chương trình sinh dữ liệu.",
+    "Sinh dữ liệu có quan hệ nghiệp vụ",
+    "Chương trình Python tạo dữ liệu theo thứ tự phụ thuộc: sự kiện, hạng vé, đơn hàng, chi tiết đơn hàng và thanh toán. Các đối tượng sử dụng chung bộ quy tắc sinh để giữ sự nhất quán khi xuất dữ liệu cho từng bảng.",
+    "Dữ liệu sự kiện gồm nhóm nội dung, địa điểm, thời gian và khoảng mở bán. Hạng vé được thiết lập theo sự kiện, với giá và hạn mức tương ứng. Đơn hàng được tạo trong khoảng mở bán, có kênh bán, trạng thái và một hoặc nhiều dòng vé. Các lần thử thanh toán được hình thành theo trạng thái của đơn.",
+    "Chương trình sử dụng các trọng số để tạo sự khác biệt giữa sự kiện, hạng vé và thời điểm đặt. Nhờ đó, dữ liệu có nhiều nhóm và trạng thái để phục vụ phân tích, thay vì mọi sự kiện có cùng số đơn hoặc mọi đơn có cấu trúc giống nhau. Những trọng số này là giả định của chương trình, không phải tham số được suy ra từ dữ liệu kinh doanh thực tế.",
+    "Trước khi xuất hoặc nạp, chương trình kiểm tra các quan hệ và tổng tiền. Những điều kiện được kiểm tra gồm sự phù hợp về sự kiện giữa đơn và hạng vé, giá trị dòng, tổng tiền đơn, số lần thanh toán thành công và số vé bán trong hạn mức.",
+    "Bổ sung dữ liệu lịch sử",
+    "Chương trình bổ sung lịch sử nhận các tham số về năm bắt đầu, năm kết thúc, số đơn mỗi năm và giá trị khởi tạo. Quy trình tách bước sinh dữ liệu khỏi bước nạp để người thực hiện có thể xác định phạm vi trước khi ghi vào nguồn.",
+    "Khi nạp một lô, chương trình xác định phạm vi khóa đã tồn tại và điều chỉnh khóa của dữ liệu mới cùng các tham chiếu liên quan. Các bảng được nạp theo thứ tự phụ thuộc trong một giao dịch cho từng năm. Nếu có lỗi trong quá trình nạp năm đó, giao dịch được hoàn tác.",
+    "Chương trình còn kiểm tra dấu hiệu lô đã được nạp theo thông tin nhận diện. Nếu lô tồn tại nhưng số lượng không phù hợp với cấu hình mới, quá trình nạp dừng để tránh sử dụng lại định danh cho một bộ dữ liệu khác. Hồ sơ lô ghi nhận tham số và kết quả nạp, hỗ trợ theo dõi quá trình mở rộng dữ liệu.",
+    "Giao dịch được tổ chức theo năm, nên một yêu cầu nạp nhiều năm không được hiểu là một giao dịch duy nhất cho toàn bộ giai đoạn.",
+    "Triển khai đồng bộ và điều phối tầng Bronze",
+    "Cấu hình đồng bộ bằng Airbyte",
+    "Airbyte sử dụng kết nối nguồn SQL Server và kết nối đích PostgreSQL. Năm bảng nghiệp vụ được đồng bộ vào lược đồ bronze theo chế độ Full Refresh Overwrite.",
+    "Sau khi đồng bộ thành công, các bảng Bronze cung cấp dữ liệu cho những mô hình Silver tương ứng. dbt khai báo các bảng này là nguồn, giúp phân biệt dữ liệu do Airbyte nạp với dữ liệu do mô hình biến đổi tạo ra.",
+    "Mã Connection ID được quản lý trong cấu hình dùng chung và được từng DAG lấy theo tên nghiệp vụ. Lịch chạy nằm trong DAG, nhờ đó việc thay đổi thời điểm đồng bộ không làm thay đổi định danh kết nối.",
+    "",
+    "Hình 8: Cấu hình đồng bộ dữ liệu từ SQL Server vào Bronze",
+    "Kích hoạt và chờ công việc",
+    "DAG Bronze có hai tác vụ: kích hoạt Airbyte và chờ công việc hoàn tất. Đoạn mã sau trích cơ chế thực thi:",
+    "",
+    "Hình 9: Cấu hình kích hoạt và chờ công việc đồng bộ Airbyte",
+    "Mã công việc trả về từ bước kích hoạt được truyền sang bộ cảm biến. Bộ cảm biến kiểm tra đúng công việc đó và chỉ hoàn thành khi trạng thái là succeeded. Các trạng thái đang chờ hoặc đang chạy tiếp tục được theo dõi; trạng thái kết thúc không thành công làm tác vụ báo lỗi.",
+    "",
+    "Hình 10: Kết quả đồng bộ dữ liệu bằng Airbyte",
+    "Chế độ reschedule cho phép nhả vị trí thực thi giữa các lần kiểm tra. Giới hạn chờ được cấu hình để công việc không tiếp tục chờ vô thời hạn.",
+    "Bước gửi yêu cầu không tự thử lại theo cấu hình của DAG minh họa. Quyết định này hạn chế việc gửi thêm yêu cầu khi công việc bên ngoài có thể đã được tạo. Khi cần thực hiện lại, người vận hành phải đối chiếu mã và trạng thái công việc đã nhận.",
+    "Dataset được gắn với bước chờ, vì vậy tín hiệu hoàn thành Bronze tương ứng được phát sau khi tác vụ xác nhận đồng bộ thành công.",
+    "",
+    "Hình 11: Cấu trúc DAG và Dataset đầu ra",
+    "Triển khai các mô hình dbt",
+    "Cấu hình mô hình",
+    "Phương thức tạo dữ liệu đầu ra được khai báo trực tiếp trong khối config() của từng mô hình SQL. Các mô hình Silver và bảng fact_ticket_sales sử dụng materialized='incremental' cùng incremental_strategy='merge'. Năm bảng chiều và bảng agg_daily_sales khai báo materialized='table'. Cách tổ chức này cho phép xác định và điều chỉnh chế độ xử lý khi đọc từng mô hình, thay vì phải tìm cấu hình kế thừa theo thư mục.",
+    "Cấu hình Silver:",
+    "",
+    "Hình 12: Thông tin cấu hình dbt tầng Silver",
+    "Trong cấu hình này, materialized xác định cách duy trì bảng đầu ra; incremental_strategy xác định cách hợp nhất trên lượt chạy tăng dần; unique_key là khóa đối chiếu giữa bản ghi ứng viên và bảng đích. Khai báo unique_key không tự tạo ràng buộc duy nhất tại cơ sở dữ liệu, nên chỉ mục và kiểm tra khóa vẫn có trách nhiệm riêng.",
+    "Mỗi mô hình Silver khai báo khóa nhận diện và chỉ mục phù hợp. Khóa được sử dụng để hợp nhất bản ghi mới với bảng hiện tại. Các khai báo YAML mô tả cột, kiểu dữ liệu và điều kiện kiểm tra, giúp cấu trúc đầu ra được quản lý cùng mã nguồn.",
+    "Cấu hình on_schema_change: fail được sử dụng để dừng khi cấu trúc không phù hợp với trạng thái bảng đích. Cách xử lý này giúp thay đổi cấu trúc được xem xét có chủ đích trước khi tiếp tục biến đổi.",
+    "Chuẩn hóa và khử trùng tại Silver",
+    "Các mô hình Silver đọc dữ liệu bằng source(), chuyển đổi kiểu và chuẩn hóa văn bản. Những trường trạng thái, tiền tệ và kênh bán được biểu diễn nhất quán để sử dụng trong điều kiện tính toán.",
+    "Sau đó, mô hình tạo định danh và xếp hạng theo khóa. Bản ghi có thứ hạng đầu tiên được giữ trong tập ứng viên. Việc khử trùng được thực hiện trước phép hợp nhất, nhằm tránh nhiều bản ghi cùng khóa tác động đến một dòng đích.",
+    "Thông tin trích xuất được sử dụng trong lựa chọn bản ghi nhưng không được đưa vào định danh nội dung. Vì vậy, việc nhận lại cùng nội dung trong một lần đồng bộ mới không tự tạo ra thay đổi nghiệp vụ.",
+    "Macro dùng chung đối chiếu ứng viên với bảng đích. Trên lần chạy tăng dần, các bản ghi được chọn để ghi khi khóa chưa tồn tại, dấu định danh khác hoặc bản ghi đích đang bị đánh dấu xóa.",
+    "Đối với bản ghi đang có hiệu lực ở đích nhưng không còn trong tập ứng viên, macro tạo trạng thái xóa mềm. Khi khóa xuất hiện trở lại, điều kiện kiểm tra trạng thái xóa cho phép khôi phục dù nội dung không thay đổi.",
+    "Các bản ghi không đổi được giữ nguyên thay vì ghi lại. Cơ chế này giảm số dòng cần hợp nhất, nhưng vẫn phải đọc dữ liệu để tạo và đối chiếu tập ứng viên. _loaded_at được cập nhật khi bản ghi được ghi, nên không thể dùng riêng trường này để xác nhận thời điểm đồng bộ gần nhất của bảng.",
+    "Cấu hình chỉ mục và phạm vi sử dụng phân vùng",
+    "Chỉ mục được khai báo trong thuộc tính indexes của mô hình. Mỗi phần tử trong danh sách biểu diễn một chỉ mục, còn columns xác định các cột của chỉ mục đó. dbt-postgres thực hiện tạo chỉ mục theo cấu hình khi hiện thực hóa mô hình.",
+    "Trong mô hình thanh toán, cấu hình gồm hai chỉ mục riêng biệt:",
+    "",
+    "Hình 13: Thông tin cấu hình index trong dbt",
+    "Chỉ mục không quyết định điều kiện cập nhật tăng dần. Mô hình hiện tại vẫn đối chiếu khóa, dấu định danh và trạng thái bản ghi; việc có chỉ mục updated_at không có nghĩa hệ thống chỉ đọc các dòng sau một mốc thời gian. Hiệu quả sử dụng từng chỉ mục cần được xem xét qua kế hoạch và thời gian truy vấn, đồng thời tính đến chi phí lưu trữ và cập nhật chỉ mục.",
+    "Phiên bản triển khai hiện tại không cấu hình phân vùng vật lý cho các bảng dbt. PostgreSQL có khả năng chia một bảng thành các phần lưu trữ theo khóa phân vùng, nhưng cơ chế này cần một thiết kế tạo bảng và quản lý phân vùng riêng. Đề tài giữ cấu trúc bảng hiện tại để tập trung đánh giá đồng bộ, chuẩn hóa và cập nhật dữ liệu; việc phân vùng có thể được xem xét khi có yêu cầu và số đo phù hợp.",
+    "Mệnh đề partition by order_id trong hàm row_number() ở mục 4.4.2 chỉ nhóm các dòng phục vụ xếp hạng và khử trùng. Nó không chia bảng thành các phân vùng lưu trữ. Vì vậy, khử trùng bằng hàm cửa sổ, chỉ mục và phân vùng vật lý là ba cơ chế có vai trò khác nhau.",
+    "",
+    "Hình 14: Thông tin cấu hình phân vùng trong dbt",
+    "Triển khai dữ liệu phân tích tại Gold",
+    "Các bảng chiều",
+    "Năm bảng chiều được xây dựng theo phương thức tạo lại bảng. Chiều sự kiện và hạng vé lấy các bản ghi chưa bị xóa mềm từ Silver. Chiều kênh bán và trạng thái sử dụng ánh xạ khóa cố định. Chiều ngày tạo dải ngày liên tục từ phạm vi ngày đặt đơn đang có hiệu lực.",
+    "Các bảng chiều cung cấp thuộc tính mô tả và khóa để liên kết với bảng fact. Giá niêm yết tại chiều hạng vé phục vụ ngữ cảnh phân tích; giá trị giao dịch được lấy từ dòng đơn để giữ đúng mức giá đã ghi nhận.",
+    "Việc tạo lại bảng phản ánh thuộc tính hiện tại, chưa lưu các phiên bản lịch sử của chiều. Do đó, phân tích giao dịch trước đây theo thuộc tính hiện tại cần được hiểu theo phạm vi của mô hình.",
+    "Bảng đo lường bán vé",
+    "Bảng fact_ticket_sales được xây dựng từ các dòng chi tiết có hiệu lực và đơn hàng liên quan. Mỗi bản ghi được nhận diện bằng order_item_id.",
+    "Ngày phân tích được lấy từ ordered_at. Các khóa kênh bán và trạng thái được tra cứu từ bảng chiều. Quy tắc chỉ tiêu bán được hiện thực bằng điều kiện trạng thái:",
+    "",
+    "Hình 15: Quy tắc chỉ tiêu bán vé",
+    "Mô hình xem xét lại các dòng đang có hiệu lực cùng đơn hàng ở mỗi lần chạy. Nhờ đó, thay đổi trạng thái đơn hàng được phản ánh vào tập ứng viên fact, ngay cả khi bản thân dòng chi tiết không thay đổi.",
+    "Bảng thanh toán không được nối trực tiếp vào phép tính để tránh nhân bản dòng vé theo số lần thử. Các chỉ tiêu hiện tại sử dụng trạng thái đơn làm căn cứ, còn thanh toán được giữ tại Silver cho những nhu cầu kiểm tra và mở rộng.",
+    "Fact sử dụng merge theo khóa dòng đơn. Những dòng không còn thuộc tập ứng viên được nhận diện qua cơ chế dùng chung, sau đó loại khỏi bảng công bố bằng bước xử lý sau mô hình.",
+    "Bảng tổng hợp",
+    "Bảng agg_daily_sales được tạo lại từ fact, nhóm theo ngày đặt đơn, sự kiện và kênh bán. Các giá trị vé và tiền được cộng; số đơn được đếm phân biệt theo mã đơn.",
+    "Mức tổng hợp này phù hợp với các chỉ tiêu theo thời gian, sự kiện và kênh. Phân tích hạng vé sử dụng fact chi tiết, vì bảng tổng hợp không chứa khóa hạng vé.",
+    "Bảng tổng hợp được điều phối sau fact. Tuy nhiên, các mô hình Gold được cập nhật riêng, nên việc hoàn thành một mô hình chưa có nghĩa toàn bộ Gold đã được công bố đồng thời.",
+    "Triển khai điều phối Silver và Gold",
+    "Thực thi mô hình theo Dataset",
+    "Các DAG Silver sử dụng Dataset từ Bronze làm điều kiện lập lịch. Khi mô hình hoàn thành, tác vụ phát Dataset cho đầu ra Silver. Lệnh chạy được thể hiện trực tiếp trong DAG để xác định phạm vi xử lý.",
+    "Bộ thực thi bổ sung các tham số về project, cấu hình kết nối và nơi lưu sản phẩm chạy. Trước khi gọi dbt, phạm vi lựa chọn được kiểm tra để phù hợp với tầng của DAG.",
+    "",
+    "Hình 16: Thông tin tác vụ DAG sử dụng và lịch sử cập nhật Dataset",
+    "Các DAG chiều Gold chờ nhóm tín hiệu của năm bảng Silver. Fact chờ các tín hiệu của năm bảng chiều, còn bảng tổng hợp chờ fact. Cấu trúc này thể hiện trình tự thực thi từ dữ liệu chuẩn hóa đến đầu ra phân tích.",
+    "Kiểm soát chạy lại và cạnh tranh ghi",
+    "Các lượt chạy dbt có thư mục sản phẩm riêng để lưu nhật ký và kết quả thực thi. Điều này hỗ trợ kiểm tra trạng thái của từng mô hình mà không phụ thuộc vào một tệp kết quả chung bị ghi đè liên tục.",
+    "Cơ chế khóa tư vấn của PostgreSQL được sử dụng theo tên mô hình để hạn chế hai tác vụ cùng ghi vào một bảng. Khi chạy toàn tầng, các khóa được lấy theo thứ tự xác định. Cơ chế này hỗ trợ kiểm soát cạnh tranh giữa DAG riêng và DAG toàn tầng.",
+    "Giới hạn một lượt đang chạy của từng DAG không thay thế khóa giữa các DAG khác nhau. Đồng thời, khóa theo mô hình không bảo đảm toàn bộ đầu vào được giữ nguyên trong suốt chuỗi xử lý.",
+    "Tham số full_refresh mặc định không bật trong vận hành thường xuyên. Khi cần khởi tạo lại hoặc thay đổi cấu trúc, người thực hiện phải xác định phạm vi mô hình và kiểm soát những tác vụ có thể chạy đồng thời.",
+    "Khai thác dữ liệu bằng Power BI",
+    "Tệp báo cáo hiện có bốn trang:",
+    "Bảng 16: Bảng thống kê các trang báo cáo PBI",
+    "Dữ liệu báo cáo được lấy từ Gold. Số vé đã bán sử dụng sold_quantity; giá trị bán vé sử dụng sales_amount; số đơn được xác định bằng mã đơn phân biệt. Tỷ lệ thanh toán được tính từ số đơn PAID trên tổng số đơn trong cùng phạm vi lọc.",
+    "Các bảng chiều tạo ngữ cảnh lọc cho bảng đo lường. Khóa định danh được sử dụng để liên kết; các cột kỹ thuật có thể được ẩn trong giao diện khai thác để tránh nhầm với chỉ tiêu nghiệp vụ.",
+    "Power BI minh họa khả năng sử dụng đầu ra, đồng thời cung cấp một điểm đối chiếu với SQL. Báo cáo cần được làm mới sau khi các mô hình cần thiết hoàn thành. Khi so sánh chỉ tiêu, hai phía phải dùng cùng điều kiện về ngày, sự kiện và kênh bán.",
+    "Phạm vi hiện tại sử dụng Power BI Desktop. Việc tự động làm mới trên dịch vụ trực tuyến chưa được xem là kết quả triển khai của khóa luận.",
+    "",
+    "Hình 17: Báo cáo tổng quan hoạt động bán vé",
+    "",
+    "",
+    "Hình 18: Báo cáo chi tiết sự kiện",
+    "Kết quả thực thi và đối chiếu dữ liệu",
+    "Kết quả thực thi mô hình dbt",
+    "Các tệp kết quả dbt thực thi ngày 13/10/2026 ghi nhận trạng thái success cho cả năm mô hình Silver và bảy mô hình Gold. Bảng sau sử dụng kết quả gần nhất của từng mô hình tại thời điểm đọc hồ sơ.",
+    "Bảng 17: Bảng kết quả thực thi mô hình dbt",
+    "Những kết quả này cung cấp bằng chứng các mô hình đã thực thi thành công trên môi trường được ghi nhận. Chúng không xác nhận toàn bộ nội dung dữ liệu đã được đối chiếu hoặc mọi tình huống thay đổi đã được kiểm thử.",
+    "Các thời gian là quan sát riêng lẻ từ những lượt chạy của từng mô hình. Không cộng trực tiếp các giá trị này để suy ra thời gian toàn tuyến, do các tác vụ có thể được điều phối tại thời điểm khác nhau và có phần chạy song song.",
+    "Ở các lượt gần nhất của Silver và fact, phản hồi của câu lệnh chính ghi nhận số dòng bị tác động bằng không. Điều này phù hợp với một lượt không chọn được bản ghi cần hợp nhất, nhưng chưa đủ để khẳng định nguồn không thay đổi hoặc toàn bộ bước xử lý không thực hiện thao tác khác.",
+    "Quy mô dữ liệu tại thời điểm khảo sát",
+    "Hồ sơ khảo sát ngày 04/10/2026 ghi nhận quy mô nguồn như sau:",
+    "Bảng 18: Bảng thống kê quy mô dữ liệu tại nguồn",
+    "Số dòng chi tiết lớn hơn số đơn phản ánh việc một đơn có thể chứa nhiều dòng vé. Số lần thử thanh toán lớn hơn số đơn phù hợp với cấu trúc cho phép nhiều lần thử.",
+    "Những số liệu này thuộc trạng thái ngày 04/10/2026, không được trình bày như số lượng hiện tại sau các lần bổ sung dữ liệu.",
+    "Đối chiếu nguồn và dữ liệu phân tích",
+    "Trong lần khảo sát ngày 04/10/2026, bảng đơn hàng tại Bronze và Silver đều có 357.000 bản ghi. Bảng fact_ticket_sales có 399.696 bản ghi, tương ứng với số dòng chi tiết nguồn được ghi nhận.",
+    "Sự tương ứng phù hợp với mức chi tiết của thiết kế tại thời điểm đó. Tuy nhiên, đối chiếu số lượng mới xác nhận một phần kết quả. Để đánh giá toàn bộ nội dung, cần so sánh thêm tập khóa, thuộc tính và các quy tắc lọc.",
+    "Khi Silver có bản ghi xóa mềm, việc đối chiếu với Bronze phải xét các bản ghi đang có hiệu lực. Đối với fact, tập khóa kỳ vọng phụ thuộc vào dòng chi tiết và đơn hàng liên quan còn hiệu lực, không chỉ vào số lượng vật lý của bảng nguồn.",
+    "Kết quả chỉ tiêu bán vé",
+    "Tổng hợp tại Gold trong hồ sơ ngày 04/10/2026 ghi nhận:",
+    "Bảng 19: Bảng kết quả tổng hợp tại Gold",
+    "Các trạng thái ngoài PAID không đóng góp vào số vé đã bán và giá trị bán vé, phù hợp với quy tắc tính toán của mô hình. Tỷ lệ đơn đã thanh toán trong tập quan sát xấp xỉ 82,15%.",
+    "Các chỉ tiêu phản ánh bộ dữ liệu tổng hợp và trạng thái được ghi nhận, không được sử dụng để kết luận về thị trường hoặc hiệu quả thực tế của một doanh nghiệp.",
+    "Đánh giá",
+    "Về triển khai, project đã có các thành phần đồng bộ, mô hình biến đổi, cấu trúc phân tích và cơ chế điều phối theo từng tầng. Mã nguồn thể hiện các quy tắc chuẩn hóa, khử trùng, hợp nhất và xử lý trạng thái bản ghi.",
+    "Về thực thi, sản phẩm dbt ghi nhận các mô hình Silver và Gold hoàn thành thành công. Hồ sơ đối chiếu cung cấp bằng chứng về quy mô nguồn và sự tương ứng của một số bảng đích. Báo cáo Power BI thể hiện khả năng khai thác các đầu ra theo những câu hỏi phân tích đã xác định.",
+    "Mức độ đáp ứng yêu cầu cần được xem xét theo từng loại bằng chứng. Mã nguồn xác nhận cơ chế đã được hiện thực; nhật ký xác nhận một lượt đã thực thi; truy vấn đối chiếu xác nhận kết quả trong phạm vi dữ liệu và điều kiện cụ thể. Các bằng chứng này bổ sung cho nhau nhưng không thay thế hoàn toàn.",
+    "Cơ chế tăng dần lựa chọn bản ghi theo khóa, dấu định danh và trạng thái xóa. Thiết kế có khả năng xử lý thay đổi ở đơn hàng làm ảnh hưởng đến các dòng fact, đồng thời xét trường hợp bản ghi biến mất và xuất hiện trở lại.",
+    "Để xác nhận đầy đủ hành vi, cần các ca kiểm thử có trạng thái trước và sau đối với thêm mới, sửa đơn cũ, xóa, khôi phục và chạy lại cùng đầu vào. Những ca chưa có hồ sơ hoàn tất không được kết luận là đã đạt chỉ từ việc nhánh xử lý tồn tại trong mã nguồn.",
+    "Về hiệu năng, các thời gian ghi nhận cho thấy thời gian thực thi trong một số lượt vận hành, chưa hình thành một phép so sánh có kiểm soát giữa tạo lại toàn bộ và cập nhật tăng dần. Vì vậy, kết luận hiện tại tập trung vào cơ chế hạn chế ghi bản ghi không đổi; mức cải thiện thời gian cần được đo trên cùng dữ liệu và điều kiện.",
+    "",
+    "CHƯƠNG 5 – KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "Kết quả đạt được",
+    "Khóa luận đã thiết kế và xây dựng hệ thống tích hợp, xử lý dữ liệu bán vé sự kiện theo quy trình ELT và kiến trúc Medallion. Hệ thống tổ chức dữ liệu thành ba tầng Bronze, Silver và Gold, kết nối cơ sở dữ liệu nghiệp vụ với kho dữ liệu phục vụ phân tích. Trong phạm vi triển khai, SQL Server lưu trữ dữ liệu nguồn; Airbyte thực hiện đồng bộ; PostgreSQL lưu trữ các tầng dữ liệu; dbt-postgres đảm nhiệm biến đổi và mô hình hóa; Airflow điều phối quá trình xử lý; Power BI khai thác dữ liệu đầu ra. Kết quả chính của đề tài là xây dựng được một quy trình xử lý có cấu trúc, trong đó trách nhiệm của từng thành phần và quan hệ phụ thuộc giữa các bước được xác định rõ ràng.",
+    "Xây dựng nguồn dữ liệu và kiến trúc xử lý",
+    "Nguồn dữ liệu được tổ chức thành năm bảng quan hệ, mô tả các đối tượng và giao dịch cơ bản của hệ thống bán vé: sự kiện, loại vé, đơn hàng, chi tiết đơn hàng và giao dịch thanh toán. Việc phân tách này phản ánh sự khác biệt giữa dữ liệu danh mục và dữ liệu phát sinh, đồng thời thể hiện quan hệ một–nhiều giữa đơn hàng với các dòng chi tiết và các lần thử thanh toán. Chương trình Python được sử dụng để tạo dữ liệu tổng hợp, cho phép bổ sung dữ liệu theo năm và kiểm soát các tham số sinh dữ liệu. Đây là cơ sở để triển khai hệ thống mà không sử dụng thông tin cá nhân hoặc giao dịch nội bộ của doanh nghiệp.",
+    "Kiến trúc Medallion được áp dụng ở mức tổ chức và xử lý dữ liệu trong PostgreSQL. Tầng Bronze tiếp nhận dữ liệu đồng bộ từ nguồn; tầng Silver chuẩn hóa dữ liệu và quản lý trạng thái bản ghi; tầng Gold hình thành các mô hình phục vụ phân tích. Cách tổ chức này tạo sự phân biệt giữa dữ liệu tiếp nhận, dữ liệu đã xử lý và dữ liệu công bố cho người sử dụng. Đồng thời, việc giữ logic biến đổi trong mã nguồn dbt giúp người đọc có thể theo dõi cách dữ liệu được chuyển đổi giữa các tầng, thay vì chỉ quan sát kết quả cuối cùng trên báo cáo.",
+    "Triển khai biến đổi dữ liệu và mô hình phân tích",
+    "Một kết quả kỹ thuật quan trọng của khóa luận là xây dựng cơ chế cập nhật tăng dần phù hợp với đầu vào dạng bản chụp toàn bộ. Các mô hình Silver thực hiện chuẩn hóa kiểu dữ liệu, xử lý giá trị chuỗi và khử trùng theo khóa nghiệp vụ. Hàm băm được sử dụng để nhận diện thay đổi nội dung, qua đó lựa chọn những bản ghi cần thêm mới hoặc cập nhật. Cơ chế xử lý còn xét đến trường hợp bản ghi không còn xuất hiện trong bản chụp và trường hợp bản ghi xuất hiện trở lại. Như vậy, việc cập nhật không chỉ dựa trên sự gia tăng của khóa hoặc dấu thời gian, mà dựa trên sự khác biệt giữa trạng thái nguồn và trạng thái đã lưu.",
+    "Ở tầng Gold, khóa luận xây dựng năm bảng chiều, một bảng đo lường bán vé và một bảng tổng hợp theo ngày. Mức chi tiết của bảng đo lường được xác định là một dòng chi tiết đơn hàng. Lựa chọn này cho phép phân tích số lượng vé và giá trị bán hàng theo sự kiện, loại vé, thời gian, kênh bán và trạng thái đơn. Các chỉ tiêu số vé đã bán và doanh thu được xác định theo trạng thái thanh toán của đơn hàng, tránh đồng nhất mọi đơn phát sinh với giao dịch bán hàng thành công.",
+    "Việc không nối trực tiếp các lần thử thanh toán vào bảng đo lường bán vé là một quyết định thiết kế đáng chú ý. Một đơn hàng có thể có nhiều lần thử thanh toán; nếu kết hợp các bảng không phù hợp với mức chi tiết đã chọn, số lượng dòng và giá trị tổng hợp có thể bị nhân lên. Mô hình hiện tại sử dụng trạng thái đơn hàng để xác định kết quả bán vé, trong khi dữ liệu thanh toán được xử lý riêng ở Silver. Cách tiếp cận này giữ phạm vi bảng đo lường nhất quán với mục tiêu phân tích của đề tài.",
+    "Điều phối quy trình và khai thác kết quả",
+    "Airflow được triển khai để điều phối các bước đồng bộ và biến đổi dữ liệu. Các DAG được phân chia theo tầng và nghiệp vụ, giúp nhận diện công việc đang thực hiện và vị trí xảy ra lỗi. Đối với tầng Bronze, quy trình không dừng ở việc gửi yêu cầu đồng bộ đến Airbyte mà còn theo dõi trạng thái thực hiện. Tín hiệu hoàn thành chỉ được phát khi công việc đồng bộ thành công. Các DAG phía sau sử dụng Dataset để thiết lập quan hệ phụ thuộc, qua đó hạn chế việc chạy biến đổi khi bước xử lý trước chưa hoàn tất.",
+    "Hệ thống cũng đưa lệnh thực thi dbt và đường dẫn mô hình vào cấu hình công việc, hỗ trợ việc đọc, sửa và truy vết mã nguồn. Cấu hình cập nhật được khai báo tại từng mô hình SQL, cho phép lựa chọn cách xử lý phù hợp với từng bảng. Trong cấu hình hiện tại, các bảng Silver và bảng đo lường bán vé sử dụng cập nhật tăng dần, còn các bảng chiều và bảng tổng hợp được tạo lại.",
+    "Kết quả đầu ra được khai thác qua bốn trang Power BI, gồm tổng quan, hiệu quả các sự kiện, chi tiết sự kiện, kênh bán và trạng thái đơn. Báo cáo đóng vai trò minh họa khả năng sử dụng dữ liệu sau xử lý, không thay thế việc đánh giá tính đúng đắn của quy trình. Các quan sát đối chiếu số lượng và nhật ký thực thi đã trình bày ở Chương 4 cung cấp bằng chứng cho những lần xử lý được ghi nhận. Tuy nhiên, các bằng chứng này chưa tương đương với việc kiểm chứng toàn bộ nội dung dữ liệu hoặc chứng minh hệ thống đạt yêu cầu vận hành trong môi trường sản xuất.",
+    "Hạn chế của đề tài",
+    "Hạn chế về dữ liệu và phạm vi nghiệp vụ",
+    "Dữ liệu sử dụng trong khóa luận được tạo tổng hợp bằng chương trình Python. Mặc dù dữ liệu được tổ chức theo quan hệ nghiệp vụ và có các ràng buộc nhất quán, dữ liệu tổng hợp chưa thể phản ánh đầy đủ đặc điểm của một hệ thống bán vé đang vận hành. Những tình huống như thay đổi chính sách giá, điều chỉnh đơn hàng sau thanh toán, hoàn tiền một phần hoặc sai lệch giữa các hệ thống có thể phức tạp hơn phạm vi đã mô phỏng. Vì vậy, các chỉ tiêu trên Power BI chỉ có ý nghĩa minh họa khả năng phân tích của hệ thống, không được sử dụng để kết luận về hoạt động kinh doanh của một doanh nghiệp thực tế.",
+    "Phạm vi phân tích tập trung vào giao dịch và bán vé, chưa bao gồm thông tin khách hàng, đối soát với đối tác thanh toán hoặc toàn bộ vòng đời hoàn tiền. Việc giới hạn phạm vi giúp khóa luận tập trung vào kiến trúc và cơ chế xử lý dữ liệu, nhưng cũng làm giới hạn các câu hỏi phân tích có thể giải quyết.",
+    "Hạn chế về kiểm chứng và môi trường triển khai",
+    "Các kết quả được trình bày dựa trên quan sát dữ liệu và nhật ký thực thi đã thu thập. Việc đối chiếu số lượng không đủ để khẳng định mọi bản ghi đều đúng về nội dung, và một lần chạy thành công không chứng minh tất cả tình huống thay đổi đã được xử lý chính xác. Những kịch bản thêm mới, cập nhật, xóa, xuất hiện trở lại, thất bại đồng bộ và chạy lại sau lỗi cần được kiểm chứng có kiểm soát, với dữ liệu đầu vào và kết quả kỳ vọng được xác định trước.",
+    "Tương tự, thời gian thực hiện từng mô hình trong nhật ký chưa phải kết quả đo hiệu năng có tính khái quát. Khóa luận chưa có thí nghiệm lặp lại trong điều kiện tài nguyên và khối lượng dữ liệu được kiểm soát để so sánh các phương án xử lý. Môi trường Docker trên máy cá nhân phù hợp với triển khai và trình diễn, nhưng chưa thể hiện các yêu cầu về tính sẵn sàng cao, phục hồi sự cố, quản lý truy cập và vận hành liên tục.",
+    "Hướng phát triển",
+    "Hoàn thiện kiểm chứng và kiểm soát đầu vào",
+    "Hướng phát triển ưu tiên là xây dựng bộ kiểm chứng có khả năng thực hiện lặp lại. Mỗi kịch bản cần xác định trạng thái ban đầu, thao tác thay đổi ở nguồn và trạng thái kỳ vọng tại Silver, Gold. Các trường hợp cần được kiểm tra bao gồm thêm bản ghi, thay đổi nội dung, thay đổi trạng thái đơn hàng, loại bỏ bản ghi, xuất hiện trở lại và thực hiện lại cùng một đầu vào. Kết quả nên được đối chiếu theo khóa và giá trị, không chỉ dựa vào số lượng dòng.",
+    "Đồng thời, hệ thống cần bổ sung điều kiện xác nhận bản chụp hợp lệ trước khi biến đổi. Có thể xem xét các tiêu chí như trạng thái đồng bộ, số lượng dòng, mức biến động so với lần trước và sự đầy đủ của các bảng bắt buộc. Khi đầu vào không đáp ứng điều kiện, quy trình cần dừng hoặc đưa ra cảnh báo để tránh công bố kết quả chưa đáng tin cậy.",
+    "Tăng cường tính nhất quán và khả năng vận hành",
+    "Một định hướng tiếp theo là bổ sung mã nhận diện lô xử lý và thông tin thời điểm tiếp nhận cho các bảng liên quan. Cơ chế này hỗ trợ kiểm tra sự tương ứng giữa các đầu vào, truy vết kết quả và xác định phạm vi cần chạy lại khi có lỗi. Đối với tầng Gold, có thể thiết kế bước kiểm tra trước khi công bố, chỉ chuyển sang trạng thái phục vụ báo cáo khi các mô hình bắt buộc đã hoàn thành và đáp ứng điều kiện chất lượng.",
+    "Khả năng vận hành cũng cần được hoàn thiện thông qua quản lý thông tin kết nối, phân quyền theo chức năng, sao lưu và hướng dẫn khôi phục. Các cảnh báo nên phân biệt lỗi đồng bộ, lỗi biến đổi và bất thường dữ liệu để người vận hành xác định đúng nguyên nhân, thay vì chỉ nhận thông báo công việc thất bại.",
+    "Đánh giá hiệu năng và mở rộng theo nhu cầu",
+    "Việc tối ưu cần bắt đầu từ đo lường trong điều kiện có kiểm soát. Các thí nghiệm nên thay đổi khối lượng dữ liệu và tỷ lệ bản ghi thay đổi, đồng thời ghi nhận thời gian xử lý, tài nguyên sử dụng và số lượng dòng được ghi. Trên cơ sở đó, có thể đánh giá tác dụng của chỉ mục và lựa chọn phương án xử lý phù hợp cho từng mô hình, thay vì giả định mọi bảng đều cần cùng một cấu hình.",
+    "Khi yêu cầu nghiệp vụ và khối lượng dữ liệu mở rộng, hệ thống có thể được nghiên cứu bổ sung cơ chế thu nhận thay đổi tại nguồn, quản lý lịch sử bảng chiều hoặc phân vùng các bảng lớn. Việc lựa chọn cần dựa trên yêu cầu đã xác định và kết quả đo lường. Trong phạm vi hiện tại, ưu tiên hoàn thiện tính đúng đắn, khả năng truy vết và tính nhất quán của quy trình có ý nghĩa thiết thực hơn việc bổ sung nhiều công nghệ nhưng chưa chứng minh được nhu cầu sử dụng.",
+    "Tóm lại, khóa luận đã xây dựng được nền tảng xử lý dữ liệu bán vé có sự phân tầng rõ ràng, logic biến đổi được quản lý bằng mã nguồn và quy trình thực thi có quan hệ phụ thuộc. Giá trị của đề tài nằm ở việc kết hợp thiết kế dữ liệu, xử lý thay đổi và điều phối công việc thành một hệ thống có thể triển khai, quan sát và tiếp tục hoàn thiện. Những hạn chế được xác định là cơ sở để phát triển hệ thống theo hướng đáng tin cậy hơn, đồng thời giữ các kết luận của khóa luận trong đúng phạm vi bằng chứng đã thu thập.",
+    "",
+    "",
+    "",
+    "KẾT LUẬN",
+    "Khóa luận đã tập trung giải quyết bài toán tích hợp và xử lý dữ liệu bán vé sự kiện theo quy trình ELT và kiến trúc Medallion. Từ dữ liệu nghiệp vụ được tổ chức trong SQL Server, hệ thống thực hiện đồng bộ bằng Airbyte, chuẩn hóa và mô hình hóa bằng dbt-postgres trên PostgreSQL, đồng thời sử dụng Airflow để điều phối các bước xử lý. Dữ liệu đầu ra được khai thác bằng Power BI nhằm minh họa khả năng phục vụ phân tích. Qua đó, đề tài hình thành một quy trình có sự liên kết giữa dữ liệu nguồn, logic biến đổi và các mô hình cung cấp cho người sử dụng.  Kết quả nổi bật của khóa luận nằm ở việc cụ thể hóa trách nhiệm của từng tầng dữ liệu và xây dựng cơ chế xử lý phù hợp với đặc điểm đầu vào. Bronze tiếp nhận dữ liệu đồng bộ; Silver thực hiện chuẩn hóa, khử trùng và quản lý trạng thái bản ghi; Gold tổ chức dữ liệu theo mô hình chiều để phục vụ tổng hợp và phân tích. Đối với các mô hình cập nhật tăng dần, hệ thống sử dụng khóa nhận diện, dấu vân tay nội dung và trạng thái xóa để lựa chọn bản ghi cần xử lý. Cách tiếp cận này không chỉ xét dữ liệu mới mà còn xem xét những thay đổi trên bản ghi đã tồn tại, trường hợp bản ghi biến mất và xuất hiện trở lại.",
+    "Về mô hình hóa, việc xác định mức chi tiết của bảng đo lường tại dòng đơn hàng tạo cơ sở nhất quán cho các chỉ tiêu bán vé. Quan hệ giữa đơn hàng, chi tiết đơn và các lần thử thanh toán được phân tích để hạn chế nguy cơ nhân bản dữ liệu khi tổng hợp. Về điều phối, các công việc được phân tách theo tầng và nghiệp vụ; bước biến đổi phía sau được kích hoạt dựa trên tín hiệu hoàn thành của bước trước. Những lựa chọn này thể hiện trọng tâm kỹ thuật của đề tài ở thiết kế dữ liệu, tổ chức mã nguồn và kiểm soát quy trình thực thi.",
+    "Các kết quả thực thi và đối chiếu đã ghi nhận cho thấy hệ thống có thể vận hành trong môi trường triển khai của khóa luận. Tuy nhiên, dữ liệu được tạo tổng hợp; phạm vi kiểm chứng chưa bao quát toàn bộ tình huống thay đổi, sự cố và yêu cầu hiệu năng. Cơ chế xử lý còn phụ thuộc vào tính đầy đủ của bản chụp nguồn, đồng thời chưa bảo đảm tính nhất quán theo lô và công bố đồng thời toàn bộ tầng Gold. Vì vậy, kết quả cần được nhìn nhận trong đúng phạm vi triển khai, không đồng nhất với mức độ sẵn sàng vận hành tại doanh nghiệp.",
+    "Khóa luận đã đạt được mục tiêu xây dựng một hệ thống xử lý dữ liệu có cấu trúc phân tầng rõ ràng, logic biến đổi có thể truy vết và quy trình thực thi có thể theo dõi. Đây là nền tảng để tiếp tục hoàn thiện kiểm chứng dữ liệu, tăng cường tính nhất quán và đánh giá hiệu năng, hướng tới đáp ứng những yêu cầu vận hành thực tế.",
+    "",
+    "TÀI LIỆU THAM KHẢO",
+    "[1] Ralph Kimball, Margy Ross (2013), The Data Warehouse Toolkit: The Definitive Guide to Dimensional Modeling, ấn bản thứ ba, NXB John Wiley & Sons. Thông tin xuất bản: Kimball Group.",
+    "[2] Microsoft (không ghi năm), Extract, transform, and load (ETL), Microsoft Learn, https://learn.microsoft.com/en-us/azure/architecture/data-guide/relational-data/etl, truy cập ngày: 10/10/2026.",
+    "[3] Databricks (2026), What is the medallion lakehouse architecture?, Databricks Documentation, https://docs.databricks.com/aws/en/lakehouse/medallion, truy cập ngày: 10/10/2026.",
+    "[4] Airbyte, Full Refresh – Overwrite, Airbyte Documentation, https://docs.airbyte.com/platform/using-airbyte/core-concepts/sync-modes/full-refresh-overwrite, truy cập ngày: 10/10/2026.",
+    "[5] dbt Labs (2026), Configure incremental models, dbt Developer Hub, https://docs.getdbt.com/docs/build/incremental-models, truy cập ngày: 10/10/2026.",
+    "[6] dbt Labs (2025), Postgres configurations, dbt Developer Hub, https://docs.getdbt.com/reference/resource-configs/postgres-configs, truy cập ngày: 10/10/2026.",
+    "[7] Apache Software Foundation, Data-aware scheduling, Apache Airflow Documentation, phiên bản 2.10.5, https://airflow.apache.org/docs/apache-airflow/2.10.5/authoring-and-scheduling/datasets.html, truy cập ngày: 10/10/2026.",
+    "[8] PostgreSQL Global Development Group, MERGE, PostgreSQL Documentation, phiên bản 17, https://www.postgresql.org/docs/17/sql-merge.html, truy cập ngày: 10/10/2026.",
+    "[9] PostgreSQL Global Development Group, Window Functions, PostgreSQL Documentation, phiên bản 17, https://www.postgresql.org/docs/17/tutorial-window.html, truy cập ngày: 10/10/2026.",
+    "[10] Microsoft (2024), Understand star schema and the importance for Power BI, Microsoft Learn, https://learn.microsoft.com/en-us/power-bi/guidance/star-schema, truy cập ngày: 10/10/2026.",
+    "[11] Docker, How Compose works, Docker Documentation, https://docs.docker.com/compose/intro/compose-application-model/, truy cập ngày: 10/10/2026.",
+    "",
+    "",
+    "MÃ NGUỒN DỰ ÁN",
+    ""
+  ],
+  "tables": [
+    [
+      [
+        "Giáo viên hướng dẫn:",
+        "TS. Trần Hùng"
+      ],
+      [
+        "Sinh viên thực hiện:",
+        "Nguyễn Hoàng Hiệp"
+      ],
+      [
+        "Mã sinh viên:",
+        "12220016"
+      ],
+      [
+        "Chuyên ngành:",
+        "Khoa học máy tính"
+      ]
+    ],
+    [
+      [
+        "Nội dung",
+        "ETL",
+        "ELT"
+      ],
+      [
+        "Thứ tự chính",
+        "Trích xuất → Biến đổi → Nạp",
+        "Trích xuất → Nạp → Biến đổi"
+      ],
+      [
+        "Nơi biến đổi",
+        "Thành phần xử lý trước đích",
+        "Hệ thống dữ liệu đích"
+      ],
+      [
+        "Dữ liệu được nạp ban đầu",
+        "Dữ liệu đã qua biến đổi",
+        "Dữ liệu tiếp nhận từ nguồn"
+      ]
+    ],
+    [
+      [
+        "Tầng",
+        "Trách nhiệm trong đề tài"
+      ],
+      [
+        "Bronze",
+        "Tiếp nhận dữ liệu đồng bộ"
+      ],
+      [
+        "Silver",
+        "Chuẩn hóa và quản lý trạng thái bản ghi"
+      ],
+      [
+        "Gold",
+        "Áp dụng quy tắc phân tích và công bố đầu ra"
+      ]
+    ],
+    [
+      [
+        "Yêu cầu",
+        "Ví dụ kiểm tra"
+      ],
+      [
+        "Đầy đủ",
+        "Các trường bắt buộc có giá trị"
+      ],
+      [
+        "Duy nhất",
+        "Một khóa dòng đơn nhận diện một bản ghi đang có hiệu lực"
+      ],
+      [
+        "Hợp lệ",
+        "Trạng thái thuộc tập giá trị được quy định"
+      ],
+      [
+        "Nhất quán",
+        "Dòng đơn liên kết được với đơn hàng tương ứng"
+      ],
+      [
+        "Kịp thời",
+        "Dữ liệu đã được cập nhật theo phạm vi xử lý"
+      ],
+      [
+        "Chính xác",
+        "Giá trị được đối chiếu với dữ liệu và quy tắc nguồn"
+      ]
+    ],
+    [
+      [
+        "Phương thức",
+        "Đặc điểm"
+      ],
+      [
+        "view",
+        "Tạo khung nhìn, tính kết quả khi truy vấn"
+      ],
+      [
+        "table",
+        "Tạo lại bảng kết quả khi mô hình được chạy"
+      ],
+      [
+        "incremental",
+        "Duy trì bảng và xử lý phần dữ liệu được lựa chọn"
+      ]
+    ],
+    [
+      [
+        "Mã",
+        "Yêu cầu",
+        "Nội dung cần thực hiện"
+      ],
+      [
+        "F01",
+        "Tiếp nhận dữ liệu",
+        "Đồng bộ năm bảng nghiệp vụ từ SQL Server sang PostgreSQL"
+      ],
+      [
+        "F02",
+        "Chuẩn hóa",
+        "Thống nhất kiểu dữ liệu, cách biểu diễn văn bản và các giá trị trạng thái"
+      ],
+      [
+        "F03",
+        "Khử trùng",
+        "Lựa chọn bản ghi đại diện theo khóa và thứ tự ưu tiên"
+      ],
+      [
+        "F04",
+        "Cập nhật thay đổi",
+        "Xử lý bản ghi mới, thay đổi, biến mất và xuất hiện trở lại"
+      ],
+      [
+        "F05",
+        "Mô hình hóa",
+        "Xây dựng các bảng chiều, bảng đo lường bán vé và bảng tổng hợp"
+      ],
+      [
+        "F06",
+        "Điều phối",
+        "Quản lý lịch đồng bộ và quan hệ phụ thuộc giữa các bước"
+      ],
+      [
+        "F07",
+        "Theo dõi",
+        "Ghi nhận trạng thái thực thi, thông tin công việc và nhật ký xử lý"
+      ],
+      [
+        "F08",
+        "Khai thác",
+        "Cung cấp dữ liệu Gold cho truy vấn và báo cáo Power BI"
+      ]
+    ],
+    [
+      [
+        "Bảng",
+        "Mức chi tiết",
+        "Khóa chính",
+        "Nội dung tiêu biểu"
+      ],
+      [
+        "events",
+        "Một bản ghi cho một sự kiện",
+        "event_id",
+        "Tên, loại sự kiện, đơn vị tổ chức, địa điểm, sức chứa và thời gian"
+      ],
+      [
+        "ticket_types",
+        "Một bản ghi cho một hạng vé của sự kiện",
+        "ticket_type_id",
+        "Mã hạng vé, tên hạng vé, giá niêm yết và hạn mức bán"
+      ],
+      [
+        "orders",
+        "Một bản ghi cho một đơn hàng",
+        "order_id",
+        "Thời điểm đặt, kênh bán, trạng thái và các giá trị tổng của đơn"
+      ],
+      [
+        "order_items",
+        "Một bản ghi cho một dòng hạng vé trong đơn",
+        "order_item_id",
+        "Số lượng, đơn giá, giảm giá và giá trị dòng"
+      ],
+      [
+        "payments",
+        "Một bản ghi cho một lần thử thanh toán",
+        "payment_id",
+        "Mã giao dịch, phương thức, số tiền, trạng thái và thời gian"
+      ]
+    ],
+    [
+      [
+        "Thành phần",
+        "Trách nhiệm"
+      ],
+      [
+        "SQL Server",
+        "Lưu dữ liệu giao dịch đầu vào và thực thi các ràng buộc nguồn"
+      ],
+      [
+        "Airbyte",
+        "Đọc dữ liệu nguồn, thực hiện đồng bộ và cung cấp trạng thái công việc"
+      ],
+      [
+        "PostgreSQL",
+        "Lưu các tầng dữ liệu và thực thi các phép biến đổi SQL"
+      ],
+      [
+        "dbt-postgres",
+        "Quản lý mô hình, quan hệ phụ thuộc, cấu hình và phép biến đổi"
+      ],
+      [
+        "Airflow",
+        "Lập lịch, kích hoạt công việc, chờ kết quả và điều phối bước tiếp theo"
+      ],
+      [
+        "Power BI",
+        "Khai thác mô hình Gold và trình bày các chỉ tiêu phân tích"
+      ]
+    ],
+    [
+      [
+        "Lược đồ",
+        "Vai trò"
+      ],
+      [
+        "bronze",
+        "Dữ liệu được đồng bộ từ nguồn"
+      ],
+      [
+        "silver",
+        "Dữ liệu đã chuẩn hóa và được quản lý theo khóa"
+      ],
+      [
+        "gold",
+        "Dữ liệu công bố cho phân tích"
+      ]
+    ],
+    [
+      [
+        "Bảng Silver",
+        "Khóa nhận diện",
+        "Phương thức cập nhật"
+      ],
+      [
+        "silver.events",
+        "event_id",
+        "Tăng dần bằng merge"
+      ],
+      [
+        "silver.ticket_types",
+        "ticket_type_id",
+        "Tăng dần bằng merge"
+      ],
+      [
+        "silver.orders",
+        "order_id",
+        "Tăng dần bằng merge"
+      ],
+      [
+        "silver.order_items",
+        "order_item_id",
+        "Tăng dần bằng merge"
+      ],
+      [
+        "silver.payments",
+        "payment_id",
+        "Tăng dần bằng merge"
+      ]
+    ],
+    [
+      [
+        "Trường",
+        "Ý nghĩa"
+      ],
+      [
+        "_record_hash",
+        "Dấu định danh của tập thuộc tính được lựa chọn"
+      ],
+      [
+        "_is_deleted",
+        "Cho biết bản ghi không còn xuất hiện trong bản chụp được đối chiếu"
+      ],
+      [
+        "_loaded_at",
+        "Thời điểm ghi nhận trạng thái hiện tại tại bảng đích"
+      ]
+    ],
+    [
+      [
+        "Trạng thái đối chiếu",
+        "Hành động"
+      ],
+      [
+        "Khóa có ở nguồn, chưa có ở đích",
+        "Thêm bản ghi"
+      ],
+      [
+        "Khóa có ở cả hai, dấu định danh khác",
+        "Cập nhật nội dung"
+      ],
+      [
+        "Khóa có ở cả hai, nội dung không đổi và đang có hiệu lực",
+        "Giữ nguyên"
+      ],
+      [
+        "Khóa có ở đích đang có hiệu lực, không còn ở nguồn",
+        "Đánh dấu xóa mềm"
+      ],
+      [
+        "Khóa xuất hiện ở nguồn, bản ghi đích đang bị xóa mềm",
+        "Khôi phục và cập nhật khi cần"
+      ]
+    ],
+    [
+      [
+        "Bảng chiều",
+        "Khóa",
+        "Nội dung"
+      ],
+      [
+        "dim_event",
+        "event_id",
+        "Thông tin sự kiện, loại, đơn vị tổ chức, địa điểm và thời gian bắt đầu"
+      ],
+      [
+        "dim_ticket_type",
+        "ticket_type_id",
+        "Hạng vé, sự kiện tương ứng, giá niêm yết và hạn mức"
+      ],
+      [
+        "dim_channel",
+        "channel_key",
+        "Kênh bán WEB, APP"
+      ],
+      [
+        "dim_status",
+        "status_key",
+        "Trạng thái PAID, EXPIRED, CANCELLED, PENDING"
+      ],
+      [
+        "dim_date",
+        "date_key",
+        "Ngày, tháng, năm, thứ và dấu cuối tuần"
+      ]
+    ],
+    [
+      [
+        "Nhóm",
+        "Các trường tiêu biểu"
+      ],
+      [
+        "Nhận diện",
+        "order_item_id, order_id"
+      ],
+      [
+        "Khóa chiều",
+        "event_id, ticket_type_id, date_key, channel_key, status_key"
+      ],
+      [
+        "Giá trị dòng",
+        "quantity, gross_amount, discount_amount, net_amount"
+      ],
+      [
+        "Chỉ tiêu bán",
+        "sold_quantity, sales_amount"
+      ],
+      [
+        "Kỹ thuật",
+        "_record_hash, _is_deleted, _loaded_at"
+      ]
+    ],
+    [
+      [
+        "Ranh giới xử lý",
+        "Ví dụ Dataset"
+      ],
+      [
+        "Nguồn → Bronze",
+        "transform_source_to_bronze_ticket_events"
+      ],
+      [
+        "Bronze → Silver",
+        "transform_bronze_to_silver_ticket_events"
+      ],
+      [
+        "Silver → Chiều Gold",
+        "transform_silver_to_gold_ticket_dim_event"
+      ],
+      [
+        "Các chiều Gold → Fact",
+        "transform_gold_dimensions_to_gold_fact_ticket_sales"
+      ],
+      [
+        "Fact → Tổng hợp",
+        "transform_gold_fact_to_gold_agg_daily_sales"
+      ]
+    ],
+    [
+      [
+        "Tình huống",
+        "Kết quả kỳ vọng"
+      ],
+      [
+        "Thêm khóa mới",
+        "Bản ghi xuất hiện ở tầng đích liên quan"
+      ],
+      [
+        "Thay đổi thuộc tính nguồn",
+        "Silver cập nhật nội dung; đầu ra phụ thuộc phản ánh thay đổi"
+      ],
+      [
+        "Đổi đơn sang PAID",
+        "Các dòng fact của đơn cập nhật số vé và giá trị bán"
+      ],
+      [
+        "Loại bản ghi khỏi bản chụp đầy đủ",
+        "Silver đánh dấu xóa; Gold xử lý theo quy tắc công bố"
+      ],
+      [
+        "Đưa bản ghi trở lại",
+        "Silver khôi phục trạng thái có hiệu lực"
+      ],
+      [
+        "Chạy lại cùng đầu vào",
+        "Không phát sinh trùng khóa hoặc tăng chỉ tiêu ngoài dự kiến"
+      ],
+      [
+        "Đồng bộ Airbyte thất bại",
+        "Bước chờ thất bại, không phát tín hiệu hoàn thành"
+      ],
+      [
+        "Mô hình dbt thất bại",
+        "Không phát tín hiệu đầu ra của tác vụ đó"
+      ]
+    ],
+    [
+      [
+        "Trang",
+        "Mục đích khai thác"
+      ],
+      [
+        "Tổng quan",
+        "Theo dõi các chỉ tiêu chính trong phạm vi thời gian lựa chọn"
+      ],
+      [
+        "Hiệu quả các sự kiện",
+        "So sánh kết quả bán giữa các sự kiện"
+      ],
+      [
+        "Chi tiết sự kiện",
+        "Xem dữ liệu chi tiết và phân tích hạng vé"
+      ],
+      [
+        "Kênh bán & trạng thái đơn",
+        "Phân tích kênh và cơ cấu trạng thái"
+      ]
+    ],
+    [
+      [
+        "Mô hình",
+        "Trạng thái",
+        "Thời gian thực thi (giây)"
+      ],
+      [
+        "silver_events",
+        "Thành công",
+        "2,441"
+      ],
+      [
+        "silver_ticket_types",
+        "Thành công",
+        "3,724"
+      ],
+      [
+        "silver_orders",
+        "Thành công",
+        "7,264"
+      ],
+      [
+        "silver_order_items",
+        "Thành công",
+        "29,972"
+      ],
+      [
+        "silver_payments",
+        "Thành công",
+        "19,105"
+      ],
+      [
+        "dim_event",
+        "Thành công",
+        "0,631"
+      ],
+      [
+        "dim_ticket_type",
+        "Thành công",
+        "1,275"
+      ],
+      [
+        "dim_channel",
+        "Thành công",
+        "1,243"
+      ],
+      [
+        "dim_status",
+        "Thành công",
+        "1,266"
+      ],
+      [
+        "dim_date",
+        "Thành công",
+        "1,279"
+      ],
+      [
+        "fact_ticket_sales",
+        "Thành công",
+        "6,936"
+      ],
+      [
+        "agg_daily_sales",
+        "Thành công",
+        "2,729"
+      ]
+    ],
+    [
+      [
+        "Bảng nguồn",
+        "Số bản ghi"
+      ],
+      [
+        "events",
+        "360"
+      ],
+      [
+        "ticket_types",
+        "1.080"
+      ],
+      [
+        "orders",
+        "357.000"
+      ],
+      [
+        "order_items",
+        "399.696"
+      ],
+      [
+        "payments",
+        "420.792"
+      ]
+    ],
+    [
+      [
+        "Trạng thái đơn",
+        "Số đơn",
+        "Số vé đã bán",
+        "Giá trị bán vé (VND)"
+      ],
+      [
+        "PAID",
+        "293.274",
+        "636.959",
+        "188.306.020.500"
+      ],
+      [
+        "EXPIRED",
+        "47.059",
+        "0",
+        "0"
+      ],
+      [
+        "CANCELLED",
+        "16.657",
+        "0",
+        "0"
+      ],
+      [
+        "PENDING",
+        "10",
+        "0",
+        "0"
+      ]
+    ]
+  ],
+  "images": [
+    {
+      "p": 3,
+      "caption": "LUẬN VĂN TỐT NGHIỆP",
+      "changed": false,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\pass3\\P003_image1.png"
+    },
+    {
+      "p": 146,
+      "caption": "Hình 1: Kiến trúc Medallion",
+      "changed": false,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\pass3\\P146_image2.png"
+    },
+    {
+      "p": 271,
+      "caption": "Hình 2: Sơ đồ quan hệ cơ sở dữ liệu nguồn",
+      "changed": false,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\pass3\\P271_image3.png"
+    },
+    {
+      "p": 292,
+      "caption": "Hình 3: Kiến trúc tổng thể hệ thống xử lý dữ liệu bán vé",
+      "changed": false,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\pass3\\P292_image4.png"
+    },
+    {
+      "p": 338,
+      "caption": "Hình 4: Lưu đồ xử lý cập nhật tăng dần tại Silver",
+      "changed": false,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\pass3\\P338_image5.png"
+    },
+    {
+      "p": 366,
+      "caption": "Hình 5: Mô hình dữ liệu tại tầng Gold",
+      "changed": false,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\pass3\\P366_image6.png"
+    },
+    {
+      "p": 392,
+      "caption": "Hình 6: Quan hệ điều phối giữa các tầng dữ liệu",
+      "changed": false,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\pass3\\P392_image7.png"
+    },
+    {
+      "p": 424,
+      "caption": "Hình 7: Các dịch vụ triển khai trong môi trường Docker",
+      "changed": false,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\pass3\\P424_image8.png"
+    },
+    {
+      "p": 450,
+      "caption": "Hình 8: Cấu hình đồng bộ dữ liệu từ SQL Server vào Bronze",
+      "changed": false,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\pass3\\P450_image9.png"
+    },
+    {
+      "p": 454,
+      "caption": "Hình 9: Cấu hình kích hoạt và chờ công việc đồng bộ Airbyte",
+      "changed": false,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\pass3\\P454_image10.png"
+    },
+    {
+      "p": 457,
+      "caption": "Hình 10: Kết quả đồng bộ dữ liệu bằng Airbyte",
+      "changed": false,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\pass3\\P457_image11.png"
+    },
+    {
+      "p": 462,
+      "caption": "Hình 11: Cấu trúc DAG và Dataset đầu ra",
+      "changed": false,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\pass3\\P462_image12.png"
+    },
+    {
+      "p": 468,
+      "caption": "Hình 12: Thông tin cấu hình dbt tầng Silver",
+      "changed": false,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\pass3\\P468_image13.png"
+    },
+    {
+      "p": 483,
+      "caption": "Hình 13: Thông tin cấu hình index trong dbt",
+      "changed": false,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\pass3\\P483_image14.png"
+    },
+    {
+      "p": 488,
+      "caption": "Hình 14: Thông tin cấu hình phân vùng trong dbt",
+      "changed": true,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\pass3\\P488_image15.png"
+    },
+    {
+      "p": 498,
+      "caption": "Hình 15: Quy tắc chỉ tiêu bán vé",
+      "changed": true,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\pass3\\P498_image16.png"
+    },
+    {
+      "p": 511,
+      "caption": "Hình 16: Thông tin tác vụ DAG sử dụng và lịch sử cập nhật Dataset",
+      "changed": false,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\pass3\\P511_image17.png"
+    },
+    {
+      "p": 526,
+      "caption": "Hình 17: Báo cáo tổng quan hoạt động bán vé",
+      "changed": false,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\pass3\\P526_image18.png"
+    },
+    {
+      "p": 529,
+      "caption": "Hình 18: Báo cáo chi tiết sự kiện",
+      "changed": false,
+      "path": "C:\\Users\\zicza\\OneDrive\\Desktop\\NGUYEN HOANG HIEP - KLTN\\Ticket_Project\\Runtime\\review_20261023\\pass3\\P529_image19.png"
+    }
+  ]
+}
